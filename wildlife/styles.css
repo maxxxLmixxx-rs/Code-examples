@@ -2,9 +2,12 @@
     --orange-main: #CD6326;
     --orange-light: #E39128;
     --orange-dark: #8F5613;
+
     --font-light: #F7F7F7;
     --font-grey: #666666;
     --font-dark: #333333;
+
+    --fallback-1: #02160B;
 }
 
 /* User Reset CSS */
@@ -23,7 +26,8 @@ html {
 }
 
 body {
-    background: #000;
+    width: 100%;
+    min-height: 100vh;
 }
 
 body, ul,
@@ -36,20 +40,24 @@ h1, h2, h3 {
 
 .wrapper {
     width: 100%;
+    height: 100%;
     margin: 0 auto;
     padding: 0 120px;
     max-width: 1440px;
 }
 
-/* Header */
+/* ----> Header <---- */
 
-.header .wrapper {
+.header {
+    width: 100%;
     height: 10rem;
-
+    
     position: absolute;
     top: 0; left: 50%;
     transform: translateX(-50%);
+}
 
+.header .wrapper {
     display: flex;
     justify-content: space-between;
 }
@@ -100,13 +108,68 @@ h1, h2, h3 {
     padding: 1rem 2.5rem;
 
     color: var(--font-light);
+    background: var(--orange-main);
+
     font-size: 2.3rem;
     text-align: center;
     text-decoration: none;
 
     border-radius: 5px;
-    border: 2px solid var(--orange-main);
+
+    transition-property: background, border-color;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out;
+} .btn:hover {
+    background: var(--orange-light);
+} .btn:active {
+    background: var(--orange-dark);
 }
 
-/* Survival */
+.btn--orange-outline {
+    background: transparent;
+    border: 2px solid var(--orange-main);
+} .btn--orange-outline:hover {
+    background: var(--orange-main);
+    border-color: var(--orange-main);
+} .btn--orange-outline:active {
+    background: var(--orange-dark);
+    border-color: var(--orange-dark);
+}
 
+.btn--size-x {
+    padding: 2rem 4.5rem;
+}
+
+/* ----> Survival <---- */
+
+.survival {
+    background: var(--fallback-1);
+}
+
+.survival .wrapper { 
+    padding-top: 22rem;
+    padding-bottom: 24rem;
+
+    background: top / contain no-repeat
+        url("assets/images/bg-fox.jpg");
+    /* background-color: var(--fallback-1); */
+}
+
+.survival__article {
+    max-width: 27.5rem;
+    font-size: 1.8rem;
+}
+
+.survival__heading {
+    color: var(--orange-main);
+    font-size: 4.8rem;
+    letter-spacing: 2px;
+}
+
+.survival__text {
+    margin: 6rem 0 5rem;
+    line-height: 2.7rem;
+    color: var(--font-light);
+}
+
+/* ----> Latest articles <---- */
