@@ -38,6 +38,10 @@ h1, h2, h3 {
     font-weight: normal;
 }
 
+input {
+    display: block;
+}
+
 /* Styles here... */
 
 .wrapper {
@@ -299,3 +303,54 @@ button {
 } .card--bg-bird {
     background-image: url("assets/images/bird.jpg");
 }
+
+/* Get notified */
+
+.get-notified .wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.get-notified__heading {
+    margin-bottom: 6rem;
+    font-size: 2.7rem;
+    color: var(--font-dark);
+}
+
+
+.get-notified__form {
+    width: 100%;
+    max-width: 66rem;
+    display: flex;
+}
+
+.get-notified__input {    
+    height: 6rem;
+    padding: 2.2rem 1.7rem;
+    
+    flex-grow: 1;
+
+    background: none;
+    border: 1px solid var(--font-grey);
+    border-right: none;
+
+    transition: border 0.25s ease-out;
+}
+
+.get-notified__input:focus {
+    border-color: var(--font-light);
+    outline: none;
+}
+
+.get-notified__input::placeholder {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 2.3rem;
+}
+
+.get-notified__submit {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Footer */
