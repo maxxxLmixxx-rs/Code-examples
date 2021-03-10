@@ -1,7 +1,13 @@
-/* User Reset CSS */
+:root {
+    --orange-main: #CD6326;
+    --orange-light: #E39128;
+    --orange-dark: #8F5613;
+    --font-light: #F7F7F7;
+    --font-grey: #666666;
+    --font-dark: #333333;
+}
 
-/* font-family: 'Open Sans', Arial, Helvetica, sans-serif; */
-/* font-family: 'Roboto',    Arial, Helvetica, sans-serif; */
+/* User Reset CSS */
 
 *, *::before, *::after {
    box-sizing: border-box;
@@ -11,6 +17,15 @@
     display: block;
 }
 
+html {
+    font-size: 62.5%;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #000;
+}
+
 body, ul,
 h1, h2, h3 {
     margin: 0;
@@ -18,3 +33,80 @@ h1, h2, h3 {
 }
 
 /* Styles here... */
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 120px;
+    max-width: 1440px;
+}
+
+/* Header */
+
+.header .wrapper {
+    height: 10rem;
+
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    justify-content: space-between;
+}
+
+/* -- logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    color: var(--font-light);
+    text-transform: uppercase;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+.logo__text {
+    display: block;
+    font-size: 3.2rem;
+    margin: 0 1.5rem 0 2rem;
+}
+
+/* -- navigation */
+
+.nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.nav__item {
+    padding: 3rem;
+}
+
+.nav__link {
+    color: var(--font-light);
+    font-size: 2.3rem;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+}
+
+/* --btn */
+
+.btn {
+    display: inline-block;
+    min-width: max-content;
+    padding: 1rem 2.5rem;
+
+    color: var(--font-light);
+    font-size: 2.3rem;
+    text-align: center;
+    text-decoration: none;
+
+    border-radius: 5px;
+    border: 2px solid var(--orange-main);
+}
+
+/* Survival */
+
