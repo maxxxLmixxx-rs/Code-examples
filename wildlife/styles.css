@@ -8,6 +8,7 @@
     --font-dark: #333333;
 
     --fallback-1: #02160B;
+    --fallback-2: #CCCCCC;
 }
 
 /* User Reset CSS */
@@ -34,6 +35,7 @@ body, ul,
 h1, h2, h3 {
     margin: 0;
     padding: 0;
+    font-weight: normal;
 }
 
 /* Styles here... */
@@ -51,6 +53,8 @@ h1, h2, h3 {
 .header {
     width: 100%;
     height: 10rem;
+
+    overflow: hidden;
     
     position: absolute;
     top: 0; left: 50%;
@@ -115,6 +119,7 @@ h1, h2, h3 {
     text-decoration: none;
 
     border-radius: 5px;
+    border: 0;
 
     transition-property: background, border-color;
     transition-duration: 0.25s;
@@ -150,7 +155,7 @@ h1, h2, h3 {
     padding-top: 22rem;
     padding-bottom: 24rem;
 
-    background: top / contain no-repeat
+    background: top / cover no-repeat
         url("assets/images/bg-fox.jpg");
     /* background-color: var(--fallback-1); */
 }
@@ -172,4 +177,125 @@ h1, h2, h3 {
     color: var(--font-light);
 }
 
-/* ----> Latest articles <---- */
+/* ----> Latest articles, [Get notified] <---- */
+
+.main .bg-group {
+    width: 100%;
+    padding: 14rem 0 24rem;
+    background: var(--fallback-2);
+}
+
+/* .latest-articles .wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+} */
+
+.latest-articles {
+    margin-bottom: 24rem;
+    text-align: center;
+}
+
+.latest-articles__heading {
+    margin-bottom: 4.5rem;
+    font-size: 4.8rem;
+    color: var(--font-dark);
+}
+
+.latest-articles__text {
+    margin-bottom: 13rem;
+    font-size: 2.4rem;
+    color: var(--font-grey);
+}
+
+/* -- button reset */
+button {
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    border-radius: 0;
+    background: none;
+}
+
+/* -- slider */
+
+.slider {
+    width: 100%;
+    position: relative;
+}
+
+.slider__arrow {
+    position: absolute;
+    top: 50%; 
+    
+    margin-top: -2rem;
+    height: 4rem;
+    width: 2.5rem;
+
+    background: url("assets/icons/arrows-sprite.svg");
+}
+
+.slider__arrow--left {
+    left: 0;
+    background-position: left center;
+}
+
+.slider__arrow--right {
+    right: 0;
+    background-position: right center;
+}
+
+.slider__carousel {    
+    width: 100%;
+
+    --card-margin: 2.5rem;
+    padding: 0 calc(9rem - var(--card-margin));
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.slider__carousel .card {
+    margin: 0 var(--card-margin);
+}
+
+/* -- card */
+
+.card {
+    flex: 0 0 30rem;
+    height: 36rem;
+
+    position: relative;
+    text-align: center;
+
+    color: var(--font-light);
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.card__annotation {
+    position: absolute;
+    bottom: 4rem;
+
+    width: 100%;
+    text-align: center;
+}
+
+.card__heading {
+    margin-bottom: 2.5rem;
+    font-size: 2.2rem;
+}
+
+.card__text {
+    font-size: 1.7rem;
+}
+
+.card--bg-deer {
+    background-image: url("assets/images/deer.jpg");
+} .card--bg-squirrel {
+    background-image: url("assets/images/squirrel.jpg");
+} .card--bg-bird {
+    background-image: url("assets/images/bird.jpg");
+}
