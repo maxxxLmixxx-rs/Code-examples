@@ -94,7 +94,7 @@ input {
     display: block;
     font-size: 3.2rem;
     
-    margin: 0 1.5rem 0 1.7rem;
+    margin: 0 2.4rem 0 1.7rem;
 }
 
 /* -- navigation */
@@ -102,21 +102,42 @@ input {
 .nav {
     display: flex;
     align-items: center;
+    justify-content: center;
     list-style: none;
+    gap: 9rem;
+
+    margin: 0 2rem;
+}
+
+nav .nav {
+    gap: 6.6rem;
+    padding-top: 2.3rem;
+    margin: 0;
 }
 
 .nav__item {
-    padding: 3rem;
+    /* padding: 3rem; */
     width: max-content;
 }
 
+.nav__item:last-child {
+    padding: 0;
+}
+
 .nav__link {
+    display: flex;
+    align-items: center;
+
     color: var(--font-light);
     font-size: 2.3rem;
     text-decoration: none;
+    
+    position: relative;
+    transition: transform 0.1s ease-out;
+}
 
-    display: flex;
-    align-items: center;
+.nav__link:hover {
+    transform: scale(1.05);
 }
 
 /* --btn */
@@ -124,22 +145,19 @@ input {
 .btn {
     display: inline-block;
     min-width: max-content;
-    padding: 1rem 2.5rem;
-
+    padding: 0.8rem 2.2rem;
     color: var(--font-light);
     background: var(--orange-main);
-
     font-size: 2.3rem;
     text-align: center;
     text-decoration: none;
-
     border-radius: 5px;
     border: 0;
-
     transition-property: background, border-color;
     transition-duration: 0.25s;
     transition-timing-function: ease-out;
 } .btn:hover {
+    cursor: pointer;
     background: var(--orange-light);
 } .btn:active {
     background: var(--orange-dark);
@@ -157,7 +175,11 @@ input {
 }
 
 .btn--size-x {
-    padding: 2rem 4.5rem;
+    padding: 1.45rem 4.1rem;
+}
+
+.btn--size-l {
+    padding: 1.45rem 3.3rem;
 }
 
 /* ----> Survival <---- */
@@ -166,10 +188,9 @@ input {
     background: var(--fallback-1);
 }
 
-.survival .wrapper { 
-    padding-top: 22rem;
+.survival .wrapper {
+    padding-top: 20.4rem;
     padding-bottom: 24rem;
-
     background: top / cover no-repeat
         url("assets/images/bg-fox.jpg");
     /* background-color: var(--fallback-1); */
@@ -187,7 +208,7 @@ input {
 }
 
 .survival__text {
-    margin: 6rem 0 5rem;
+    margin: 5.4rem 0 4.8rem;
     line-height: 2.7rem;
     color: var(--font-light);
 }
@@ -203,25 +224,24 @@ input {
 
 .main .bg-group {
     width: 100%;
-    padding: 14rem 0 24rem;
+    padding: 12.5rem 0 24rem;
     background: var(--fallback-2);
-
     flex-grow: 1;
 }
 
 .latest-articles {
-    margin-bottom: 24rem;
+    margin-bottom: 24.2rem;
     text-align: center;
 }
 
 .latest-articles__heading {
-    margin-bottom: 4.5rem;
+    margin-bottom: 2.4rem;
     font-size: 4.8rem;
     color: var(--font-dark);
 }
 
 .latest-articles__text {
-    margin-bottom: 13rem;
+    margin-bottom: 12.1rem;
     font-size: 2.4rem;
     color: var(--font-grey);
 }
@@ -253,7 +273,7 @@ button {
     justify-content: center;
     flex: 1 0 auto;
 
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 
 .slider__carousel .card {
@@ -271,6 +291,9 @@ button {
     
     border-radius: 0;
     background: url("assets/icons/arrows-sprite.svg") no-repeat;
+} .slider__arrow:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .slider__arrow--left {
@@ -300,14 +323,14 @@ button {
 
 .card__annotation {
     position: absolute;
-    bottom: 4rem;
-
+    bottom: 2.6rem;
     width: 100%;
     text-align: center;
 }
 
 .card__heading {
-    margin-bottom: 2.5rem;
+    /* margin-bottom: 0rem; */
+    margin: 0;
     font-size: 2.2rem;
 }
 
@@ -332,7 +355,7 @@ button {
 }
 
 .get-notified__heading {
-    margin-bottom: 6rem;
+    margin-bottom: 6.1rem;
     font-size: 2.7rem;
     color: var(--font-dark);
 }
@@ -344,27 +367,22 @@ button {
     display: flex;
 }
 
-.get-notified__input {    
+.get-notified__input {
     height: 6rem;
     padding: 2.2rem 1.7rem;
-    
     flex-grow: 1;
-
     background: none;
     border: 1px solid var(--font-grey);
     border-right: none;
-
     transition: border 0.25s ease-out;
+
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 2.3rem;
 }
 
 .get-notified__input:focus {
     border-color: var(--font-light);
     outline: none;
-}
-
-.get-notified__input::placeholder {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-    font-size: 2.3rem;
 }
 
 .get-notified__submit {
@@ -379,12 +397,10 @@ button {
 }
 
 .footer .wrapper {
-    padding-top: 15rem;
+    padding-top: 14.7rem;
     padding-bottom: 15rem;
-
     display: flex;
     justify-content: space-between;
-
     background: top / cover no-repeat
         url("assets/images/bg-forest.jpg");
 }
@@ -399,11 +415,17 @@ button {
 .social__item {
     width: 4rem;
     height: 4rem;
-
     margin: 1.3rem;
-
     border-radius: 50%;
     background: var(--social-icon);
+}
+
+.social__item:last-child {
+    margin-right: 0;
+}
+
+.social__item:hover {
+    background: var(--orange-main);
 }
 
 .social__link {
@@ -421,5 +443,6 @@ button {
 } .social__link--bg-pinterest {
     background-image: url("assets/icons/social/pinterest.svg");
 } .social__link--bg-telegram {
+    background-position: 45% center;
     background-image: url("assets/icons/social/telegram.svg");
 }
