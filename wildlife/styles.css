@@ -36,6 +36,8 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+    background: var(--fallback-2);
 }
 
 body, ul,
@@ -56,10 +58,9 @@ input {
     height: 100%;
     margin: 0 auto;
     padding: 0 120px;
-    max-width: 1440px;
 
-    overflow-x: auto;
-    overflow-y: initial;
+    /* max-width: 1440px; */
+    width: 1440px;
 }
 
 /* ----> Header <---- */
@@ -76,7 +77,6 @@ input {
 .header .wrapper {
     display: flex;
     justify-content: space-between;
-    overflow-y: hidden;
 }
 
 /* -- logo */
@@ -223,7 +223,9 @@ nav .nav {
 }
 
 .main .bg-group {
-    width: 100%;
+    /* width: 100%; */
+    width: inherit;
+
     padding: 12.5rem 0 24rem;
     background: var(--fallback-2);
     flex-grow: 1;
@@ -272,7 +274,6 @@ button {
     display: flex;
     justify-content: center;
     flex: 1 0 auto;
-
     overflow-x: auto;
 }
 
