@@ -38,9 +38,25 @@
     <script type="module">
         import { keys } from './scripts/Key.js';
         import Piano from './scripts/Piano.js';
-       
+        import Fullscreen from './scripts/Fullscreen.js';
+        import Navigation from './scripts/Navigation.js';
+
         const piano = new Piano('.piano', keys);
         piano.startEvents();
+
+        const navigation = new Navigation({
+            navigation: document.querySelector('#nav'),
+            piano: {
+                object: piano,
+                keyToggle: document.querySelector('#key-toggle'),
+                noteToggle: document.querySelector('#note-toggle'),
+            },
+            fullscreen: {
+                object: new Fullscreen(),
+                fullToggle: document.querySelector('#full-toggle'), 
+            }
+        }); 
+        navigation.startEvents();
     </script>
 </body>
 </html>
