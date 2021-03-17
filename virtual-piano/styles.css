@@ -80,3 +80,34 @@ body {
 } .piano__key:hover::before {
     transform: translate(-50%) scale(0.8);
 }
+
+/* Notes/letters toggle: .piano .keys | .piano .notes */
+
+.piano.keys  .piano__key--white::after,
+.piano.notes .piano__key--white::after,
+.piano.keys  .piano__key--black::after,
+.piano.notes .piano__key--black::after {
+    position: absolute;
+    font-size: 42px;
+    pointer-events: none;
+    text-align: center;
+    width: 100%;
+    text-shadow: 5px 5px 5px rgba(0,0,0,.3);
+}
+
+.piano.keys  .piano__key--white::after,
+.piano.notes .piano__key--white::after {
+    bottom: -80px;
+} .piano.keys  .piano__key--black::after,
+  .piano.notes .piano__key--black::after {
+    top: -80px;
+}
+
+.piano.keys .piano__key--white::after,
+.piano.keys .piano__key--black::after {
+    content: attr(data-key);
+    text-transform: uppercase;
+} .piano.notes .piano__key--white::after,
+  .piano.notes .piano__key--black::after {
+    content: attr(data-note);
+}
