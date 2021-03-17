@@ -1,0 +1,182 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --red: #FF0909;
+    --dark: #1F1F1F;
+    --light: #FFFFFF;
+    --gradient: linear-gradient(215deg, var(--dark) 50%, var(--red) 50%);
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding-right: 135px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient) center / cover no-repeat var(--dark);
+}
+
+/* Navigation */
+
+.nav {
+    padding: 0 8px;
+    position: absolute;
+    top: 0; right: 135px;
+    background: var(--light);
+    fill: var(--dark);
+}
+
+.nav__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav__item {
+    width: 100%;
+    margin: 25px 0;
+}
+
+.nav__button {
+    width: 90px;
+    height: 90px;
+    padding: 0;
+    border: none;
+    outline: none;
+    transition: all 0.3s;
+    background: transparent;
+}
+.nav__button svg {
+    width: auto;
+    height: 100%;
+}
+
+.nav__item:hover .nav__button {
+    cursor: pointer;
+    transform: translateY(-5px);
+}
+.nav__item:active .nav__button {
+    transform: scale(0.95);
+
+}
+.nav__item:hover:active .nav__button {
+    transform: translateY(-5px) scale(0.95);
+
+}
+
+/* active <nav> keys */
+
+#full-toggle svg:first-child {
+    display: none;
+}
+#full-toggle svg:last-child {
+    display: block;
+}
+
+#full-toggle.active svg:first-child {
+    display: block;
+}
+#full-toggle.active svg:last-child {
+    display: none;
+}
+
+#key-toggle.active svg path,
+#note-toggle.active svg path {
+    fill: var(--red);
+}
+
+/* Piano */
+
+.piano {
+    display: flex;
+}
+
+.piano__key {
+    margin: 0 4px;
+    position: relative;
+    border-radius: 0 0 5px 5px;
+    color: var(--light);
+    transition: all 0.15s ease;
+    transform-origin: top;
+    box-shadow: 5px 5px 20px rgba(0,0,0,.3);
+    will-change: transform;
+} 
+
+.piano__key--white {
+    width: 100px;
+    height: 400px;
+    background: var(--light);
+} 
+
+.piano__key--black {
+    width: 60px;
+    height: 240px;
+    margin: 0 -30px;
+    z-index: 5;
+    background: var(--dark);
+} 
+
+/* Key states */
+
+.piano__key--active {
+    transform: scale(0.96);
+}
+
+.piano__key:hover {
+    cursor: pointer;
+}
+
+.piano__key::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 80%; left: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transform: translate(-50%) scale(0.65);
+    transition: background 0.3s, transform 0.1s;
+} .piano__key--white::before {
+    background: var(--dark);
+} .piano__key--black::before {
+    background: var(--light);
+} .piano__key:hover::before {
+    transform: translate(-50%) scale(0.8);
+}
+
+/* Notes/letters toggle: .piano .keys | .piano .notes */
+
+.piano.keys  .piano__key--white::after,
+.piano.notes .piano__key--white::after,
+.piano.keys  .piano__key--black::after,
+.piano.notes .piano__key--black::after {
+    position: absolute;
+    font-size: 42px;
+    pointer-events: none;
+    text-align: center;
+    width: 100%;
+    text-shadow: 5px 5px 5px rgba(0,0,0,.3);
+}
+
+.piano.keys  .piano__key--white::after,
+.piano.notes .piano__key--white::after {
+    bottom: -80px;
+} .piano.keys  .piano__key--black::after,
+  .piano.notes .piano__key--black::after {
+    top: -80px;
+}
+
+.piano.keys .piano__key--white::after,
+.piano.keys .piano__key--black::after {
+    content: attr(data-key);
+    text-transform: uppercase;
+} .piano.notes .piano__key--white::after,
+  .piano.notes .piano__key--black::after {
+    content: attr(data-note);
+}
