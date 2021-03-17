@@ -22,6 +22,75 @@ body {
     background: var(--gradient) center / cover no-repeat var(--dark);
 }
 
+/* Navigation */
+
+.nav {
+    padding: 0 8px;
+    position: absolute;
+    top: 0; right: 135px;
+    background: var(--light);
+    fill: var(--dark);
+}
+
+.nav__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav__item {
+    width: 100%;
+    margin: 25px 0;
+}
+
+.nav__button {
+    width: 90px;
+    height: 90px;
+    padding: 0;
+    border: none;
+    outline: none;
+    transition: all 0.3s;
+    background: transparent;
+}
+.nav__button svg {
+    width: auto;
+    height: 100%;
+}
+
+.nav__item:hover .nav__button {
+    cursor: pointer;
+    transform: translateY(-5px);
+}
+.nav__item:active .nav__button {
+    transform: scale(0.95);
+
+}
+.nav__item:hover:active .nav__button {
+    transform: translateY(-5px) scale(0.95);
+
+}
+
+/* active <nav> keys */
+
+#full-toggle svg:first-child {
+    display: none;
+}
+#full-toggle svg:last-child {
+    display: block;
+}
+
+#full-toggle.active svg:first-child {
+    display: block;
+}
+#full-toggle.active svg:last-child {
+    display: none;
+}
+
+#key-toggle.active svg path,
+#note-toggle.active svg path {
+    fill: var(--red);
+}
+
 /* Piano */
 
 .piano {
