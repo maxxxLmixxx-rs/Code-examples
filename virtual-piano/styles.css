@@ -51,4 +51,32 @@ body {
     margin: 0 -30px;
     z-index: 5;
     background: var(--dark);
+} 
+
+/* Key states */
+
+.piano__key--active {
+    transform: scale(0.96);
+}
+
+.piano__key:hover {
+    cursor: pointer;
+}
+
+.piano__key::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 80%; left: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transform: translate(-50%) scale(0.65);
+    transition: background 0.3s, transform 0.1s;
+} .piano__key--white::before {
+    background: var(--dark);
+} .piano__key--black::before {
+    background: var(--light);
+} .piano__key:hover::before {
+    transform: translate(-50%) scale(0.8);
 }
