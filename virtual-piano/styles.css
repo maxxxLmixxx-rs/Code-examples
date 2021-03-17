@@ -1,3 +1,23 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --red: #FF0909;
+    --dark: #1F1F1F;
+    --light: #FFFFFF;
+    --gradient: linear-gradient(215deg, var(--dark) 50%, var(--red) 50%);
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
 body {
-    background: lightcoral;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding-right: 135px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient) center / cover no-repeat var(--dark);
 }
