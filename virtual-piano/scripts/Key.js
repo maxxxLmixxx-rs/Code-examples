@@ -6,7 +6,13 @@ class Key {
         this._keyToPress = keyToPress; 
 
         this._domElement = null;
-        this._audioElement = new Audio(this._audioPath);
+        
+        /**
+         * @return doesn't end with '/' 
+         */
+
+        const getURL = (url = document.URL) => url.slice(0, url.lastIndexOf('/'));
+        this._audioElement = new Audio(getURL() + this._audioPath);
     }
 
     addActiveClass() {
@@ -68,19 +74,23 @@ class Key {
     }
 }
 
+/**
+ * @audioPath should start with '/'
+ */
+
 const keys = [
-    new Key({ type: 'white', keyToPress: 'd', noteName: 'c' , audioPath: '../assets/sounds/c.mp3'  }),
-    new Key({ type: 'black', keyToPress: 'r', noteName: 'c♯', audioPath: '../assets/sounds/c♯.mp3' }),
-    new Key({ type: 'white', keyToPress: 'f', noteName: 'd' , audioPath: '../assets/sounds/d.mp3'  }),
-    new Key({ type: 'black', keyToPress: 't', noteName: 'd♯', audioPath: '../assets/sounds/d♯.mp3' }),
-    new Key({ type: 'white', keyToPress: 'g', noteName: 'e' , audioPath: '../assets/sounds/e.mp3'  }),
-    new Key({ type: 'white', keyToPress: 'h', noteName: 'f' , audioPath: '../assets/sounds/f.mp3'  }),
-    new Key({ type: 'black', keyToPress: 'u', noteName: 'f♯', audioPath: '../assets/sounds/f♯.mp3' }),
-    new Key({ type: 'white', keyToPress: 'j', noteName: 'g' , audioPath: '../assets/sounds/g.mp3'  }),
-    new Key({ type: 'black', keyToPress: 'i', noteName: 'g♯', audioPath: '../assets/sounds/g♯.mp3' }),
-    new Key({ type: 'white', keyToPress: 'k', noteName: 'a' , audioPath: '../assets/sounds/a.mp3'  }),
-    new Key({ type: 'black', keyToPress: 'o', noteName: 'a♯', audioPath: '../assets/sounds/a♯.mp3' }),
-    new Key({ type: 'white', keyToPress: 'l', noteName: 'b' , audioPath: '../assets/sounds/b.mp3'  }),
+    new Key({ type: 'white', keyToPress: 'd', noteName: 'c' , audioPath: `/assets/sounds/c.mp3`  }),
+    new Key({ type: 'black', keyToPress: 'r', noteName: 'c♯', audioPath: `/assets/sounds/c♯.mp3` }),
+    new Key({ type: 'white', keyToPress: 'f', noteName: 'd' , audioPath: `/assets/sounds/d.mp3`  }),
+    new Key({ type: 'black', keyToPress: 't', noteName: 'd♯', audioPath: `/assets/sounds/d♯.mp3` }),
+    new Key({ type: 'white', keyToPress: 'g', noteName: 'e' , audioPath: `/assets/sounds/e.mp3`  }),
+    new Key({ type: 'white', keyToPress: 'h', noteName: 'f' , audioPath: `/assets/sounds/f.mp3`  }),
+    new Key({ type: 'black', keyToPress: 'u', noteName: 'f♯', audioPath: `/assets/sounds/f♯.mp3` }),
+    new Key({ type: 'white', keyToPress: 'j', noteName: 'g' , audioPath: `/assets/sounds/g.mp3`  }),
+    new Key({ type: 'black', keyToPress: 'i', noteName: 'g♯', audioPath: `/assets/sounds/g♯.mp3` }),
+    new Key({ type: 'white', keyToPress: 'k', noteName: 'a' , audioPath: `/assets/sounds/a.mp3`  }),
+    new Key({ type: 'black', keyToPress: 'o', noteName: 'a♯', audioPath: `/assets/sounds/a♯.mp3` }),
+    new Key({ type: 'white', keyToPress: 'l', noteName: 'b' , audioPath: `/assets/sounds/b.mp3`  }),
 ];
 
 export { Key, keys };
