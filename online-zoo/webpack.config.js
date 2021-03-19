@@ -2,13 +2,15 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require('webpack')
 
 const pageSetup = {
     indexJS: './source/pages/landing/index.js',
     output: './build/pages/landing',
     indexHTML: './source/pages/landing/index.html',
-    mode: 'development',
+    mode: 'production', 
+    // development production
     // isDevelopment: process.env.NODE_ENV === 'development',
 };
 
@@ -42,7 +44,11 @@ module.exports = {
             template: path.resolve(__dirname, pageSetup.indexHTML),
             filename: 'index.html',
         }),
-        new webpack.HotModuleReplacementPlugin(),
+        new MiniCssExtractPlugin({
+            filename: "[name].css",
+            chunkFilename: "[id].css",
+          }),
+        // new webpack.HotModuleReplacementPlugin(),
     ],
     module: {
         rules: [
@@ -55,8 +61,8 @@ module.exports = {
                 type: 'asset/inline',      
             },
             {
-                test: /\.(scss|css)$/,
-                use: ['style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader'],
+                test: /\.(scss|css)$/, // 'style-loader'
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'resolve-url-loader', 'sass-loader'],
             },
         ]
     },
