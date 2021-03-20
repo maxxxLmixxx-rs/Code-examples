@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../online-zoo"
+		},
+		{
+			"path": "../online-zoo/source"
+		},
+		{
+			"path": "../online-zoo/source/pages/landing"
+		}
+	],
+	"settings": {}
+}
