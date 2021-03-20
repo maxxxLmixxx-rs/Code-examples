@@ -10,10 +10,10 @@ const pageSetup = {
     output: './build/pages/landing',
     indexHTML: './source/pages/landing/index.html',
     mode: 'production', 
-    // development production
-    // isDevelopment: process.env.NODE_ENV === 'development',
+    htmlVariables: {
+        title: 'Blank Page'
+    }
 };
-
 
 module.exports = {
     entry: {
@@ -43,6 +43,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, pageSetup.indexHTML),
             filename: 'index.html',
+            vars: { ...pageSetup.htmlVariables }
         }),
         new MiniCssExtractPlugin({
             filename: "[name].css",
