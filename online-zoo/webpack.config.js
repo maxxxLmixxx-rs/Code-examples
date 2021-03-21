@@ -23,10 +23,12 @@ module.exports = {
         path: path.resolve(__dirname, pageSetup.output),
         filename: '[name].bundle.js',
     },
+    optimization: { splitChunks: { chunks: 'all' } },
     mode: pageSetup.mode,
     devServer: {
         historyApiFallback: true,
         contentBase: path.resolve(__dirname, './build'),
+        watchContentBase: true,
         open: true,
         compress: true,
         hot: true,
@@ -43,27 +45,33 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, pageSetup.indexHTML),
             filename: 'index.html',
-            vars: { ...pageSetup.htmlVariables }
+            vars: { ...pageSetup.htmlVariables },
         }),
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css",
           }),
-        // new webpack.HotModuleReplacementPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
     ],
     module: {
         rules: [
             {
-                test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-                type: 'asset/resource',
-            },
-            {        
-                test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,        
-                type: 'asset/inline',      
+                test: /\/assets\//g,
+                type: 'asset/inline',
+                generator: { 
+                    dataUrl: (_, {filename}) => '../..' + filename.match(/\/assets\/.*/g)
+                }
             },
             {
-                test: /\.(scss|css)$/, // 'style-loader'
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'resolve-url-loader', 'sass-loader'],
+                test: /\.(scss|css)$/,
+                use: [
+                    MiniCssExtractPlugin.loader, 
+                    {
+                        loader: 'css-loader', 
+                        options: { url: false } 
+                    }, 
+                    'sass-loader',
+                ],
             },
         ]
     },

@@ -1,5 +1,3 @@
-@use './partials/';
-
-body {
-    background: blue;
-}
+@import '../_share';
+@import './general';
+@import './partials';
