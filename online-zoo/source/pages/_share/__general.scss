@@ -3,10 +3,16 @@ body {
     min-height: 100vh;
 
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    transition-property: 
+        width, height, padding, margin, border, font-size,
+        color, background, top, left, bottom, right;
+    transition-duration: 0.1s;
 }
 
 ._wrapper {
-    width: 100%;
     margin: 0 auto;
-    max-width: 1400px;
+    $pad: 40px;
+      padding-left: $pad;
+      padding-right: $pad;
+      max-width: 1400px - $pad * 2;
 }
