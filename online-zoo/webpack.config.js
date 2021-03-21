@@ -65,7 +65,7 @@ module.exports = {
                 generator: filenameGenerator('../../assets/icons/'),
             },
             {
-                resourceQuery: /inline/,
+                resourceQuery: /i/,
                 type: 'asset/resource',
                 generator: filenameGenerator(''),
                 loader: 'svgo-loader',

@@ -1,0 +1,16 @@
+1. HTML variables
+2. Partial html (deep: 1)
+3. asset[/resource, /inline, /source]
+4. filename: (pathData) => ... module.context
+5. use: [MiniCssExtractPlugin.loader, 'css-loader', 'resolve-url-loader', 'sass-loader']
+6. 
+    {
+        resourceQuery: /inline/,
+        type: 'asset/resource',
+        generator: filenameGenerator(''),
+        loader: 'svgo-loader',
+        options: { plugins: [
+            { name: 'removeXMLNS' },
+        ]},
+    }
+7. sass-loader does not support @use
