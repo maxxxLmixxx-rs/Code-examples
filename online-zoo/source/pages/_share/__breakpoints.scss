@@ -8,9 +8,9 @@ $breakpoints: (
   '<-- large'  :( max-width: 1199px ),
 );
 
-@mixin respond-to($breakpoint, $offset: 0px) {
+@mixin respond-to($breakpoint) {
     @if map-has-key($breakpoints, $breakpoint) {
-        @media #{inspect(map-get($breakpoints, $breakpoint) + $offset)} {
+        @media #{inspect(map-get($breakpoints, $breakpoint))} {
             @content;
         }
     } @else { @warn 'No such breakpoint: `#{$breakpoint}`'; }
