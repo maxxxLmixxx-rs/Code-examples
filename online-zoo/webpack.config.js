@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackInlineSVGPlugin = require('html-webpack-inline-svg-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require('webpack')
@@ -9,20 +8,25 @@ const pageSetup = {
     indexJS: './source/pages/landing/index.js',
     output: './build/pages/landing',
     indexHTML: './source/pages/landing/index.html',
-    mode: 'production', 
+    mode: process.env.NODE_ENV,
+    get isDev() {
+        return this.mode === 'development'
+    },
     htmlVariables: {
         title: 'Blank Page'
     }
 };
 
-const filenameGenerator = (fallbackPrepend = '') => ({
-    filename: (pathData) => {
-        const context = pathData?.module?.context;
-        const prepend = context ?
-            `../../${context.match(/assets\/.*/).pop()}/` : fallbackPrepend;
-        return prepend + '[name][ext]';
+const filenameGenerator = (fallbackPrepend = '') => {
+    return pageSetup.isDev ? { } : {
+        filename: (pathData) => {
+            const context = pathData?.module?.context;
+            const prepend = context ?
+                `../../${context.match(/assets\/.*/).pop()}/` : fallbackPrepend;
+            return prepend + '[name][ext]';
+        }
     }
-});
+};
 
 module.exports = {
     entry: {
@@ -38,8 +42,8 @@ module.exports = {
         historyApiFallback: true,
         contentBase: path.resolve(__dirname, './build'),
         watchContentBase: true,
-        open: true,
         compress: true,
+        open: true,
         hot: true,
         port: 8080,
     },
@@ -50,7 +54,6 @@ module.exports = {
             filename: 'index.html',
             vars: { ...pageSetup.htmlVariables },
         }),
-        new HtmlWebpackInlineSVGPlugin(),
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css",
@@ -62,16 +65,9 @@ module.exports = {
             {
                 test: /\.svg$/,
                 type: 'asset',
-                generator: filenameGenerator('../../assets/icons/'),
-            },
-            {
-                resourceQuery: /i/,
-                type: 'asset/resource',
-                generator: filenameGenerator(''),
                 loader: 'svgo-loader',
-                options: { plugins: [
-                    { name: 'removeXMLNS' },
-                ]},
+                resourceQuery: { not: [/i/] },
+                generator: filenameGenerator('../../assets/icons/'),
             },
             {
                 test: /\.(png|jpe?g|gif)$/,
