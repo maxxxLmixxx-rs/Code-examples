@@ -9,5 +9,8 @@
 <body>
     <!-- < %= htmlWebpackPlugin.options.user.title %> -->
     <%= require('html-loader!./partials/header/header.html').default %>
+    <main class="main">
+        <%= require('html-loader!./partials/intro/intro.html').default %>
+    </main>
 </body>
 </html>
