@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "__npm-sass": "sass --style compressed --watch ./pages/$npm_config_page/sass/index.scss:./pages/$npm_config_page/css/main.css ./pages/_share",
+    "watch-sass": "npm run __npm-sass"
+  },
   "devDependencies": {
     "sass": "^1.32.8"
   }
