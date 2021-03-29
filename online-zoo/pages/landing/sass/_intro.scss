@@ -1,21 +1,49 @@
 @use '../../_share/_vars/colors';
 @use '../../_share/_import/fonts' as *;
+@use '../../_share/_vars/functions' as *;
 
 .intro {
-        $bg-color: colors.$bg;
-    overflow-x: hidden;
-    
-    /* Delimiter */
-    background: 
-        bottom / 100% auto no-repeat
-        $bg-color url("../../../assets/images/bg-delims/intro.svg");
 
-    @media (min-width: 1920px) {
-        height: calc(585px + 100vw * 210/1920);
+    /* >> Divider */
+
+    background: colors.$bg;
+    overflow-x: hidden;
+
+    &__col-1 {
+        margin-bottom: 50px;
+    }
+    &__col-2 {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: -130px;
     }
 
+    &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: calc( max(1920px, 100vw) * 210 / 1920 );
+        max-height: 320px;
+        margin: 0 auto;
+
+        background-position: center 100%;
+        background-repeat: no-repeat;
+        background-image: 
+            url("../../../assets/images/bg-delims/intro.svg"),
+            linear-gradient(to top, colors.$bg-light 40%, colors.$bg 40%);
+        background-color: colors.$bg-light, colors.$bg;
+
+        @media (min-width: 1920px) {
+            background-size: 100% 100%;
+        }
+    }
+
+    /* << Divider */
+
     &__wrapper {
-        padding: 50px 0 80px;
+        position: relative;
+        z-index: 10;
+        padding-top: 50px;
         display: flex;
         justify-content: space-between;
     }

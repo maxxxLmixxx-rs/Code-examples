@@ -12,7 +12,10 @@
     letter-spacing: -0.05 * $font-size;
     text-transform: uppercase;
     text-decoration: none;
-    cursor: pointer;
+    
+    &:hover {
+        cursor: pointer;
+    }
 
     &--white {
         color: colors.$btn-black;

@@ -1,0 +1,5 @@
+@use "sass:string";
+
+@function delimiter-height($offset, $aspect-ratio, $max-height: $aspect-ratio * 1920) {
+    @return min(calc(#{$offset} + 100vw * #{$aspect-ratio}), #{$max-height});
+}
