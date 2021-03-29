@@ -1,0 +1,19 @@
+.work {
+    &__wrapper {
+        padding: 60px 105px 100px;
+        position: relative;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // &__item {
+    // }
+
+    &__heading {
+        position: absolute;
+        top: -40px;
+    }
+}
