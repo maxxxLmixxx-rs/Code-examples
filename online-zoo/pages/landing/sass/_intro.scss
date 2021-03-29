@@ -1,0 +1,63 @@
+@use '../../_share/_vars/colors';
+@use '../../_share/_import/fonts' as *;
+
+.intro {
+        $bg-color: colors.$bg;
+    overflow-x: hidden;
+    
+    /* Delimiter */
+    background: 
+        bottom / 100% auto no-repeat
+        $bg-color url("../../../assets/images/bg-delims/intro.svg");
+
+    @media (min-width: 1920px) {
+        height: calc(585px + 100vw * 210/1920);
+    }
+
+    &__wrapper {
+        padding: 50px 0 80px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__article {
+            $txt-color: colors.$hero-text;
+        color: $txt-color;
+    }
+
+    &__heading {
+        margin: 55px 0 45px 0;
+        font-weight: 300;
+        font-size: 72px;
+        line-height: 85px;
+        @include Rubik;
+        
+        b {
+            font-weight: 500;
+        }
+    }
+
+    &__text {
+        max-width: 450px;
+        margin-bottom: 40px;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 20px;
+        @include Roboto;
+    }
+}
+
+.clip-video {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &__svg {
+        width: 100%;
+        height: auto;
+    }
+
+    &__filter {
+        fill: colors.$clip-video-filter;
+    }
+}
