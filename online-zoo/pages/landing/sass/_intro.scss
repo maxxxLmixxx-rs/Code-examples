@@ -17,21 +17,19 @@
         justify-content: flex-end;
         margin-bottom: -130px;
     }
-
+    
     &::after {
         content: "";
         display: block;
         width: 100%;
-        height: calc( max(1920px, 100vw) * 210 / 1920 );
-        max-height: 320px;
+        height: 210px;
         margin: 0 auto;
 
         background-position: center 100%;
         background-repeat: no-repeat;
         background-image: 
-            url("../../../assets/images/bg-delims/intro.svg"),
-            linear-gradient(to top, colors.$bg-light 40%, colors.$bg 40%);
-        background-color: colors.$bg-light, colors.$bg;
+            url("../../../assets/images/bg-delims/intro.svg");
+        background-color: colors.$bg;
 
         @media (min-width: 1920px) {
             background-size: 100% 100%;
