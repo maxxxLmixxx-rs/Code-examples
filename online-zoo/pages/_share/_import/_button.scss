@@ -3,8 +3,9 @@
 
 ._btn {
         $font-size: 18px;
-    display: inline-block;
-    padding: 15px 85px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 100px;
     font-weight: 400;
     font-size: $font-size;
@@ -12,6 +13,11 @@
     letter-spacing: -0.05 * $font-size;
     text-transform: uppercase;
     text-decoration: none;
+    box-sizing: border-box;
+
+    transition-property: 
+        background, transform, opacity, padding, width, height;
+    transition-duration: .3s;
     
     &:hover {
         cursor: pointer;
@@ -24,5 +30,39 @@
 
     &--glow {
         box-shadow: colors.$btn-white-box-shadow;
+    }
+
+    &--m-pd {
+        padding: 15px 85px;
+    }
+
+    /* Special */
+
+    img, svg {
+        margin-right: 18px;
+    }
+
+    &--no-fill {
+            $txt-color: colors.$btn-lined;
+            $txt-hover: colors.$btn-white;
+            $btn-bg: colors.$btn-light-bg;
+        color: $txt-color;
+        border: 1px solid $txt-color;
+        &:hover {
+            svg { 
+                stroke: $txt-hover; 
+                fill: pink; 
+            }
+            color: $txt-hover;
+            background: $btn-bg;
+        }
+    }
+
+    &--l-ls {
+        letter-spacing: 0.1 * $font-size;
+    }
+
+    &--s-pd {
+        padding: 17px 22px;
     }
 }

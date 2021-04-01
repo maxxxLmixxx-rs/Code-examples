@@ -1,6 +1,8 @@
 @use '../../_share/_partials/panda-scene';
 @use '../../_share/_import';
 @use './section-share';
-@use './header';
-@use './intro';
-@use './work';
+@use './sections/header';
+@use './sections/intro';
+@use './sections/work';
+@use './sections/pets';
+@use './js-related/pet-card';

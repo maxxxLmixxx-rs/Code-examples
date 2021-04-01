@@ -1,5 +1,5 @@
-@use '../../_share/_vars/colors';
-@use '../../_share/_import/fonts' as *;
+@use '../../../_share/_vars/colors';
+@use '../../../_share/_import/fonts' as *;
 
 .header {
         $bg-color: colors.$bg;

@@ -13,6 +13,7 @@ $yellow-btn: #FFF5BA;
 $btn-white: #FFFFFF;
 $btn-black: #0D444D;
 $btn-yellow: #AD954B;
+$btn-light-bg: #54999E;
 $btn-white-box-shadow: 0px 2px 50px #B9D5D999;  // alpha = 60%
 
 $header-box-shadow: 0 1px 10px rgba(18, 87, 91, 0.25);
@@ -24,3 +25,10 @@ $story-card-dark: $black;
 $story-card-white: $white;
 $story-card-dark-shadow: 0px 2px 50px #0000000f; // alpha = 6%
 $story-card-white-shadow: 0px 2px 50px #B9D5D999; // alpha = 60%
+
+$pet-card-filter: #B9D5D933; // alpha = 20%
+$pet-card-main: #FFFFFF;
+$pet-card-heading: #2D2D2D;
+$pet-card-paragraph: #909090;
+$pet-card-box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.06);
+$pet-card-description-border: 1px solid #E5EAEB;

@@ -56,11 +56,11 @@
             <div class="_wrapper _wrapper--middle">
                 <div class="intro__wrapper _wrapper__inner">
                     <div class="intro__col-1">
-                        <article class="intro__article">
+                        <div class="intro__article">
                             <h2 class="intro__heading">Watch your favorite<br><b>animals online</b></h2>
                             <p class="intro__text">Observe different animals from around the world online in live time. Help volunteers to take a good care of animals, donate to your favorite ones.</p>
-                            <a class="_btn _btn--white _btn--glow" href="../zoos/panda/">Watch now</a>
-                        </article>
+                            <a class="_btn _btn--m-pd _btn--white _btn--glow" href="../zoos/panda/">Watch now</a>
+                        </div>
                     </div>
                     <div class="intro__col-2">
                         <div class="clip-video">
@@ -78,7 +78,7 @@
                                 </defs>
                                 <a class="clip-video__visible" href="../zoos/panda/">
                                     <!-- preserveAspectRatio: "xMidYMin slice" -->
-                                    <image class="clip-video__img" clip-path="url(#clipVideo-border)" href="../../assets/images/panda.jpg"/>
+                                    <image width="804px" height="666px" class="clip-video__img" clip-path="url(#clipVideo-border)" href="../../assets/images/panda.jpg"/>
                                     <rect class="clip-video__filter" width="100%" height="100%" clip-path="url(#clipVideo-border)" fill="none" />
                                     <use x="384" y="330" href="#clipVideo-button"/>
                                 </a>
@@ -91,31 +91,86 @@
         <section class="work _panda-delimiter">
             <div class="_wrapper _wrapper--middle">
                 <div class="work__wrapper _wrapper__inner">
-                    <h3 class="work__heading h3-heading h3-heading--dark">How it works</h3>
-                    <div class="work__list">
-                        <div class="work__item">
-                            <article class="story-card story-card--white story-card--additional-dark">
-                                <div class="story-card__container">
-                                    <img class="story-card__img" width="50" height="50" src="../../assets/icons/stories/binoculars.svg" alt="binoculars icon">
+                    <div class="work__header">
+                        <h3 class="h3-heading h3-heading--dark">How it works</h3>
+                    </div>
+                    <div class="work__main">
+                        <div class="work__list">
+                            <div class="work__item">
+                                <div class="story-card story-card--white story-card--additional-dark">
+                                    <div class="story-card__container">
+                                        <img class="story-card__img" width="50" height="50" src="../../assets/icons/stories/binoculars.svg" alt="binoculars icon">
+                                    </div>
+                                    <p class="story-card__txt">Keep an eye on your favorite animals online</p>
                                 </div>
-                                <p class="story-card__txt">Keep an eye on your favorite animals online</p>
-                            </article>
+                            </div>
+                            <div class="work__item">
+                                <div class="story-card story-card--white story-card--additional-dark">
+                                    <div class="story-card__container">
+                                        <img class="story-card__img" width="54" height="49" src="../../assets/icons/stories/kitty-paw.svg" alt="kitty paw icon">
+                                    </div>
+                                    <p class="story-card__txt">Become a part of the community</p>
+                                </div>
+                            </div>
+                            <div class="work__item">
+                                <div class="story-card story-card--white story-card--additional-dark">
+                                    <div class="story-card__container">
+                                        <img class="story-card__img" width="52" height="48" src="../../assets/icons/stories/pay-by-heart.svg" alt="pay heart icon">
+                                    </div>
+                                    <p class="story-card__txt">Support animals with the donations</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="work__item">
-                            <article class="story-card story-card--white story-card--additional-dark">
-                                <div class="story-card__container">
-                                    <img class="story-card__img" width="54" height="49" src="../../assets/icons/stories/kitty-paw.svg" alt="kitty paw icon">
-                                </div>
-                                <p class="story-card__txt">Become a part of the community</p>
-                            </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="pets">
+            <div class="_wrapper _wrapper--right">
+                <div class="pets__wrapper _wrapper__inner">
+                    <div class="pets__header">
+                        <h3 class="pets__heading h3-heading h3-heading--dark">Pets in Zoo</h3>
+                        <a href="../map/" class="_btn _btn--no-fill _btn--l-ls _btn--s-pd">
+                            <svg width="20" height="18" fill="none">
+                                <path stroke="#19707D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M17.5 9.6L10 17 2.5 9.6A5 5 0 1110 3a5 5 0 117.5 6.6"/>
+                            </svg>Choose your favorite
+                        </a>
+                    </div>
+                    <div class="pets__cards">
+                        <svg width="0" height="0" class="pet-card__clip-svg"
+                                style="position: absolute;">
+                            <defs>
+                                <mask id="petCardClip">
+                                    <rect fill="white" x="-100" y="-100" width="436" height="435"/>
+                                    <path fill="black" d="M213.77 53.87c19.85 26.78 25.36 63.28 15.07 91.34-10.29 28.06-36.02 47.87-65.62 63.28-29.4 15.4-62.67 26.6-90.98 16.88-28.3-9.54-51.83-39.62-61.94-75.2C.38 114.57 3.87 73.5 25.2 46.52 46.69 19.4 85.84 6.18 122.79 8.2c36.76 2.02 71.13 19.08 90.98 45.67z"/>
+                                </mask>
+                                <rect id="clippedRect" mask="url(#petCardClip)" x="-100" y="-100" width="436" height="435"/>
+                            </defs>
+                        </svg>
+                        <div class="pets__cards-container">
+                            <script src="./js/cards-generator.js"></script>
                         </div>
-                        <div class="work__item">
-                            <article class="story-card story-card--white story-card--additional-dark">
-                                <div class="story-card__container">
-                                    <img class="story-card__img" width="52" height="48" src="../../assets/icons/stories/pay-by-heart.svg" alt="pay heart icon">
-                                </div>
-                                <p class="story-card__txt">Support animals with the donations</p>
-                            </article>
+                        <div class="pets__aside">
+                            <svg width="0" height="0" style="position: absolute;">
+                                <defs>
+                                    <g id="arrowRight">
+                                        <path d="M6.5 1.5l9.4 10.1c.3.4.3 1 0 1.4l-9.4 9.5" stroke="#19707D" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M1.5 1.5l9.4 10.1c.3.4.3 1 0 1.4l-9.4 9.5" stroke="#19707D" stroke-width="1.5" stroke-linecap="round"/>
+                                    </g>
+                                </defs>
+                            </svg>
+                            <div class="pets__arrows">
+                                <button class="pets__arrow pets__arrow--left">
+                                    <svg width="17" height="24" fill="none">
+                                        <use xlink:href="#arrowRight"/>
+                                    </svg>
+                                </button>
+                                <button class="pets__arrow pets__arrow--right">
+                                    <svg width="17" height="24" fill="none">
+                                        <use xlink:href="#arrowRight"/>
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
