@@ -11,6 +11,7 @@
         height: 145px;
         margin-bottom: 15px;
         border-radius: 50%;
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -25,6 +26,7 @@
         font-size: 14px;
         @include Roboto;
         text-align: center;
+        white-space: nowrap;
     }
 
     &--white &__container {
@@ -64,7 +66,7 @@
     @include Rubik;
     text-transform: uppercase;
 
-    &--white {
+    &--light {
             $txt-color: colors.$white;
         color: $txt-color;
     }

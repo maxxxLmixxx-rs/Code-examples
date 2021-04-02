@@ -14,6 +14,7 @@
     text-transform: uppercase;
     text-decoration: none;
     box-sizing: border-box;
+    white-space: nowrap;
 
     transition-property: 
         background, transform, opacity, padding, width, height;
@@ -23,11 +24,18 @@
         cursor: pointer;
     }
 
+    /* Colors */
     &--white {
         color: colors.$btn-black;
         background: colors.$btn-white;
     }
 
+    &--light-green {
+        color: colors.$btn-black;
+        background: colors.$white;
+    }
+    
+    /* Glow */
     &--glow {
         box-shadow: colors.$btn-white-box-shadow;
     }

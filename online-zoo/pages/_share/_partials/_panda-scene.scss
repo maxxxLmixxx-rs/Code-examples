@@ -1,36 +1,14 @@
 @use 'sass:map';
 @use '../_vars/colors';
+@use '../_vars/functions' as *;
 
 /* VARS */
 
 $bg-height: 521;
 $bg-width: 1920;
-// [.] $bg-aspect-ratio: $bg-height / $bg-width;
-// [.] $resize-height: max(#{$bg-height + "px"}, 100vw * #{$bg-aspect-ratio});
-
-/**
- * convert PX to VW where 1vw = VW-BASE
- * for breakpoint 
- */
-
-@function vw($px, $vw-base: 19.2) {
-    @return $px / $vw-base;
-}
-
-@function get-background($object-name, $breakpoint) {
-    $object: map.get($objects, $object-name);
-      $url: map.get($object, "url");
-      $bg-props: map.get($object, $breakpoint);
-        $x: map.get($bg-props, "x");
-        $y: map.get($bg-props, "y");
-        $w: map.get($bg-props, "w");
-        $h: map.get($bg-props, "h");
-    @return #{$x+ " " +$y+ " / " +$w+ " " +$h+ " no-repeat " +$url+ " "};
-}
 
 @function height-value($bottom-offset, $height) {
     @return #{$bg-height - ($bottom-offset + $height)}px;
- // [.] @return calc(100% - #{$offset + "px"});
 }
 
 /* OBJECTS */
@@ -156,23 +134,23 @@ $objects: (
         // [.] max-height: 700px;
 
         background:
-            get-background("bamboo-2", "<1920px"),
-            get-background("panda",  "<1920px"),
-            get-background("bamboo-1", "<1920px"),
-            get-background("tree-1",   "<1920px"),
-            get-background("tree-2", "<1920px"),
-            get-background("tree-3", "<1920px"),
-            get-background("background", "<1920px");
+            get-background($objects, "bamboo-2", "<1920px"),
+            get-background($objects, "panda",  "<1920px"),
+            get-background($objects, "bamboo-1", "<1920px"),
+            get-background($objects, "tree-1",   "<1920px"),
+            get-background($objects, "tree-2", "<1920px"),
+            get-background($objects, "tree-3", "<1920px"),
+            get-background($objects, "background", "<1920px");
 
         @media (min-width: 1920px) {
             background:
-                get-background("bamboo-2", ">1920px"),
-                get-background("panda",  ">1920px"),
-                get-background("bamboo-1", ">1920px"),
-                get-background("tree-1",   ">1920px"),
-                get-background("tree-2", ">1920px"),
-                get-background("tree-3", ">1920px"),
-                get-background("background", ">1920px");
+                get-background($objects, "bamboo-2", ">1920px"),
+                get-background($objects, "panda",  ">1920px"),
+                get-background($objects, "bamboo-1", ">1920px"),
+                get-background($objects, "tree-1",   ">1920px"),
+                get-background($objects, "tree-2", ">1920px"),
+                get-background($objects, "tree-3", ">1920px"),
+                get-background($objects, "background", ">1920px");
         }
     }    
 }
