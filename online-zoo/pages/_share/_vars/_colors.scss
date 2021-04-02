@@ -23,7 +23,7 @@ $clip-video-filter: #B9D5D933; // alpha = 20%
 $story-card-white-bg: #FFFFFF;
 $story-card-dark: $black;
 $story-card-white: $white;
-$story-card-dark-shadow: 0px 2px 50px #0000000f; // alpha = 6%
+$story-card-dark-shadow: 0px 2px 50px #0000000F; // alpha = 6%
 $story-card-white-shadow: 0px 2px 50px #B9D5D999; // alpha = 60%
 
 $pet-card-filter: #B9D5D933; // alpha = 20%
@@ -32,3 +32,9 @@ $pet-card-heading: #2D2D2D;
 $pet-card-paragraph: #909090;
 $pet-card-box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.06);
 $pet-card-description-border: 1px solid #E5EAEB;
+
+$review-main: #FFFFFF;
+$review-date-txt: #B2B2B2; 
+$review-txt: #2D2D2D;
+$review-avatar-txt: #000000;
+$review-shadow: 0px 2px 30px #0000000F; // alpha = 6%

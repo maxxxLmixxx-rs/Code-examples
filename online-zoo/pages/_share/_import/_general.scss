@@ -19,7 +19,7 @@ ul {
         $lr-pad: 130px;
         $inner-wrapper: 1480px;
         $outer-wrapper: $inner-wrapper + 2 * $lr-pad;
-    width: 100%;
+    flex: 1 1 auto;
     padding: 0 20px;
     margin: 0 auto;
     display: grid;
