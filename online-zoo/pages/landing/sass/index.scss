@@ -1,9 +1,11 @@
 @use '../../_share/_partials/panda-scene';
 @use '../../_share/_partials/pet-avatar';
 @use '../../_share/_partials/button';
+@use '../../_share/_partials/header';
+@use '../../_share/_partials/footer';
 @use '../../_share/_import';
+
 @use './section-share';
-@use './sections/header';
 @use './sections/intro';
 @use './sections/work';
 @use './sections/pets';
@@ -11,4 +13,3 @@
 @use './sections/feed';
 @use './sections/reviews';
 @use './sections/beautifuls';
-@use './sections/footer';
