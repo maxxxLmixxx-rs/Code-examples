@@ -1,4 +1,6 @@
 @use '../../_share/_partials/panda-scene';
+@use '../../_share/_partials/pet-avatar';
+@use '../../_share/_partials/button';
 @use '../../_share/_import';
 @use './section-share';
 @use './sections/header';
@@ -8,3 +10,4 @@
 @use './js-related/pet-card';
 @use './sections/feed';
 @use './sections/reviews';
+@use './sections/beautifuls';

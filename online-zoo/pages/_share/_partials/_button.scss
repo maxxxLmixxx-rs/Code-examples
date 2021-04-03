@@ -1,5 +1,5 @@
 @use '../_vars/colors';
-@use './fonts' as *;
+@use '../_import/fonts' as *;
 
 ._btn {
         $font-size: 18px;
@@ -72,5 +72,16 @@
 
     &--s-pd {
         padding: 17px 22px;
+    }
+}
+
+.arrow {
+    padding: 7px;
+    transition: transform 0.3s;
+    &:hover {
+        transform: scale(1.1);
+    }
+    &--left svg {
+        transform: scale(-1);
     }
 }

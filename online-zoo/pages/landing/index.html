@@ -99,7 +99,7 @@
                             <div class="work__item">
                                 <div class="story-card story-card--white story-card--additional-dark">
                                     <div class="story-card__container">
-                                        <img class="story-card__img" width="50" height="50" src="../../assets/icons/stories/binoculars.svg" alt="binoculars icon">
+                                        <img class="story-card__img" width="50" height="50" src="../../assets/icons/stories/binoculars.svg" alt="">
                                     </div>
                                     <p class="story-card__txt">Keep an eye on your favorite animals online</p>
                                 </div>
@@ -107,7 +107,7 @@
                             <div class="work__item">
                                 <div class="story-card story-card--white story-card--additional-dark">
                                     <div class="story-card__container">
-                                        <img class="story-card__img" width="54" height="49" src="../../assets/icons/stories/kitty-paw.svg" alt="kitty paw icon">
+                                        <img class="story-card__img" width="54" height="49" src="../../assets/icons/stories/kitty-paw.svg" alt="">
                                     </div>
                                     <p class="story-card__txt">Become a part of the community</p>
                                 </div>
@@ -115,7 +115,7 @@
                             <div class="work__item">
                                 <div class="story-card story-card--white story-card--additional-dark">
                                     <div class="story-card__container">
-                                        <img class="story-card__img" width="52" height="48" src="../../assets/icons/stories/pay-by-heart.svg" alt="pay heart icon">
+                                        <img class="story-card__img" width="52" height="48" src="../../assets/icons/stories/pay-by-heart.svg" alt="">
                                     </div>
                                     <p class="story-card__txt">Support animals with the donations</p>
                                 </div>
@@ -137,6 +137,7 @@
                         </a>
                     </div>
                     <div class="pets__cards">
+                        <!-- SVG: CLIP FIGURE REFERENCE -->
                         <svg width="0" height="0" class="pet-card__clip-svg"
                                 style="position: absolute;">
                             <defs>
@@ -148,9 +149,11 @@
                             </defs>
                         </svg>
                         <div class="pets__cards-container">
-                            <script src="./js/cards-generator.js"></script>
+                            <!-- SCRIPT: CARDS GENERATOR -->
+                            <script type="module" src="./js/generators/cards-generator.js"></script>
                         </div>
                         <div class="pets__aside">
+                            <!-- SVG: ARROWS REFERENCE -->
                             <svg width="0" height="0" style="position: absolute;">
                                 <defs>
                                     <g id="arrowRight">
@@ -160,14 +163,14 @@
                                 </defs>
                             </svg>
                             <div class="pets__arrows">
-                                <button class="pets__arrow pets__arrow--left">
+                                <button class="arrow arrow--left">
                                     <svg width="17" height="24" fill="none">
-                                        <use xlink:href="#arrowRight"/>
+                                        <use href="#arrowRight"/>
                                     </svg>
                                 </button>
-                                <button class="pets__arrow pets__arrow--right">
+                                <button class="arrow arrow--right">
                                     <svg width="17" height="24" fill="none">
-                                        <use xlink:href="#arrowRight"/>
+                                        <use href="#arrowRight"/>
                                     </svg>
                                 </button>
                             </div>
@@ -187,7 +190,7 @@
                         <div class="feed__item">
                             <div class="story-card story-card--white story-card--additional-white">
                                 <div class="story-card__container">
-                                    <img class="story-card__img" width="52" height="44" src="../../assets/icons/stories/money-hand.svg" alt="money hand icon">
+                                    <img class="story-card__img" width="52" height="44" src="../../assets/icons/stories/money-hand.svg" alt="">
                                 </div>
                                 <p class="story-card__txt">You donate to your favorite animals </p>
                             </div>
@@ -195,7 +198,7 @@
                         <div class="feed__item">
                             <div class="story-card story-card--white story-card--additional-white">
                                 <div class="story-card__container">
-                                    <img class="story-card__img" width="52" height="56" src="../../assets/icons/stories/apple-hand.svg" alt="apple hand icon">
+                                    <img class="story-card__img" width="52" height="56" src="../../assets/icons/stories/apple-hand.svg" alt="">
                                 </div>
                                 <p class="story-card__txt">Zoo Keepers feed animals with their favorite food</p>
                             </div>
@@ -203,7 +206,7 @@
                         <div class="feed__item">
                             <div class="story-card story-card--white story-card--additional-white">
                                 <div class="story-card__container">
-                                    <img class="story-card__img" width="52" height="50" src="../../assets/icons/stories/monkey.svg" alt="monkey icon">
+                                    <img class="story-card__img" width="52" height="50" src="../../assets/icons/stories/monkey.svg" alt="">
                                 </div>
                                 <p class="story-card__txt">Animals are healthy and happy</p>
                             </div>
@@ -256,6 +259,33 @@
                                 <img class="review__img" src="../../assets/images/reviewers/Amely.png" alt="amely avatar">
                                 Amely, USA
                             </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="beautifuls">
+            <div class="_wrapper _wrapper--middle">
+                <div class="beautifuls__wrapper _wrapper__inner">
+                    <div class="beautifuls__header">
+                        <h3 class="pets__heading h3-heading h3-heading--dark">Look at this beautiful animals</h3>
+                    </div>
+                    <div class="beautifuls__main">
+                        <div class="beautifuls__animals-container">
+                            <!-- SCRIPT: AVATARS GENERATOR -->
+                            <script type="module" src="./js/generators/pet-avatars-generator.js"></script>
+                        </div>
+                        <div class="beautifuls__arrows">
+                            <button class="arrow arrow--left">
+                                <svg width="17" height="24" fill="none">
+                                    <use href="#arrowRight"/>
+                                </svg>
+                            </button>
+                            <button class="arrow arrow--right">
+                                <svg width="17" height="24" fill="none">
+                                    <use href="#arrowRight"/>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>

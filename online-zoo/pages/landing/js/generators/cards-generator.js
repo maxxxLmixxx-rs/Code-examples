@@ -54,7 +54,7 @@ const getCardTemplate = (
             style="--url: url('${url}'); ${iconVar} ${cardColorVar}">
             <a class="pet-card__link" href="${linkTo ? linkTo : ``}">
                 <svg width="238" height="237" viewBox="0 0 238 237" class="pet-card__mask" fill="none">
-                    ${clippedRectId ? `<use xlink:href="${clippedRectId}" fill="white"/>` : ``}
+                    ${clippedRectId ? `<use href="${clippedRectId}" fill="white"/>` : ``}
                 </svg>
                 <div class="pet-card__description">
                     <h4 class="pet-card__heading">${name}</h4>
@@ -75,8 +75,8 @@ const generateCards = (container, config) => {
     const getCardTemplateConfigured = (cardConfig) => {
         return getCardTemplate(
             cardConfig,
-            iconPath = '../../../assets/icons/tv.svg',
-            clippedRectId = '#clippedRect',
+            '../../../assets/icons/tv.svg', // iconPath
+            '#clippedRect', // clippedRectId
     )};
     config.objects('../../../assets/images/pet-cards/')
         .map(cardConfig => getCardTemplateConfigured(cardConfig))

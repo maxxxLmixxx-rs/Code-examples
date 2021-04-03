@@ -8,7 +8,8 @@
     }
 
     &__header {
-        margin-right: $right-mg;
+        // margin-right: $right-mg;
+        max-width: 1480px;
         margin-bottom: 65px;
         display: flex;
         justify-content: space-between;
@@ -44,16 +45,5 @@
         height: 104px;
         flex-direction: column;
         justify-content: space-around;
-    }
-
-    &__arrow {
-        padding: 7px;
-        transition: transform 0.3s;
-        &:hover {
-            transform: scale(1.1);
-        }
-        &--left svg {
-            transform: scale(-1);
-        }
     }
 }
