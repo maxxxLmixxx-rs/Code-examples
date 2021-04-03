@@ -1,0 +1,30 @@
+@use '../../../_share/_import/fonts' as *;
+@use '../../../_share/_vars/colors';
+@use './header';
+
+.footer {
+    background: colors.$footer-bg;
+
+    &__wrapper {
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .copyright {
+        @include Roboto;
+        font-size: 16px;
+        text-align: right;
+        color: colors.$copyright-color;
+
+        &__author {
+            font-style: normal;
+            margin-bottom: 10px;
+        }
+
+        &__holder {
+            margin: 0;
+        }
+    }
+}
