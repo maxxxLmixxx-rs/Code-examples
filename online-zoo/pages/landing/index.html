@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/search-bar.js" defer></script>
+    <title>Landing page</title>
+</head>
+<body>
+    <header class="header">
+        <div class="_wrapper _wrapper--right">
+            <div class="header__wrapper _wrapper__inner">
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <!-- https://stackoverflow.com/questions/3239202/whats-the-correct-way-to-hide-the-h1-tag-and-not-be-banned-from-google -->
+                            <h1 class="logo">
+                                <a class="logo__link nav__link" href="./">
+                                    <img class="logo__img" src="../../assets/icons/logo.svg" alt="online zoo">
+                                </a>
+                            </h1>
+                        </li>
+                        <li class="nav__item nav__item--active"><a class="nav__link" href="./">About</a></li>
+                        <li class="nav__item"><a class="nav__link" href="../map/">Map</a></li>
+                        <li class="nav__item"><a class="nav__link" href="../zoos/panda/">Zoos</a></li>
+                        <li class="nav__item"><a class="nav__link" href="../error/">Contact us</a></li>
+                        <li class="nav__item"><a class="nav__link" 
+                            href="https://www.figma.com/file/vzrwoqf0kSG1uOify8BRBR/online-zoo?node-id=0%3A1">Design</a></li>
+                    </ul>
+                </nav>
+                <div class="menu">
+                    <ul class="menu__list">
+                        <li class="menu__item">
+                            <div id="search" class="search">
+                                <input class="search__input" type="text" placeholder="Search...">
+                                <button class="search__btn">
+                                    <svg class="search__icon" width="28" height="28" fill="none"><path d="M11.3 20.7a9.3 9.3 0 100-18.7 9.3 9.3 0 000 18.7zM26 26l-8-8" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </button>
+                            </div>
+                        </li>
+                        <li class="menu__item">
+                            <button id="log-button" class="menu__button">Log in</button>
+                        </li>
+                        <li class="menu__item">
+                            <button id="sign-button" class="menu__button menu__button--round">Sign up</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <section class="intro">
+            <div class="_wrapper _wrapper--middle">
+                <div class="intro__wrapper _wrapper__inner">
+                    <div class="intro__col-1">
+                        <div class="intro__article">
+                            <h2 class="intro__heading">Watch your favorite<br><b>animals online</b></h2>
+                            <p class="intro__text">Observe different animals from around the world online in live time. Help volunteers to take a good care of animals, donate to your favorite ones.</p>
+                            <a class="_btn _btn--m-pd _btn--white _btn--glow" href="../zoos/panda/">Watch now</a>
+                        </div>
+                    </div>
+                    <div class="intro__col-2">
+                        <div class="clip-video">
+                            <!-- 805 / 665 || 810 / 810 -->
+                            <svg class="clip-video__svg" width="805" height="665" viewBox="0 0 805 665">
+                                <defs>
+                                    <clipPath id="clipVideo-border">
+                                        <path class="clip-video__clip-path" d="M724 173c68 90 95 186 71 273a313 313 0 01-195 198c-96 34-212 27-329-8C153 602 32 540 6 456c-27-82 41-187 128-280C222 83 331 0 440 0c108 0 217 83 284 173z"/>
+                                    </clipPath>
+                                    <g id="clipVideo-button" class="clip-video__play-btn">
+                                        <!-- width: 100; height: 75; fill-1: #2E2E2E; fill-2: #FFF -->
+                                        <path fill="#2E2E2E" fill-opacity=".8" d="M77 1H23C11 1 1 10 1 22v31c0 12 10 21 22 21h54c12 0 22-9 22-21V22C99 10 89 1 77 1z"/>
+                                        <path fill="#FFF" stroke="#FFF" d="M40 21l25 15-25 15V21z" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                </defs>
+                                <a class="clip-video__visible" href="../zoos/panda/">
+                                    <!-- preserveAspectRatio: "xMidYMin slice" -->
+                                    <image width="804px" height="666px" class="clip-video__img" clip-path="url(#clipVideo-border)" href="../../assets/images/panda.jpg"/>
+                                    <rect class="clip-video__filter" width="100%" height="100%" clip-path="url(#clipVideo-border)" fill="none" />
+                                    <use x="384" y="330" href="#clipVideo-button"/>
+                                </a>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="work _panda-delimiter">
+            <div class="_wrapper _wrapper--middle">
+                <div class="work__wrapper _wrapper__inner">
+                    <div class="work__header">
+                        <h3 class="h3-heading h3-heading--dark">How it works</h3>
+                    </div>
+                    <div class="work__main">
+                        <div class="work__list">
+                            <div class="work__item">
+                                <div class="story-card story-card--white story-card--additional-dark">
+                                    <div class="story-card__container">
+                                        <img class="story-card__img" width="50" height="50" src="../../assets/icons/stories/binoculars.svg" alt="">
+                                    </div>
+                                    <p class="story-card__txt">Keep an eye on your favorite animals online</p>
+                                </div>
+                            </div>
+                            <div class="work__item">
+                                <div class="story-card story-card--white story-card--additional-dark">
+                                    <div class="story-card__container">
+                                        <img class="story-card__img" width="54" height="49" src="../../assets/icons/stories/kitty-paw.svg" alt="">
+                                    </div>
+                                    <p class="story-card__txt">Become a part of the community</p>
+                                </div>
+                            </div>
+                            <div class="work__item">
+                                <div class="story-card story-card--white story-card--additional-dark">
+                                    <div class="story-card__container">
+                                        <img class="story-card__img" width="52" height="48" src="../../assets/icons/stories/pay-by-heart.svg" alt="">
+                                    </div>
+                                    <p class="story-card__txt">Support animals with the donations</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="pets">
+            <div class="_wrapper _wrapper--right">
+                <div class="pets__wrapper _wrapper__inner">
+                    <div class="pets__header">
+                        <h3 class="pets__heading h3-heading h3-heading--dark">Pets in Zoo</h3>
+                        <a href="../map/" class="_btn _btn--no-fill _btn--l-ls _btn--s-pd">
+                            <svg width="20" height="18" fill="none">
+                                <path stroke="#19707D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M17.5 9.6L10 17 2.5 9.6A5 5 0 1110 3a5 5 0 117.5 6.6"/>
+                            </svg>Choose your favorite
+                        </a>
+                    </div>
+                    <div class="pets__cards">
+                        <!-- SVG: CLIP FIGURE REFERENCE -->
+                        <svg width="0" height="0" class="pet-card__clip-svg"
+                                style="position: absolute;">
+                            <defs>
+                                <mask id="petCardClip">
+                                    <rect fill="white" x="-100" y="-100" width="436" height="435"/>
+                                    <path fill="black" d="M213.77 53.87c19.85 26.78 25.36 63.28 15.07 91.34-10.29 28.06-36.02 47.87-65.62 63.28-29.4 15.4-62.67 26.6-90.98 16.88-28.3-9.54-51.83-39.62-61.94-75.2C.38 114.57 3.87 73.5 25.2 46.52 46.69 19.4 85.84 6.18 122.79 8.2c36.76 2.02 71.13 19.08 90.98 45.67z"/>
+                                </mask>
+                                <rect id="clippedRect" mask="url(#petCardClip)" x="-100" y="-100" width="436" height="435"/>
+                            </defs>
+                        </svg>
+                        <div class="pets__cards-container">
+                            <!-- SCRIPT: CARDS GENERATOR -->
+                            <script type="module" src="./js/generators/cards-generator.js"></script>
+                        </div>
+                        <div class="pets__aside">
+                            <!-- SVG: ARROWS REFERENCE -->
+                            <svg width="0" height="0" style="position: absolute;">
+                                <defs>
+                                    <g id="arrowRight">
+                                        <path d="M6.5 1.5l9.4 10.1c.3.4.3 1 0 1.4l-9.4 9.5" stroke="#19707D" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M1.5 1.5l9.4 10.1c.3.4.3 1 0 1.4l-9.4 9.5" stroke="#19707D" stroke-width="1.5" stroke-linecap="round"/>
+                                    </g>
+                                </defs>
+                            </svg>
+                            <div class="pets__arrows">
+                                <button class="arrow arrow--left">
+                                    <svg width="17" height="24" fill="none">
+                                        <use href="#arrowRight"/>
+                                    </svg>
+                                </button>
+                                <button class="arrow arrow--right">
+                                    <svg width="17" height="24" fill="none">
+                                        <use href="#arrowRight"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="feed">
+            <div class="_wrapper _wrapper--middle">
+                <div class="feed__wrapper _wrapper__inner">
+                    <div class="feed__header">
+                        <h3 class="pets__heading h3-heading h3-heading--light">Pay and feed</h3>
+                        <button class="_btn _btn--m-pd _btn--light-green _btn--glow">Donate to volunteers</button>
+                    </div>
+                    <div class="feed__main">
+                        <div class="feed__item">
+                            <div class="story-card story-card--white story-card--additional-white">
+                                <div class="story-card__container">
+                                    <img class="story-card__img" width="52" height="44" src="../../assets/icons/stories/money-hand.svg" alt="">
+                                </div>
+                                <p class="story-card__txt">You donate to your favorite animals </p>
+                            </div>
+                        </div>
+                        <div class="feed__item">
+                            <div class="story-card story-card--white story-card--additional-white">
+                                <div class="story-card__container">
+                                    <img class="story-card__img" width="52" height="56" src="../../assets/icons/stories/apple-hand.svg" alt="">
+                                </div>
+                                <p class="story-card__txt">Zoo Keepers feed animals with their favorite food</p>
+                            </div>
+                        </div>
+                        <div class="feed__item">
+                            <div class="story-card story-card--white story-card--additional-white">
+                                <div class="story-card__container">
+                                    <img class="story-card__img" width="52" height="50" src="../../assets/icons/stories/monkey.svg" alt="">
+                                </div>
+                                <p class="story-card__txt">Animals are healthy and happy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="reviews">
+            <div class="_wrapper _wrapper--middle">
+                <div class="feed__wrapper _wrapper__inner">
+                    <div class="reviews__header">
+                        <h3 class="pets__heading h3-heading h3-heading--dark">Testimonials</h3>
+                        <a href="" class="_btn _btn--no-fill _btn--l-ls _btn--s-pd">
+                            <svg width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 17V4a3 3 0 013-3h10a3 3 0 013 3v6a3 3 0 01-3 3H5l-4 4zM5 5h8M5 9h6" stroke="#19707D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>Leave feedback
+                        </a>
+                    </div>
+                    <div class="reviews__main">
+                        <div class="review">
+                            <div class="review__figure">
+                                <time class="review__date" datetime="2020-12-20">20 December 2020</time>
+                                <p class="review__txt">Awesome place to observe my favourite aligators at Florida, the quality of the video is great.</p>
+
+                            </div>
+                            <p class="review__avatar">
+                                <img class="review__img" src="../../assets/images/reviewers/Adam.png" alt="adam avatar">
+                                Adam, Spain
+                            </p>
+                        </div>
+                        <div class="review">
+                            <div class="review__figure">
+                                <time class="review__date" datetime="2020-12-20">20 December 2020</time>
+                                <p class="review__txt">Awesome place to observe my favourite aligators at Florida, the quality of the video is great.</p>
+
+                            </div>
+                            <p class="review__avatar">
+                                <img class="review__img" src="../../assets/images/reviewers/Chris.png" alt="chris avatar">
+                                Chris, Australia
+                            </p>
+                        </div>
+                        <div class="review">
+                            <div class="review__figure">
+                                <time class="review__date" datetime="2020-12-20">20 December 2020</time>
+                                <p class="review__txt">Awesome place to observe my favourite aligators at Florida, the quality of the video is great.</p>
+
+                            </div>
+                            <p class="review__avatar">
+                                <img class="review__img" src="../../assets/images/reviewers/Amely.png" alt="amely avatar">
+                                Amely, USA
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="beautifuls">
+            <div class="_wrapper _wrapper--middle">
+                <div class="beautifuls__wrapper _wrapper__inner">
+                    <div class="beautifuls__header">
+                        <h3 class="pets__heading h3-heading h3-heading--dark">Look at this beautiful animals</h3>
+                    </div>
+                    <div class="beautifuls__main">
+                        <div class="beautifuls__animals-container">
+                            <!-- SCRIPT: AVATARS GENERATOR -->
+                            <script type="module" src="./js/generators/pet-avatars-generator.js"></script>
+                        </div>
+                        <div class="beautifuls__arrows">
+                            <button class="arrow arrow--left">
+                                <svg width="17" height="24" fill="none">
+                                    <use href="#arrowRight"/>
+                                </svg>
+                            </button>
+                            <button class="arrow arrow--right">
+                                <svg width="17" height="24" fill="none">
+                                    <use href="#arrowRight"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="_wrapper _wrapper--right">
+            <div class="footer__wrapper _wrapper__inner">
+                <div class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <!-- https://stackoverflow.com/questions/3239202/whats-the-correct-way-to-hide-the-h1-tag-and-not-be-banned-from-google -->
+                            <h1 class="logo">
+                                <a class="logo__link nav__link" href="./">
+                                    <img class="logo__img" src="../../assets/icons/logo.svg" alt="online zoo">
+                                </a>
+                            </h1>
+                        </li>
+                        <li class="nav__item nav__item--active"><a class="nav__link" href="./">About</a></li>
+                        <li class="nav__item"><a class="nav__link" href="../map/">Map</a></li>
+                        <li class="nav__item"><a class="nav__link" href="../zoos/panda/">Zoos</a></li>
+                        <li class="nav__item"><a class="nav__link" href="../error/">Contact us</a></li>
+                        <li class="nav__item"><a class="nav__link" 
+                            href="https://www.figma.com/file/vzrwoqf0kSG1uOify8BRBR/online-zoo?node-id=0%3A1">Design</a></li>
+                    </ul>
+                </div>
+                <div class="copyright">
+                    <address class="copyright__author">Design by Lemeshko Kateryna</address>
+                    <p class="copyright__holder">©RSSchool and ©Yem Digital 2021</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

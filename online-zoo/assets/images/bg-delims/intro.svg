@@ -1,0 +1,10 @@
+<svg width="1920" height="210" xmlns="http://www.w3.org/2000/svg">
+    <mask id="introBgMask" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1920" height="210">
+        <path transform="matrix(-1 0 0 1 1920 0)" fill="#C4C4C4" d="M0 0h1920v210H0z"/>
+    </mask>
+    <g mask="url(#introBgMask)" fill="#2A8086">
+        <rect width="1920" height="210" fill="#F6F9FA"/>
+        <path d="M-1-759L-21-88l-8 135c-2 23 16 43 39 43h106c6 0 11-1 16-4L321 3c5-2 11-3 16-3h299c10 0 19 3 26 9l91 75c5 4 10 7 16 8l366 87 9 1h434l15-3 194-80c11-5 24-4 34 2l82 43c20 10 45 2 54-19l68-141c3-6 4-12 4-17v-137c0-19-16-35-35-35-18 0-33-14-35-32l-39-514-1921-6z"/>
+        <path opacity=".3" d="M-1-729L-21-58l-8 135c-2 23 16 43 39 43h106c6 0 11-1 16-4l189-83c5-2 11-3 16-3h299c10 0 19 3 26 9l91 75c5 4 10 7 16 8l366 87 9 1h434l15-3 194-80c11-4 24-4 35 2l90 51c21 12 48 3 57-20l57-149 3-15v-138c0-19-16-35-35-35-18 0-33-14-35-32l-39-514-1921-6z"/>
+    </g>
+</svg>
