@@ -30,8 +30,7 @@
     }
 
     &--white &__container {
-            $bg-color: colors.$story-card-white-bg;
-        background: $bg-color;
+        background: colors.$story-card-white-bg;
     }
 
     $themes: "dark", "white";
@@ -56,23 +55,5 @@
                 map-get($card-colors, "bx-shadow"), $theme
             );
         }
-    }
-}
-
-.h3-heading {
-    margin: 0;
-    font-weight: 400;
-    font-size: 24px;
-    @include Rubik;
-    text-transform: uppercase;
-
-    &--light {
-            $txt-color: colors.$white;
-        color: $txt-color;
-    }
-
-    &--dark {
-            $txt-color: colors.$black;
-        color: $txt-color;
     }
 }

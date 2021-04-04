@@ -13,6 +13,7 @@
     }
 
     .copyright {
+        margin-top: 20px;
         @include Roboto;
         font-size: 16px;
         text-align: right;
@@ -20,7 +21,7 @@
 
         &__author {
             font-style: normal;
-            margin-bottom: 10px;
+            margin: 0 0 10px 0;
         }
 
         &__holder {
