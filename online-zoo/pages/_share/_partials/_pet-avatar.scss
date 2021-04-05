@@ -53,4 +53,56 @@
         color: colors.$txt-black;
         text-transform: uppercase;
     }
+
+    // border-radius: 120% 120% 170% 100% / 120% 120% 150% 150%;
+}
+
+/* MESSY CODE */
+
+.edit-me {
+    width: 105px;
+    text-align: center;
+}
+
+.avatar {
+    cursor: pointer;
+    // height: 95px;
+
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -1px;
+
+    svg {
+        width: 105px;
+        height: 95px;
+    }
+
+    &__clip {
+        transition: transform 1s;
+        transform: rotate(0deg);
+        transform-origin: 35px 35px;
+        will-change: transform;
+    }
+
+    &--active {
+        filter: drop-shadow(#{colors.$pet-avatar-active-shadow});
+        .avatar__back {
+            fill: colors.$map-avatar-hover;
+        }
+    }
+
+    &__back {
+        fill: none;
+        transition: fill 1s;
+    }
+
+    &:hover &__clip {
+        transform: rotate(360deg);
+    }
+
+    // &__back {
+    // }
+
+    // &__img {
+    // }
 }
