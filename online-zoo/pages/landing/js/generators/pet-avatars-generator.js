@@ -80,7 +80,7 @@ const generateAvatars = (container, config) => {
     const getAvatarTemplateConfigured = (avatarConfig) => {
         return getAvatarTemplate(avatarConfig, '#clippedRect')
     };
-    config.objects('../../assets/images/pet-cards/')
+    config.objects('../../assets/images/animals/')
         .map(avatarConfig => getAvatarTemplateConfigured(avatarConfig))
         .map(avatarTemplate => getNode(avatarTemplate))
         .forEach(avatarNode => {

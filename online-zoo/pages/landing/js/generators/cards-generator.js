@@ -78,7 +78,7 @@ const generateCards = (container, config) => {
             '../../../assets/icons/tv.svg', // iconPath
             '#clippedRect', // clippedRectId
     )};
-    config.objects('../../../assets/images/pet-cards/')
+    config.objects('../../../assets/images/animals/')
         .map(cardConfig => getCardTemplateConfigured(cardConfig))
         .map(cardTemplate => getNode(cardTemplate))
         .forEach(cardNode => {
