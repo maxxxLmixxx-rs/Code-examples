@@ -1,72 +1,56 @@
-const config = {
-    objects: (pathTo = '') => ([
-        {
-            name: 'Pandas',
-            url: pathTo + 'xtina-yu.jpg',
-            linkTo: '../pages/zoos/panda/',
-        },
-        {
-            name: 'Eagles',
-            url: pathTo + 'nathan-lemon.jpg',
-            linkTo: '../pages/zoos/eagle/',
-        },
-        {
-            name: 'Gorillas',
-            url: pathTo + 'simbi-yvan.jpg',
-            linkTo: '../pages/zoos/gorilla/',
-        },
-        {
-            name: 'Aligators',
-            url: pathTo + 'matthew-essman.jpg',
-            linkTo: '../pages/zoos/alligator/',
-        },
-        {
-            name: 'Elephants',
-            url: pathTo + 'marc-bombenon.jpg',
-            linkTo: null,
-        },
-        {
-            name: 'Lemurs',
-            url: pathTo + 'victoria-bragg.jpg',
-            linkTo: null,
-        },
-        /** REPEAT --> change object to array */
-        {
-            name: 'Pandas',
-            url: pathTo + 'xtina-yu.jpg',
-            linkTo: '../pages/zoos/panda/',
-        },
-        {
-            name: 'Pandas',
-            url: pathTo + 'xtina-yu.jpg',
-            linkTo: '../pages/zoos/panda/',
-        },
-        {
-            name: 'Pandas',
-            url: pathTo + 'xtina-yu.jpg',
-            linkTo: '../pages/zoos/panda/',
-        },
-        {
-            name: 'Pandas',
-            url: pathTo + 'xtina-yu.jpg',
-            linkTo: '../pages/zoos/panda/',
-        },
-    ])
-}
+/* Config */
 
-const getAvatarTemplate = ({ name, url, linkTo }, clippedRectId = null) => {
+const pathPrepend = '../../assets/images/animals/';
+const animals = {
+    panda: {
+        name: 'Pandas',
+        url: pathPrepend + 'xtina-yu.jpg',
+        linkTo: '../pages/zoos/panda/',
+    },
+    eagle: {
+        name: 'Eagles',
+        url: pathPrepend + 'nathan-lemon.jpg',
+        linkTo: '../pages/zoos/eagle/',
+    },
+    gorilla: {
+        name: 'Gorillas',
+        url: pathPrepend + 'simbi-yvan.jpg',
+        linkTo: '../pages/zoos/gorilla/',
+    },
+    alligator: {
+        name: 'Alligators',
+        url: pathPrepend + 'matthew-essman.jpg',
+        linkTo: '../pages/zoos/alligator/',
+    },
+    elephant: {
+        name: 'Elephants',
+        url: pathPrepend + 'marc-bombenon.jpg',
+        linkTo: null,
+    },
+    lemur: {
+        name: 'Lemurs',
+        url: pathPrepend + 'victoria-bragg.jpg',
+        linkTo: null,
+    },
+};
+
+const animalsConfigsArray = [...Object.values(animals), animals.panda];
+
+/* Functions */
+
+const getAvatarTemplate = ({ name, url, linkTo }) => {
     return (
         `<div class="pet-avatar">
-            <a class="pet-avatar__link-wrapper" href="${linkTo}">
-                <div class="pet-avatar__icon">
-                    <img class="pet-avatar__img" height="75" src="${url}" alt="${name} photo">
-                    <svg class="pet-avatar__mask" width="75" height="75" viewBox="0 0 238 237" fill="none">
-                        <use href="${clippedRectId}" fill="white"/>
+            <a class="pet-avatar__link-wrapper href="${linkTo}">
+                <svg class="pet-avatar__outer-svg" width="105" height="96" viewBox="0 0 105 96">
+                    <svg class="pet-avatar__inner-svg" mask="url(#avatarOuterClip)">
+                        <image class="pet-avatar__img" y="13" height="79" href="${url}"/>
+                        <rect class="pet-avatar__back" x="-25%" y="-25%" width="150%" height="150%" mask="url(#avatarInnerClip)"/>
                     </svg>
-                </div>
+                </svg>
                 <span class="pet-avatar__name">${name}</span>
             </a>
-        </div>`
+         </div>`
     );
 };
 
@@ -76,17 +60,16 @@ const getNode = (htmlString) => {
     return template.content.firstChild;
 };
 
-const generateAvatars = (container, config) => {
-    const getAvatarTemplateConfigured = (avatarConfig) => {
-        return getAvatarTemplate(avatarConfig, '#clippedRect')
-    };
-    config.objects('../../assets/images/animals/')
-        .map(avatarConfig => getAvatarTemplateConfigured(avatarConfig))
+const generateAvatars = (container, configsArray) => {
+    configsArray
+        .map(avatarConfig => getAvatarTemplate(avatarConfig))
         .map(avatarTemplate => getNode(avatarTemplate))
         .forEach(avatarNode => {
             container.appendChild(avatarNode)
         });
 };
 
-generateAvatars(
-    document.querySelector('.beautifuls__animals-container'), config);
+/* Init */
+
+const container = document.querySelector('.beautifuls__animals-container');
+generateAvatars(container, animalsConfigsArray);
