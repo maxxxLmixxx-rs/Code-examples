@@ -41,7 +41,7 @@ const animalsConfigsArray = [...Object.values(animals), animals.panda];
 const getAvatarTemplate = ({ name, url, linkTo }) => {
     return (
         `<div class="pet-avatar">
-            <a class="pet-avatar__link-wrapper href="${linkTo}">
+            <a class="pet-avatar__link-wrapper" href="${linkTo}">
                 <svg class="pet-avatar__outer-svg" width="105" height="96" viewBox="0 0 105 96">
                     <svg class="pet-avatar__inner-svg" mask="url(#avatarOuterClip)">
                         <image class="pet-avatar__img" y="13" height="79" href="${url}"/>
