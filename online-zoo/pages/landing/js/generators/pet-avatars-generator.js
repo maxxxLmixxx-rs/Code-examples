@@ -43,7 +43,7 @@ const getAvatarTemplate = ({ name, url, linkTo }) => {
         `<div class="pet-avatar">
             <a class="pet-avatar__link-wrapper" href="${linkTo}">
                 <svg class="pet-avatar__outer-svg" width="105" height="96" viewBox="0 0 105 96">
-                    <svg class="pet-avatar__inner-svg" mask="url(#avatarOuterClip)">
+                    <svg class="pet-avatar__inner-svg" mask="url(#avatarOuterClip)" fill="#F6F9FA">
                         <image class="pet-avatar__img" y="13" height="79" href="${url}"/>
                         <rect class="pet-avatar__back" x="-25%" y="-25%" width="150%" height="150%" mask="url(#avatarInnerClip)"/>
                     </svg>
