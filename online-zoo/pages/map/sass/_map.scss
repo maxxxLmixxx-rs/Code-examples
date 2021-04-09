@@ -1,0 +1,105 @@
+@use '../../_share/_import/fonts' as *;
+@use '../../_share/_vars/colors';
+
+.map {
+    flex: 1 1 100%;
+	display: flex;
+	flex-direction: column;
+
+    ._wrapper {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    &__wrapper {
+        position: relative;
+    }
+
+    &__header {
+        margin: 30px 0 55px;
+    }
+
+    &__body {
+        flex: 1 1 100%;
+        width: 100vw;
+        display: flex;
+    }
+
+    &__svg-container {
+        flex-grow: 1;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    // &__svg {
+    // }
+}
+
+.avatar {
+    cursor: pointer;
+    filter: drop-shadow(#{colors.$map-avatar-shadow});
+
+    &__clip {
+        transition: transform 1s;
+        transform: rotate(0deg);
+        transform-origin: 35px 35px;
+        will-change: transform;
+    }
+
+    &__back {
+        fill: colors.$map-avatar;
+        transition: fill 1s;
+    }
+
+    &:hover &__back {
+        fill: colors.$map-avatar-hover;
+    }
+    &:hover &__clip {
+        transform: rotate(360deg);
+    }
+
+    // &__back {
+    // }
+
+    // &__img {
+    // }
+
+    &:hover {
+        & + .tooltip {
+            opacity: 1;
+        }
+        // & + .tooltip.tooltip--reverse {
+        // }
+    }
+}
+
+.tooltip {
+    opacity: 0;
+    transition-duration: .8s;
+    transition-property: transform, opacity;
+    fill: colors.$map-tooltip-bg;
+    pointer-events: none;
+
+    filter: drop-shadow(#{colors.$map-tooltip-shadow});
+    
+    &__back {
+        stroke: colors.$footer-bg;
+        stroke-width: 1px;
+    }
+
+    &__name, &__description {
+        fill: colors.$map-tooltip-txt;
+        font-size: 14px;
+        @include Roboto;
+    }
+}
+
+.zoom {
+    position: absolute;
+    display: flex;
+    bottom: 25px;
+    right: 0;
+    gap: 15px;
+}

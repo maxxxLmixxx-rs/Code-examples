@@ -19,7 +19,7 @@ const config = {
             linkTo: '../zoos/gorilla/',
         },
         {
-            name: 'Aligators',
+            name: 'Alligators',
             description: 'St. Augustine\'s Alligator Farm Zoological Park',
             url: pathTo + 'matthew-essman.jpg',
             linkTo: '../zoos/alligator/',

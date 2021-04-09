@@ -1,0 +1,17 @@
+.side-menu {
+    width: 105px;
+    margin-right: 20px;
+    padding-top: 40px;
+
+    &__list {
+        position: sticky;
+        top: 40px;
+        list-style: none;
+        margin-bottom: 30px;
+    }
+
+    &__item:not(:first-child),
+    &__item:not(:last-child) {
+        margin-bottom: 60px;
+    }
+}

@@ -7,15 +7,15 @@ const animals = {
         url: pathPrepend + 'xtina-yu.jpg',
         linkTo: '../pages/zoos/panda/',
     },
-    eagle: {
-        name: 'Eagles',
-        url: pathPrepend + 'nathan-lemon.jpg',
-        linkTo: '../pages/zoos/eagle/',
-    },
     gorilla: {
         name: 'Gorillas',
         url: pathPrepend + 'simbi-yvan.jpg',
         linkTo: '../pages/zoos/gorilla/',
+    },
+    eagle: {
+        name: 'Eagles',
+        url: pathPrepend + 'nathan-lemon.jpg',
+        linkTo: '../pages/zoos/eagle/',
     },
     alligator: {
         name: 'Alligators',

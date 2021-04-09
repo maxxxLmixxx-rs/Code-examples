@@ -1,0 +1,156 @@
+@use 'sass:map';
+@use '../../_vars/functions' as *;
+@use '../../_vars/colors';
+
+/* VARS */
+
+$bg-height: 521;
+$bg-width: 1920;
+
+@function height-value($bottom-offset, $height) {
+    @return #{$bg-height - ($bottom-offset + $height)}px;
+}
+
+/* OBJECTS */
+
+$objects: (
+    "bamboo-1": (
+        ">1920px": (
+            x: calc(50vw - 843px - 115px),
+            y: height-value(255, 206),
+            w: 116px,
+            h: 206px,
+        ),
+        "<1920px": (
+            x: #{50 - vw(843 + 115)}vw,
+            y: height-value(255, 206),
+            w: 116px,
+            h: 206px,
+        ),
+        url: url("../../../assets/icons/bg-items/bamboo.svg")
+    ),
+    "tree-1": (
+        ">1920px": (
+            x: calc(50vw - 610px - 130px),
+            y: height-value(247, 230),
+            w: 130px,
+            h: 230px,
+        ),
+        "<1920px": (
+            x: #{50 - vw(610 + 130)}vw, 
+            y: height-value(247, 230),
+            w: 130px,
+            h: 230px,
+        ),
+        url: url("../../../assets/icons/bg-items/tree.svg")
+    ),
+    "bamboo-2": (
+        ">1920px": (
+            x: calc(50vw + 80px),
+            y: height-value(150, 261),
+            w: 147px,
+            h: 261px,
+        ),
+        "<1920px": (
+            x: calc(50vw + 80px),
+            y: height-value(150, 261),
+            w: 147px,
+            h: 261px,
+        ),
+        url: url("../../../assets/icons/bg-items/bamboo.svg")
+    ),
+    "panda": (
+        ">1920px": (
+            x: calc(50vw - 10px),
+            y: height-value(165, 155),
+            w: 163px,
+            h: 155px,
+        ),
+        "<1920px": (
+            x: calc(50vw - 10px),
+            y: height-value(165, 155),
+            w: 163px,
+            h: 155px,
+        ),
+        url: url("../../../assets/icons/bg-items/panda.svg")
+    ),
+
+    "tree-2": (
+        ">1920px": (
+            x: calc(50vw -  75px - 90px),
+            y: height-value(260, 160),
+            w: 90px,
+            h: 160px,
+        ),
+        "<1920px": (
+            x: #{50 - vw(75 + 90)}vw, 
+            y: height-value(260, 160),
+            w: 90px,
+            h: 160px,
+        ),
+        url: url("../../../assets/icons/bg-items/tree.svg")
+    ),
+    "tree-3": (
+        ">1920px": (
+            x: calc(50vw +  655px),
+            y: height-value(130, 230),
+            w: 130px,
+            h: 230px,
+        ),
+        "<1920px": (
+            x: #{50 + vw(655)}vw,
+            y: height-value(130, 230),
+            w: 130px,
+            h: 230px,
+        ),
+        url: url("../../../assets/icons/bg-items/tree.svg")
+    ),
+    "background": (
+        ">1920px": (
+            x: 50%, 
+            y: 0%,
+            w: 100%,
+            h: 100%,
+        ),
+        "<1920px": (
+            x: 50%, 
+            y: 0%,
+            w: auto,
+            h: auto,
+        ),
+        url: url("../../../assets/images/bg-delims/scene-1.svg")
+    ),
+);
+
+._scene._scene--complete {
+    position: relative;
+    &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: #{$bg-height}px;
+
+        // [.] height: $resize-height;
+        // [.] max-height: 700px;
+
+        background:
+            get-background($objects, "bamboo-2", "<1920px"),
+            get-background($objects, "panda",  "<1920px"),
+            get-background($objects, "bamboo-1", "<1920px"),
+            get-background($objects, "tree-1",   "<1920px"),
+            get-background($objects, "tree-2", "<1920px"),
+            get-background($objects, "tree-3", "<1920px"),
+            get-background($objects, "background", "<1920px");
+
+        @media (min-width: 1920px) {
+            background:
+                get-background($objects, "bamboo-2", ">1920px"),
+                get-background($objects, "panda",  ">1920px"),
+                get-background($objects, "bamboo-1", ">1920px"),
+                get-background($objects, "tree-1",   ">1920px"),
+                get-background($objects, "tree-2", ">1920px"),
+                get-background($objects, "tree-3", ">1920px"),
+                get-background($objects, "background", ">1920px");
+        }
+    }    
+}
