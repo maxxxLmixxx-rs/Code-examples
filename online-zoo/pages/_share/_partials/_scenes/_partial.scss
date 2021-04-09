@@ -124,7 +124,7 @@ $objects: (
     ),
 );
 
-._scene ._scene--partial {
+._scene._scene--partial {
     position: relative;
     &::after {
         content: "";

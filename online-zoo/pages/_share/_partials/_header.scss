@@ -1,3 +1,6 @@
+@use '../_import/normalize';
+@use '../_import/general';
+
 @use '../_import/fonts' as *;
 @use '../_vars/colors';
 
@@ -49,10 +52,8 @@
             border-radius: 1px;
             background: $link-color;
             margin: 5px 0 -5px;
-            // transform: scale(0);
-            // transition: transform 0.3s;
         }
-        /* Link hover */
+        
         &:hover:not(:first-child) {
             /* Not logo */
             opacity: 0.8;
@@ -148,19 +149,18 @@
         border: none;
         border-bottom: 1px solid $txt-color;
         background: none;
-        /* Transition */
         transition-property: opacity, transform;
         transition-duration: .3s;
         opacity: 0.7;
         transform: translateX(65%)  scaleX(0);
         pointer-events: none;
+
         &:focus {
             opacity: 1;
             outline: none;
         }
     }
 
-    /* Active state */
     &--active &__input {
         transform: translateX(0%) scaleX(1);
         pointer-events: all;
