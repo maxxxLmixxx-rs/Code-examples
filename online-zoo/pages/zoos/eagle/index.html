@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../_styles/_main.css">
+    <script src="../_scripts/search-bar.js" defer></script>
+    <title>Zoos eagle page</title>
+</head>
+<body>
+    <header class="header">
+        <div class="_wrapper _wrapper--right">
+            <div class="header__wrapper _wrapper__inner">
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <!-- https://stackoverflow.com/questions/3239202/whats-the-correct-way-to-hide-the-h1-tag-and-not-be-banned-from-google -->
+                            <h1 class="logo">
+                                <a class="logo__link nav__link" href="../../landing/">
+                                    <img class="logo__img" src="../../../assets/icons/logo.svg" alt="online zoo">
+                                </a>
+                            </h1>
+                        </li>
+                        <li class="nav__item"><a class="nav__link" href="../../landing/">About</a></li>
+                        <li class="nav__item"><a class="nav__link" href="../../map/">Map</a></li>
+                        <li class="nav__item nav__item--active"><a class="nav__link" href="../zoos/panda/">Zoos</a></li>
+                        <li class="nav__item"><a class="nav__link" href="../../error/">Contact us</a></li>
+                        <li class="nav__item"><a class="nav__link"
+                            href="https://www.figma.com/file/vzrwoqf0kSG1uOify8BRBR/online-zoo?node-id=0%3A1">Design</a></li>
+                    </ul>
+                </nav>
+                <div class="menu">
+                    <ul class="menu__list">
+                        <li class="menu__item">
+                            <div id="search" class="search">
+                                <input class="search__input" type="text" placeholder="Search...">
+                                <button class="search__btn">
+                                    <svg class="search__icon" width="28" height="28" fill="none"><path d="M11.3 20.7a9.3 9.3 0 100-18.7 9.3 9.3 0 000 18.7zM26 26l-8-8" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </button>
+                            </div>
+                        </li>
+                        <li class="menu__item">
+                            <button id="log-button" class="menu__button">Log in</button>
+                        </li>
+                        <li class="menu__item">
+                            <button id="sign-button" class="menu__button menu__button--round">Sign up</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main _scene _scene--partial">
+        <div class="_wrapper _wrapper--middle">
+            <div class="main__wrapper _wrapper__inner">
+                <aside class="side-menu">
+                    <ul class="side-menu__list">
+                        <svg id="petAvatarReference" style="position: absolute;" width="0" height="0" viewBox="0 0 105 96">
+                            <defs>
+                                <mask id="avatarOuterClip">
+                                    <path fill="white" d="M95.76 19.93c9.1 11.63 11.63 27.48 6.91 39.67-4.72 12.2-16.52 20.8-30.1 27.5-13.49 6.68-28.74 11.54-41.73 7.32-12.98-4.14-23.77-17.2-28.4-32.67-4.56-15.45-2.96-33.3 6.82-45.01C19.12 4.94 37.08-.8 54.03.09c16.86.87 32.62 8.28 41.73 19.84z"/>
+                                <mask>
+                                <mask id="avatarInnerClip">
+                                    <rect fill="white" x="-25%" y="-25%" width="150%" height="150%"/>
+                                    <path fill="black" d="M84.31 31.23c6.59 8.89 8.42 21 5 30.32-3.41 9.32-11.96 15.9-21.78 21.01-9.76 5.12-20.8 8.83-30.2 5.6C27.92 85 20.11 75.01 16.75 63.2c-3.3-11.82-2.14-25.46 4.94-34.4 7.14-9.02 20.14-13.4 32.4-12.73 12.2.67 23.62 6.33 30.21 15.16z"/>
+                                </mask>
+                            </defs>
+                        </svg>
+                        <li class="side-menu__item">
+                            <div class="pet-avatar">
+                                <a class="pet-avatar__link-wrapper" href="../panda/">
+                                    <svg class="pet-avatar__outer-svg" width="105" height="96" viewBox="0 0 105 96">
+                                        <svg class="pet-avatar__inner-svg" mask="url(#avatarOuterClip)" fill="#F6F9FA">
+                                            <image class="pet-avatar__img" y="13" height="79" href="../../../assets/images/animals/xtina-yu.jpg"/>
+                                            <rect class="pet-avatar__back" x="-25%" y="-25%" width="150%" height="150%" mask="url(#avatarInnerClip)"/>
+                                        </svg>
+                                    </svg>
+                                    <span class="pet-avatar__name">Pandas</span>
+                                </a>
+                             </div>
+                        </li>
+                        <li class="side-menu__item">
+                            <div class="pet-avatar pet-avatar--active">
+                                <a class="pet-avatar__link-wrapper" href="../eagle/">
+                                    <svg class="pet-avatar__outer-svg" width="105" height="96" viewBox="0 0 105 96">
+                                        <svg class="pet-avatar__inner-svg" mask="url(#avatarOuterClip)" fill="#F6F9FA">
+                                            <image class="pet-avatar__img" y="13" height="79" href="../../../assets/images/animals/nathan-lemon.jpg"/>
+                                            <rect class="pet-avatar__back" x="-25%" y="-25%" width="150%" height="150%" mask="url(#avatarInnerClip)"/>
+                                        </svg>
+                                    </svg>
+                                    <span class="pet-avatar__name">Eagles</span>
+                                </a>
+                             </div>
+                        </li>
+                        <li class="side-menu__item">
+                            <div class="pet-avatar">
+                                <a class="pet-avatar__link-wrapper" href="../gorilla/">
+                                    <svg class="pet-avatar__outer-svg" width="105" height="96" viewBox="0 0 105 96">
+                                        <svg class="pet-avatar__inner-svg" mask="url(#avatarOuterClip)" fill="#F6F9FA">
+                                            <image class="pet-avatar__img" y="13" height="79" href="../../../assets/images/animals/simbi-yvan.jpg"/>
+                                            <rect class="pet-avatar__back" x="-25%" y="-25%" width="150%" height="150%" mask="url(#avatarInnerClip)"/>
+                                        </svg>
+                                    </svg>
+                                    <span class="pet-avatar__name">Gorillas</span>
+                                </a>
+                             </div>
+                        </li>
+                        <li class="side-menu__item">
+                            <div class="pet-avatar">
+                                <a class="pet-avatar__link-wrapper" href="../alligator/">
+                                    <svg class="pet-avatar__outer-svg" width="105" height="96" viewBox="0 0 105 96">
+                                        <svg class="pet-avatar__inner-svg" mask="url(#avatarOuterClip)" fill="#F6F9FA">
+                                            <image class="pet-avatar__img" y="13" height="79" href="../../../assets/images/animals/matthew-essman.jpg"/>
+                                            <rect class="pet-avatar__back" x="-25%" y="-25%" width="150%" height="150%" mask="url(#avatarInnerClip)"/>
+                                        </svg>
+                                    </svg>
+                                    <span class="pet-avatar__name">Alligators</span>
+                                </a>
+                             </div>
+                        </li>
+                    </ul>
+                </aside>
+                <div class="zoo-wrapper">
+                    <section class="broadcast">
+                        <div class="broadcast__header">
+                            <h2 class="broadcast__heading section-heading section-heading--dark">Eagles</h2>
+                            <div class="broadcast__header-icons">
+                                <button class="broadcast__header-icon">
+                                    <svg width="43" height="42" fill="none">
+                                        <rect stroke-width="1.5" x=".75" y=".75" width="40.5" height="40.5" rx="20.25" stroke="#19707D"/>
+                                        <path fill="#19707D" d="M22 31h-2.17V18.32H22V31zm-2.35-16.04c0-.35.1-.65.32-.9.22-.24.54-.36.96-.36.42 0 .74.12.96.37.22.24.33.54.33.89s-.11.64-.33.88c-.22.23-.54.35-.96.35-.42 0-.74-.12-.96-.35a1.26 1.26 0 01-.32-.88z"/>
+                                    </svg>
+                                </button>
+                                <button class="broadcast__header-icon">
+                                    <svg width="42" height="42" fill="none">
+                                        <rect stroke="#19707D" x=".75" y=".75" width="40.5" height="40.5" rx="20.25" stroke-width="1.5"/>
+                                        <path stroke="#19707D" d="M28.51 23.58l-7.5 7.43-7.5-7.43a5 5 0 117.5-6.56 5 5 0 117.5 6.57" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+
+                            </div>
+                        </div>
+                        <div class="broadcast__body">
+                            <div class="broadcast__main-video _block-description" data-description="Main Cameras">
+                                <div>
+                                    <iframe width="560" height="315" frameborder="0" src="https://www.youtube.com/embed/dUE_AMCliSU?modestbranding=1&showinfo=0&rel=0&iv_load_policy=3"></iframe>
+                                </div>
+                            </div>
+                            <div class="broadcast__cameras _block-description" data-description="Side Cameras">
+                                <!-- ARROW REFERENCE -->
+                                <svg id="arrowsReference" style="position: absolute;" width="0" height="0">
+                                    <defs>
+                                        <g id="arrowRight">
+                                            <path d="M6.5 1.5l9.4 10.1c.3.4.3 1 0 1.4l-9.4 9.5" stroke="#19707D" stroke-width="1.5" stroke-linecap="round"/>
+                                            <path d="M1.5 1.5l9.4 10.1c.3.4.3 1 0 1.4l-9.4 9.5" stroke="#19707D" stroke-width="1.5" stroke-linecap="round"/>
+                                        </g>
+                                    </defs>
+                                </svg>
+                                <div class="broadcast__cameras-container">
+                                    <div class="broadcast__camera broadcast__camera--live broadcast__camera--gag">
+                                        <iframe width="560" height="315" frameborder="0" src="https://www.youtube.com/embed/dUE_AMCliSU?modestbranding=1&showinfo=0&rel=0&iv_load_policy=3"></iframe>
+                                    </div>
+                                    <div class="broadcast__camera broadcast__camera--live broadcast__camera--gag">
+                                        <iframe width="560" height="315" frameborder="0" src="https://www.youtube.com/embed/dUE_AMCliSU?modestbranding=1&showinfo=0&rel=0&iv_load_policy=3"></iframe>
+                                    </div>
+                                    <div class="broadcast__camera broadcast__camera--live broadcast__camera--gag">
+                                        <iframe width="560" height="315" frameborder="0" src="https://www.youtube.com/embed/dUE_AMCliSU?modestbranding=1&showinfo=0&rel=0&iv_load_policy=3"></iframe>
+                                    </div>
+                                </div>
+                                <div class="broadcast__arrows">
+                                    <button class="arrow arrow--left">
+                                        <svg width="17" height="24" fill="none">
+                                            <use href="#arrowRight"/>
+                                        </svg>
+                                    </button>
+                                    <button class="arrow arrow--right">
+                                        <svg width="17" height="24" fill="none">
+                                            <use href="#arrowRight"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="description">
+                        <div class="description__container">
+                            <article class="zoo-info _text-article">
+                                <div class="zoo-info__header">
+                                    <h2 class="description__heading section-heading section-heading--dark">Information</h2>
+                                </div>
+                                <div class="zoo-info__body">
+                                    <ul class="zoo-info__list">
+                                        <li class="zoo-info__item">
+                                            <h3>Zoo</h3>
+                                            <p><a href="https://en.wikipedia.org/wiki/Santa_Catalina_Island_(California)">Catalina Island</a></p>
+                                        </li>
+                                        <li class="zoo-info__item">
+                                            <h3>Type of aviary</h3>
+                                            <p>Imitation of the natural environment</p>
+                                        </li>
+                                        <li class="zoo-info__item">
+                                            <h3>Habitat</h3>
+                                            <p><a href="https://en.wikipedia.org/wiki/Gulf_of_Santa_Catalina"> The coast of Southern California in the Gulf of Santa Catalina</a></p>
+                                        </li>
+                                        <li class="zoo-info__item">
+                                            <h3>Type of food</h3>
+                                            <p>Fish</p>
+                                        </li class="zoo-info__item">
+                                        <li class="zoo-info__item">
+                                            <h3>Population in the world</h3>
+                                            <p>In 2020, seven pairs of Bald Eagles nested on Catalina Island and four chicks fledged.</p>
+                                        </li>
+                                        <li class="zoo-info__item">
+                                            <h3>About species</h3>
+                                            <p>The bald eagle (Haliaeetus leucocephalus) is a bird of prey found in North America.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+                            <article class="zoo-facts _text-article _text-article--leaf-list">
+                                <div class="zoo-facts__header">
+                                    <h2 class="description__heading section-heading section-heading--dark">Interesting facts</h2>
+                                </div>
+                                <div class="zoo-facts__body">
+                                    <ul class="zoo-facts__list">
+                                        <li class="zoo-facts__item">
+                                            <p>Distinguishing feature of the immature bald eagle over the mature bird is its black, yellow-tipped beak; the mature eagle has a fully yellow beak.</p>
+                                        </li>
+                                        <li class="zoo-facts__item">
+                                            <p>The bald eagle has sometimes been considered the largest true raptor (accipitrid) in North America.</p>
+                                        </li>
+                                        <li class="zoo-facts__item">
+                                            <p>The bald eagle has a body length of 70–102 cm. Typical wingspan is between 1.8 and 2.3 m  and mass is normally between 3 and 6.3 kg.</p>
+                                        </li>
+                                        <li class="zoo-facts__item">
+                                            <p>Female pandas give birth to one or two cubs every two years. Cubs stay with their mothers for 18 months before venturing off on their own.</p>
+                                        </li>
+                                        <li class="zoo-facts__item">
+                                            <p>BTo hunt fish, the eagle swoops down over the water and snatches the fish out of the water with its talons.</p>
+                                        </li>
+                                        <li class="zoo-facts__item">
+                                            <p>The bald eagle is a powerful flier, and soars on thermal convection currents. It reaches speeds of 56–70 km/h (35–43 mph) when gliding and flapping.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class="main__bottom-float">
+            <button class="_btn _btn--m-pd _btn--light-green _btn--glow">Donate to volunteers</button>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="_wrapper _wrapper--right">
+            <div class="footer__wrapper _wrapper__inner">
+                <div class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <div class="logo">
+                                <a class="logo__link nav__link" href="../../landing/">
+                                    <img class="logo__img" src="../../../assets/icons/logo.svg" alt="online zoo">
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav__item"><a class="nav__link" href="../../landing/">About</a></li>
+                        <li class="nav__item"><a class="nav__link" href="../../map/">Map</a></li>
+                        <li class="nav__item"><a class="nav__link" href="../zoos/panda/">Zoos</a></li>
+                        <li class="nav__item"><a class="nav__link" href="../../error/">Contact us</a></li>
+                        <li class="nav__item"><a class="nav__link" 
+                            href="https://www.figma.com/file/vzrwoqf0kSG1uOify8BRBR/online-zoo?node-id=0%3A1">Design</a></li>
+                    </ul>
+                </div>
+                <div class="copyright">
+                    <address class="copyright__author">Design by Lemeshko Kateryna</address>
+                    <p class="copyright__holder">©RSSchool and ©Yem Digital 2021</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

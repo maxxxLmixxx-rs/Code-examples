@@ -4,25 +4,25 @@ const config = {
             name: 'Pandas',
             description: 'Shenshuping Gengda Panda Center',
             url: pathTo + 'xtina-yu.jpg',
-            linkTo: '../pages/zoos/panda/',
+            linkTo: '../zoos/panda/',
         },
         {
             name: 'Eagles',
             description: 'Catalina Island',
             url: pathTo + 'nathan-lemon.jpg',
-            linkTo: '../pages/zoos/eagle/',
+            linkTo: '../zoos/eagle/',
         },
         {
             name: 'Gorillas',
             description: 'GRACE gorillas',
             url: pathTo + 'simbi-yvan.jpg',
-            linkTo: '../pages/zoos/gorilla/',
+            linkTo: '../zoos/gorilla/',
         },
         {
             name: 'Aligators',
             description: 'St. Augustine\'s Alligator Farm Zoological Park',
             url: pathTo + 'matthew-essman.jpg',
-            linkTo: '../pages/zoos/alligator/',
+            linkTo: '../zoos/alligator/',
         },
         {
             name: 'Elephants',
@@ -78,7 +78,7 @@ const generateCards = (container, config) => {
             '../../../assets/icons/tv.svg', // iconPath
             '#clippedRect', // clippedRectId
     )};
-    config.objects('../../../assets/images/pet-cards/')
+    config.objects('../../../assets/images/animals/')
         .map(cardConfig => getCardTemplateConfigured(cardConfig))
         .map(cardTemplate => getNode(cardTemplate))
         .forEach(cardNode => {
