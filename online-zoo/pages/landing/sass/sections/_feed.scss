@@ -83,7 +83,9 @@ $objects: (
     }
 
     &__main {
-        padding: 0 var(--padding);
+        max-width: 1210px;
+        margin: 0 auto;
+
         display: flex;
         justify-content: space-between;
         position: relative;
