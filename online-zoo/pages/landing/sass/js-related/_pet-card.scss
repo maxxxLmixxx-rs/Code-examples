@@ -2,8 +2,8 @@
 @use '../../../_share/_import/fonts' as *;
 
 .pet-card {
-    // --card-color: #{colors.$pet-card-main};
     width: 100%;
+    --card-color: #{colors.$pet-card-main};
 
     padding: 20px 0;
     max-width: 480px;
@@ -19,9 +19,9 @@
     }
 
     background: 
-        var(--card-color)
-        var(--bg-icon) calc(100% - 30px) calc(100% - 30px)
-        no-repeat;
+        calc(100% - 30px) calc(100% - 30px) no-repeat
+        url("../../../assets/icons/tv.svg");
+    background-color: var(--card-color);
 
     &:hover {
         transform: scale(1.01);
@@ -30,15 +30,12 @@
         }
     }
 
+    &__img {
+        width: auto;
+        height: 100%;
+    }
+
     &__mask {
-        background: 
-            linear-gradient(to top, #{colors.$pet-card-filter} 0% 100%),
-            center / auto 100% no-repeat var(--url);
-            /* Hide transform glitch */
-            box-shadow: inset 0 0 0 1px var(--card-color);
-            @media (min-width: 1920px) {
-                box-shadow: inset 0 0 0 2px var(--card-color);
-            }
         use {  
             fill: var(--card-color);
             transition: transform 1s;
