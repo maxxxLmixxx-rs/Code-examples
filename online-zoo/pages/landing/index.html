@@ -135,13 +135,17 @@
                     </div>
                     <div class="pets__cards">
                         <!-- SVG: CLIP FIGURE REFERENCE -->
-                        <svg id="petCardReference" style="position: absolute;" width="0" height="0">
+                        <svg id="petCardReference" style="position: absolute;" width="0" height="0" viewBox="0 0 238 237">
                             <defs>
+                                <rect id="petCardClippedRect" mask="url(#petCardClip)" x="-50%" y="-50%" width="200%" height="200%"/>
+                                <rect id="petCardFilterRect" x="-25%" y="-25%" width="150%" height="150%"/>
                                 <mask id="petCardClip">
-                                    <rect fill="white" x="-100" y="-100" width="436" height="435"/>
+                                    <rect fill="white" x="-50%" y="-50%" width="200%" height="200%"/>
                                     <path fill="black" d="M213.77 53.87c19.85 26.78 25.36 63.28 15.07 91.34-10.29 28.06-36.02 47.87-65.62 63.28-29.4 15.4-62.67 26.6-90.98 16.88-28.3-9.54-51.83-39.62-61.94-75.2C.38 114.57 3.87 73.5 25.2 46.52 46.69 19.4 85.84 6.18 122.79 8.2c36.76 2.02 71.13 19.08 90.98 45.67z"/>
                                 </mask>
-                                <rect id="clippedRect" mask="url(#petCardClip)" x="-100" y="-100" width="436" height="435"/>
+                                <clipPath id="petCardImageClip">
+                                    <rect x="1%" y="1%" width="98%" height="98%"/>
+                                </clipPath>
                             </defs>
                         </svg>
                         <div class="pets__cards-container">
@@ -270,6 +274,7 @@
                         <div class="beautifuls__animals-container">
                             <svg id="petAvatarReference" style="position: absolute;" width="0" height="0" viewBox="0 0 105 96">
                                 <defs>
+                                    <rect id="avatarClippedRect" x="-25%" y="-25%" width="150%" height="150%" mask="url(#avatarInnerClip)"/>
                                     <mask id="avatarOuterClip">
                                         <path fill="white" d="M95.76 19.93c9.1 11.63 11.63 27.48 6.91 39.67-4.72 12.2-16.52 20.8-30.1 27.5-13.49 6.68-28.74 11.54-41.73 7.32-12.98-4.14-23.77-17.2-28.4-32.67-4.56-15.45-2.96-33.3 6.82-45.01C19.12 4.94 37.08-.8 54.03.09c16.86.87 32.62 8.28 41.73 19.84z"/>
                                     <mask>

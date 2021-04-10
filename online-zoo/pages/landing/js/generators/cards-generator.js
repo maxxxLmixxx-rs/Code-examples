@@ -40,21 +40,14 @@ const config = {
     // 'bob-walke.jpg', 'luca-abad-lopez.jpg',
 };
 
-const getCardTemplate = (
-    { name, description, url, linkTo },
-    iconPath = null,
-    clippedRectId = null,
-    cardColor = null
-) => {
-    const iconVar = iconPath ? `--bg-icon: url('${iconPath}')` : ``;
-    const cardColorVar = cardColor ? '--color: ${cardColor}' : ``;
-    /* CSS vars: --url, [--bg-icon], [--color] */
+const getCardTemplate = ({ name, description, url, linkTo }) => {
     return (
-        `<article class="pet-card" 
-            style="--url: url('${url}'); ${iconVar} ${cardColorVar}">
+        `<article class="pet-card">
             <a class="pet-card__link" href="${linkTo ? linkTo : ``}">
                 <svg width="238" height="237" viewBox="0 0 238 237" class="pet-card__mask" fill="none">
-                    ${clippedRectId ? `<use href="${clippedRectId}" fill="white"/>` : ``}
+                    <image class="pet-card__img" clip-path="url(#petCardImageClip)" x="-25%" height="220px" href="${url}"/>
+                    <use class="pet-card__filter" href="#petCardFilterRect" />
+                    <use class="pet-card__back" href="#petCardClippedRect" fill="white"/>
                 </svg>
                 <div class="pet-card__description">
                     <h4 class="pet-card__heading">${name}</h4>
@@ -72,14 +65,8 @@ const getNode = (htmlString) => {
 };
 
 const generateCards = (container, config) => {
-    const getCardTemplateConfigured = (cardConfig) => {
-        return getCardTemplate(
-            cardConfig,
-            '../../../assets/icons/tv.svg', // iconPath
-            '#clippedRect', // clippedRectId
-    )};
-    config.objects('../../../assets/images/animals/')
-        .map(cardConfig => getCardTemplateConfigured(cardConfig))
+    config.objects('../../assets/images/animals/')
+        .map(cardConfig => getCardTemplate(cardConfig))
         .map(cardTemplate => getNode(cardTemplate))
         .forEach(cardNode => {
             container.appendChild(cardNode)
