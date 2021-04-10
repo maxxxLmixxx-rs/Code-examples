@@ -2,9 +2,9 @@
 @use '../../../_share/_import/fonts' as *;
 
 .pet-card {
-    width: 100%;
-    --card-color: #{colors.$pet-card-main};
+        --card-color: #{colors.$pet-card-main};
 
+    width: 100%;
     padding: 20px 0;
     max-width: 480px;
     position: relative;
@@ -25,9 +25,9 @@
 
     &:hover {
         transform: scale(1.01);
-        use {
-            transform: rotate(360deg);
-        }
+    }
+    &:hover &__back {
+        transform: rotate(360deg);
     }
 
     &__img {
@@ -35,13 +35,15 @@
         height: 100%;
     }
 
-    &__mask {
-        use {  
-            fill: var(--card-color);
-            transition: transform 1s;
-            transform: rotate(0deg);
-            transform-origin: center;
-        }
+    &__filter {
+        fill: colors.$pet-card-filter;
+    }
+
+    &__back {  
+        fill: var(--card-color);
+        transition: transform 1s;
+        transform: rotate(0deg);
+        transform-origin: center;
     }
 
     &__description {
@@ -53,7 +55,7 @@
 
     &__heading {
         margin: 17px 0 0;
-        font-size: 24px;
+        font-size: 26px;
         font-weight: 500;
         color: colors.$pet-card-heading;
     }
