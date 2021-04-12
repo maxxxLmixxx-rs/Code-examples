@@ -1,0 +1,23 @@
+$breakpoints: (
+    '>wrapper': ( min-width: 1610px ),
+    '>desktop': ( min-width: 1200px ),
+    '>tablet' : ( min-width:  640px ),
+
+    '<wrapper': ( max-width: 1610px ),
+    '<desktop': ( max-width: 1200px ),
+    '<tablet' : ( max-width:  640px ),
+    '<mobile' : ( max-width:  320px ),
+);
+
+// inspect() -> toString()
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    }
+    @else {
+        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+            + "Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}
