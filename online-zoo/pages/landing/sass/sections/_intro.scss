@@ -1,6 +1,6 @@
 @use '../../../_share/_vars/colors';
 @use '../../../_share/_import/fonts' as *;
-@use '../../../_share/_vars/functions' as *;
+@use '../../../_share/_vars/breakpoints' as *;
 
 .intro {
 
@@ -14,7 +14,8 @@
     }
     &__col-2 {
         display: flex;
-        justify-content: flex-end;
+        flex-grow: 1;
+        justify-content: center;
         margin-bottom: -130px;
     }
     
@@ -31,7 +32,7 @@
             url("../../../assets/images/bg-delims/intro.svg");
         background-color: colors.$bg;
 
-        @media (min-width: 1920px) {
+        @include respond-to(">boundaries") {
             background-size: 100% 100%;
         }
     }
@@ -44,6 +45,9 @@
         padding-top: 50px;
         display: flex;
         justify-content: space-between;
+        @include respond-to("<tablet") {
+            flex-direction: column-reverse;
+        }
     }
 
     &__article {
@@ -57,7 +61,8 @@
         font-size: 72px;
         line-height: 85px;
         @include Rubik;
-        
+        white-space: nowrap;
+
         b {
             font-weight: 500;
         }
@@ -77,6 +82,8 @@
     display: flex;
     align-items: center;
     position: relative;
+
+    min-width: 255px;
 
     &__svg {
         width: 100%;
