@@ -1,9 +1,18 @@
-@use '../../../_share/_vars/colors';
+@use '../../../_share/_vars/breakpoints' as *;
 @use '../../../_share/_import/fonts' as *;
+@use '../../../_share/_vars/colors';
 
 .reviews {
     padding-top: 100px;
     margin-bottom: 100px;
+
+    &__wrapper {
+        min-width: 1140px;
+        margin: 0 auto;
+        @include respond-to("<tablet-large") {
+            min-width: initial;
+        }
+    }
 
     &__header {
         margin-bottom: 52px;
@@ -13,19 +22,35 @@
 
     &__main {
         gap: 20px;
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: calc(100% / 3);
+        grid-template-rows: 260px;
+
+        @include respond-to("<tablet-large") {
+            grid-auto-columns: calc(100% / 2 - 10px);
+            grid-template-rows: 190px;
+        }
+        @include respond-to("<tablet") {
+            grid-auto-flow: row;
+            grid-auto-columns: auto;
+        }
     }
 
     .review {
+        display: flex;
+        flex-direction: column;
         font-size: 10px;
         @include Roboto;
 
         &__figure {
                 $main-color: colors.$review-main;
                 $drop-shadow: colors.$review-shadow;
+            flex-grow: 1;
             max-width: 48em;
-            min-height: 17.2em;
+            max-height: 19em;
+            box-sizing: border-box;
+
             padding: 2.8em 4.5em;
             border-radius: 10px;
             background: $main-color;
@@ -44,24 +69,34 @@
                 border-top: 18px solid $main-color;
                 border-bottom: none;
             }
+
+            @include respond-to("<desktop") {
+                padding: 2em 1.5em;
+            }
         }
 
         &__date {
             font-size: 1.4em;
-            margin-bottom: 10px;
             color: colors.$review-date-txt;
+            @include respond-to("<tablet-large") {
+                font-size: 1.2em;
+            }
         }
 
         &__txt {
+            margin-top: 10px;
             font-size: 1.6em;
             font-style: italic;
             color: colors.$review-txt;
+            @include respond-to("<tablet-large") {
+                font-size: 1.4em;
+            }
         }
 
         /* <img> inline in div.avatar */
 
         &__avatar {
-            margin-top: 1.8em;
+            margin: 1.8em 0 0 0;
             display: flex;
             align-items: center;
             font-size: 1.6em;
@@ -73,6 +108,10 @@
             border-radius: 50%;
             margin-right: 15px;
             margin-left: 20px;
+            @include respond-to("<tablet-large") {
+                width: 40px;
+                height: 40px;
+            }
         }
     }
 }

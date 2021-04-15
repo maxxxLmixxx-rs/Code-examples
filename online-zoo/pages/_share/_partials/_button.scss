@@ -1,8 +1,10 @@
-@use '../_vars/colors';
+@use '../_vars/breakpoints' as *;
 @use '../_import/fonts' as *;
+@use '../_vars/colors';
 
 ._btn {
         $font-size: 18px;
+    height: min-content;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -10,15 +12,18 @@
     font-weight: 400;
     font-size: $font-size;
     @include RobotoMono;
-    letter-spacing: -0.05 * $font-size;
     text-transform: uppercase;
     text-decoration: none;
     box-sizing: border-box;
     white-space: nowrap;
 
     transition-property: 
-        background, transform, opacity, padding, width, height;
+        background, transform, opacity, width, height;
     transition-duration: .3s;
+
+    @include respond-to("<desktop") {
+        font-size: 16px;
+    }
     
     &:hover {
         cursor: pointer;
@@ -42,6 +47,12 @@
 
     &--m-pd {
         padding: 15px 85px;
+        @include respond-to("<desktop") {
+            padding: 15px 50px;
+        }
+        @include respond-to("<tablet") {
+            padding: 15px 35px;
+        }
     }
 
     /* Special */
@@ -72,6 +83,9 @@
 
     &--s-pd {
         padding: 17px 22px;
+        @include respond-to("<desktop") {
+            padding: 10px 20px;
+        }
     }
 }
 
@@ -80,6 +94,12 @@
     transition: transform 0.3s;
     &:hover {
         transform: scale(1.1);
+    }
+    &--bottom svg {
+        transform: rotate(90deg);
+    }
+    &--top svg {
+        transform: rotate(-90deg);
     }
     &--left svg {
         transform: scale(-1);

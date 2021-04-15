@@ -1,13 +1,18 @@
 $breakpoints: (
     '>boundaries': ( min-width: 1920px ),
-
+    
     '>wrapper': ( min-width: 1610px ),
-    '>desktop': ( min-width: 1200px ),
-    '>tablet' : ( min-width:  640px ),
-
     '<wrapper': ( max-width: 1610px ),
+
+    '>desktop': ( min-width: 1200px ),
     '<desktop': ( max-width: 1200px ),
+    
+    '>tablet-large': ( min-width: 992px ),
+    '<tablet-large': ( max-width: 992px ),
+
+    '>tablet' : ( min-width:  640px ),
     '<tablet' : ( max-width:  640px ),
+
     '<mobile' : ( max-width:  320px ),
 );
 

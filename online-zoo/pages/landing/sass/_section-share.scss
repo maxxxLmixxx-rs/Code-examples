@@ -26,7 +26,7 @@
         font-size: 14px;
         @include Roboto;
         text-align: center;
-        white-space: nowrap;
+        // white-space: nowrap;
     }
 
     &--white &__container {

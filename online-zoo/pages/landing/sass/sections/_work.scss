@@ -1,15 +1,36 @@
+@use '../../../_share/_vars/breakpoints' as *;
+
 .work {
     &__wrapper {
-        padding: 60px 105px 100px;
+        width: 100%;
+        max-width: 1240px;
+        margin: 0 auto;
         position: relative;
+    }
+
+    &__header {
+        margin: 0 0 100px 0;
     }
 
     &__list {
         display: flex;
-        justify-content: space-between;
+        align-items: center;
+        justify-content: space-around;
     }
 
-    &__header {
-        margin: -100px -105px 100px;
+    &__item:not(:last-child) {
+        margin: 0 30px 0 0;
+    }
+
+    @include respond-to("<tablet") {
+        &__header {
+            margin-bottom: 35px;
+        }
+        &__list {
+            flex-direction: column;
+        }
+        &__item:not(:last-child) {
+            margin: 0 0 55px 0;
+        }
     }
 }

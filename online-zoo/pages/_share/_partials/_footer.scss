@@ -1,3 +1,4 @@
+@use '../_vars/breakpoints' as *;
 @use '../_import/fonts' as *;
 @use '../_vars/colors';
 @use './header';
@@ -10,14 +11,31 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @include respond-to("<desktop") {
+            height: 120px;
+        }
+        @include respond-to("<tablet-large") {
+            height: 80px;
+            .nav__item:not(:first-child) {
+                display: none;
+            }
+        }
     }
 
     .copyright {
-        margin-top: 20px;
+        margin: 20px 0 0 20px;
         @include Roboto;
         font-size: 16px;
         text-align: right;
         color: colors.$copyright-color;
+        white-space: nowrap;
+
+        @include respond-to("<desktop") {
+            font-size: 12px;
+        }
+        @include respond-to("<tablet-large") {
+            font-size: 10px;
+        }
 
         &__author {
             font-style: normal;

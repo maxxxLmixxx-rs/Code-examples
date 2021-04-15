@@ -20,7 +20,7 @@ const config = {
         },
         {
             name: 'Alligators',
-            description: 'St. Augustine\'s Alligator Farm Zoological Park',
+            description: 'St. Augustine\'s Alligator Farm Zoological&nbsp;Park',
             url: pathTo + 'matthew-essman.jpg',
             linkTo: '../zoos/alligator/',
         },
@@ -28,6 +28,18 @@ const config = {
             name: 'Elephants',
             description: 'Tembe Elephant Park',
             url: pathTo + 'marc-bombenon.jpg',
+            linkTo: null,
+        },
+        {
+            name: 'Lemurs',
+            description: 'Madagascar',
+            url: pathTo + 'victoria-bragg.jpg',
+            linkTo: null,
+        },
+        {
+            name: 'Lemurs',
+            description: 'Madagascar',
+            url: pathTo + 'victoria-bragg.jpg',
             linkTo: null,
         },
         {

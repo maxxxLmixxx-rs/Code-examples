@@ -1,5 +1,10 @@
+@use '../../../_share/_vars/breakpoints' as *;
+
 .beautifuls {
     padding-bottom: 115px;
+    @include respond-to("<tablet") {
+        padding-bottom: 30px;
+    }
 
     &__header {
         margin-bottom: 65px;
@@ -7,18 +12,35 @@
     
     &__main {
         display: flex;
+        align-items: center;
         padding-right: 65px;
+        @include respond-to("<tablet") {
+            flex-direction: column;
+            padding-right: 0;
+        }
     }
 
     &__animals-container {
         margin-top: -13px;
         flex-grow: 1;
         overflow: hidden;
-        gap: 75px;
+        // gap: 75px;
         display: grid;
         justify-items: center;
-        grid-template-columns: repeat(7, min(125px));
         grid-auto-flow: column;
+        grid-auto-columns: calc(100% / 7);
+
+        @include respond-to("<desktop") {
+            grid-auto-columns: calc(100% / 6);
+        }
+        @include respond-to("<tablet-large") {
+            grid-auto-columns: calc(100% / 4);
+        }
+        @include respond-to("<tablet") {
+            row-gap: 60px;
+            grid-template-rows: auto auto;
+            grid-auto-columns: calc(100% / 3);
+        }
     }
 
     &__arrows {
@@ -27,5 +49,23 @@
         height: 104px;
         flex-direction: column;
         justify-content: space-around;
+        @include respond-to("<tablet") {
+            margin-top: 50px;
+            height: auto;
+        }
+    }
+
+    .arrow {
+        &--bottom {
+            display: none;
+        }
+        @include respond-to("<tablet") {
+            &--left, &--right {
+                display: none;
+            }
+            &--bottom {
+                display: block;
+            }
+        }
     }
 }

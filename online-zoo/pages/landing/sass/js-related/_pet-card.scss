@@ -1,33 +1,54 @@
-@use '../../../_share/_vars/colors';
+@use '../../../_share/_vars/breakpoints' as *;
 @use '../../../_share/_import/fonts' as *;
+@use '../../../_share/_vars/colors';
 
 .pet-card {
         --card-color: #{colors.$pet-card-main};
 
     width: 100%;
-    padding: 20px 0;
+    // min-width: 240px;
     max-width: 480px;
     position: relative;
     box-shadow: colors.$pet-card-box-shadow;
     @include Roboto;
     text-align: center;
+    background: var(--card-color);
     transition: transform .35s;
 
     &__link {
+        padding: 20px 0;
         display: block;
         text-decoration: none;
+        
+        &::after {
+            content: "";
+            width: 27px;
+            height: 25px;
+            position: absolute;
+            bottom: 35px; 
+            right: 35px;
+            display: block;
+            background: 
+                left / 100% 100% no-repeat 
+                url("../../../assets/icons/tv.svg");
+            @include respond-to("<desktop") {
+                top: 30px;
+                right: 25px;
+            }
+        }
     }
-
-    background: 
-        calc(100% - 30px) calc(100% - 30px) no-repeat
-        url("../../../assets/icons/tv.svg");
-    background-color: var(--card-color);
 
     &:hover {
         transform: scale(1.01);
     }
     &:hover &__back {
         transform: rotate(360deg);
+    }
+
+    /* --> SVG */
+    &__mask {
+        width: 50%;
+        height: auto;
     }
 
     &__img {
@@ -48,9 +69,13 @@
 
     &__description {
         margin-top: 32px;
-        padding: 0 30px;
+        padding: 0 20% 0 30px;
         text-align: left;
         border-top: colors.$pet-card-description-border;
+
+        @include respond-to("<desktop") {
+            padding-right: 30px;
+        }
     }
 
     &__heading {
@@ -61,15 +86,15 @@
     }
 
     &__paragraph {
-        margin: 6px 0 0;
+        margin: 6px 0 0 0;
         font-size: 16px;
         font-weight: 400;
         color: colors.$pet-card-paragraph;
     }
 
-    &__icon {
-        position: absolute;
-        bottom: 34px;
-        right: 33px;
-    }
+    // &__icon {
+    //     position: absolute;
+    //     bottom: 34px;
+    //     right: 33px;
+    // }
 }

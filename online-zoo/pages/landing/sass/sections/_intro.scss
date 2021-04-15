@@ -6,35 +6,52 @@
 
     /* >> Divider */
 
-    background: colors.$bg;
     overflow-x: hidden;
+    background: colors.$bg;
+    margin-bottom: -100px;
 
+    &__col-1, &__col-2 {
+        display: flex;
+        align-items: center;
+    }
     &__col-1 {
         margin-bottom: 50px;
     }
     &__col-2 {
-        display: flex;
-        flex-grow: 1;
-        justify-content: center;
         margin-bottom: -130px;
+        @include respond-to("<tablet-large") {
+            margin-bottom: 15px;
+        }
     }
-    
+
+    // :: placeholder
     &::after {
         content: "";
-        display: block;
         width: 100%;
         height: 210px;
-        margin: 0 auto;
+        display: block;
+    }
 
-        background-position: center 100%;
-        background-repeat: no-repeat;
-        background-image: 
-            url("../../../assets/images/bg-delims/intro.svg");
-        background-color: colors.$bg;
+    // transition: background-position-x .5s;
 
-        @include respond-to(">boundaries") {
-            background-size: 100% 100%;
-        }
+    background: 
+        center bottom / auto 210px no-repeat colors.$bg
+        url("../../../assets/images/bg-delims/intro.svg");
+
+    @include respond-to(">boundaries") {
+        background-size: 100% 210px;
+    }
+    @include respond-to("<tablet-large") {
+        background-size: max(1.7 * 100%, 1.7 * 850px) 210px;
+        background-position: left bottom;
+        margin-bottom: -50px;
+    }
+    @include respond-to("<tablet") {
+          // background-size: 3000px 210px;
+          // background-position: -550px bottom;
+        background-size: 3500px 210px;
+        background-position: -725px bottom;
+        margin-bottom: -150px;
     }
 
     /* << Divider */
@@ -44,9 +61,11 @@
         z-index: 10;
         padding-top: 50px;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         @include respond-to("<tablet") {
+            padding-top: 20px;
             flex-direction: column-reverse;
+            align-items: center;
         }
     }
 
@@ -58,23 +77,65 @@
     &__heading {
         margin: 55px 0 45px 0;
         font-weight: 300;
+        
         font-size: 72px;
-        line-height: 85px;
+        
+        line-height: 120%;
         @include Rubik;
         white-space: nowrap;
 
         b {
+            font-size: 64px;
             font-weight: 500;
         }
     }
 
     &__text {
-        max-width: 450px;
-        margin-bottom: 40px;
+        margin-bottom: 90px;
         font-size: 14px;
+        max-width: 480px;
+
+        font-size: 16px;
         font-weight: normal;
-        line-height: 20px;
+        line-height: 140%;
         @include Roboto;
+    }
+
+    @include respond-to(">tablet-large") {
+        &__heading {
+            font-size: 58px;
+            b {
+                font-size: 46px;
+            }
+        }
+        &__text {
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+    }
+
+    @include respond-to("<tablet-large") {
+        &__heading {
+            margin-top: 0;
+            font-size: 36px;
+            b {
+                font-size: 30px;
+            }
+        }
+        &__text {
+            max-width: 270px;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+    }
+
+    @include respond-to("<tablet") {
+        &__heading {
+            font-size: 32px;
+            b {
+                font-size: 28px;
+            }
+        }
     }
 }
 
@@ -82,7 +143,7 @@
     display: flex;
     align-items: center;
     position: relative;
-
+    max-width: 805px;
     min-width: 255px;
 
     &__svg {
@@ -92,5 +153,15 @@
 
     &__filter {
         fill: colors.$clip-video-filter;
+    }
+
+    // @include respond-to("<desktop") {
+    //     max-width: 530px;
+    // }
+    @include respond-to("<tablet-large") {
+        max-width: 400px;
+    }
+    @include respond-to("<tablet") {
+        max-width: 255px;
     }
 }

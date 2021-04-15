@@ -1,3 +1,4 @@
+@use '../../../_share/_vars/breakpoints' as *;
 @use '../../../_share/_vars/functions' as *;
 
 $decor-arrow-url: url("../../../assets/icons/line/arrow-right.svg");
@@ -12,7 +13,6 @@ $objects: (
             h: 230px,
         ),
         "<1920px": (
-            // x: #{50 - vw(813 + 130)}vw,
             x: calc(50vw - 813px - 130px),
             y: 125px,
             w: 130px,
@@ -28,7 +28,6 @@ $objects: (
             h: 206px,
         ),
         "<1920px": (
-            // x: #{50 + 811 / 19.2}vw,
             x: calc(50vw + 811px),
             y: 210px,
             w: 116px,
@@ -49,31 +48,72 @@ $objects: (
             w: auto,
             h: auto,
         ),
-        url: url("../../../assets/images/bg-delims/feed.svg"),
+        url: url("../../../assets/images/bg-delims/feed-1920.svg"),
+    ),
+    "background-tablet": (
+        "<992px": (
+            x: 0%,
+            y: 0%,
+            w: 100%,
+            h: 100%,
+        ),
+        url: url("../../../assets/images/bg-delims/feed-640.svg"),
+    ),
+    "background-mobile": (
+        "<640px": (
+            x: 0%,
+            y: 0%,
+            w: 100%,
+            h: 100%,
+        ),
+        url: url("../../../assets/images/bg-delims/feed-320.svg"),
     ),
 );
 
 .feed {
-    padding: 90px 0 157px;
-    
     box-sizing: border-box;
     display: flex;
     align-items: flex-end;
+    padding: 90px 0 157px;
 
-    height: 70vw * 564 / 1920;
-    min-height: 564px;
-    max-height: 700px;
+    @include respond-to(">desktop") {
+        height: 70vw * 564 / 1920;
+        min-height: 564px;
+        max-height: 700px;
+    }
+
 
     background:
         get-background($objects, "bamboo", "<1920px"),
         get-background($objects, "tree", "<1920px"),
         get-background($objects, "background", "<1920px");
 
-    @media (min-width: 1920px) {
+    @include respond-to(">boundaries") {
         background:
             get-background($objects, "bamboo", ">1920px"),
             get-background($objects, "tree", ">1920px"),
             get-background($objects, "background", ">1920px");
+    }
+
+    @include respond-to("<desktop") {
+        background:
+            get-background($objects, "bamboo", ">1920px"),
+            get-background($objects, "tree", ">1920px"),
+            get-background($objects, "background", "<1920px");
+    }
+    
+    @include respond-to("<tablet-large") {
+        background:
+            get-background($objects, "bamboo", ">1920px"),
+            get-background($objects, "tree", ">1920px"),
+            get-background($objects, "background-tablet", "<992px");
+    }
+
+    @include respond-to("<tablet") {
+        background:
+            get-background($objects, "bamboo", ">1920px"),
+            get-background($objects, "tree", ">1920px"),
+            get-background($objects, "background-mobile", "<640px");
     }
 
     &__header {
@@ -112,6 +152,28 @@ $objects: (
 
         &::after {
             left: calc(50% + 125px);
+        }
+
+        @include respond-to("<tablet") {
+            flex-direction: column;
+            &::before, &::after {
+                left: 50%;
+                transform: translate(-50%) rotate(90deg);
+            }
+            &::before {
+                top: 200px;
+            }
+            &::after {
+                top: 450px;
+            }
+        }
+    }
+
+    &__item {
+        display: flex;
+        justify-content: center;
+        @include respond-to("<tablet") {
+            margin-bottom: 80px;
         }
     }
 }
