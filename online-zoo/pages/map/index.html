@@ -9,7 +9,7 @@
     <title>Map</title>
 </head>
 <body>
-    <header class="header">
+        <header class="header">
         <div class="_wrapper _wrapper--right">
             <div class="header__wrapper _wrapper__inner">
                 <nav class="nav">
@@ -18,7 +18,7 @@
                             <!-- https://stackoverflow.com/questions/3239202/whats-the-correct-way-to-hide-the-h1-tag-and-not-be-banned-from-google -->
                             <h1 class="logo">
                                 <a class="logo__link nav__link" href="../landing/">
-                                    <img class="logo__img" src="../../assets/icons/logo.svg" alt="online zoo">
+                                    <img class="logo__img" width="108" height="84" src="../../assets/icons/logo.svg" alt="online zoo">
                                 </a>
                             </h1>
                         </li>
@@ -32,7 +32,7 @@
                 </nav>
                 <div class="menu">
                     <ul class="menu__list">
-                        <li class="menu__item">
+                        <li class="menu__item menu__search">
                             <div id="search" class="search">
                                 <input class="search__input" type="text" placeholder="Search...">
                                 <button class="search__btn">
@@ -40,14 +40,18 @@
                                 </button>
                             </div>
                         </li>
-                        <li class="menu__item">
+                        <li class="menu__item menu__log-in">
                             <button id="log-button" class="menu__button">Log in</button>
                         </li>
-                        <li class="menu__item">
+                        <li class="menu__item menu__sign-up">
                             <button id="sign-button" class="menu__button menu__button--round">Sign up</button>
+                        </li>
+                        <li class="menu__item menu__user">
+                            <button class="user"></button>
                         </li>
                     </ul>
                 </div>
+                <button class="burger"><span></span></button>
             </div>
         </div>
     </header>

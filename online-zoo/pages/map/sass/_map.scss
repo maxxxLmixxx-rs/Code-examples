@@ -26,15 +26,21 @@
     }
 
     &__svg-container {
+        min-width: 610px;
+        margin: 0 auto;
+        padding: 0 15px;
+
         flex-grow: 1;
         margin-bottom: 20px;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
     }
 
-    // &__svg {
-    // }
+    &__svg {
+        // width: 100%;
+        height: auto;
+    }
 }
 
 .avatar {
