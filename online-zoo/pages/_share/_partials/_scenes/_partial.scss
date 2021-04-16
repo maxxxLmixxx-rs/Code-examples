@@ -126,6 +126,7 @@ $objects: (
 
 ._scene._scene--partial {
     position: relative;
+    overflow-y: hidden;
     &::after {
         content: "";
         display: block;

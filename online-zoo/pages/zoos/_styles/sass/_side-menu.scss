@@ -1,3 +1,5 @@
+@use '../../../_share/_vars/breakpoints' as *;
+
 .side-menu {
     width: 105px;
     margin-right: 20px;
@@ -13,5 +15,10 @@
     &__item:not(:first-child),
     &__item:not(:last-child) {
         margin-bottom: 60px;
+    }
+
+    // TODO
+    @include respond-to("<tablet-large") {
+        display: none;
     }
 }

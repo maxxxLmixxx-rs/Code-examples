@@ -1,7 +1,13 @@
+@use '../../../_share/_vars/breakpoints' as *;
+
 .description {
     &__container {
         display: flex;
         justify-content: space-between;
+
+        @include respond-to("<tablet-large") {
+            flex-direction: column;
+        }
     }
 }
 

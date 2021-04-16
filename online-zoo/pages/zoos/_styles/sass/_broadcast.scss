@@ -1,3 +1,4 @@
+@use '../../../_share/_vars/breakpoints' as *;
 @use '../../../_share/_import/fonts' as *;
 @use '../../../_share/_vars/colors';
 
@@ -50,22 +51,39 @@
         max-width: 1270px;
         
         &-container {
-            min-height: 240px;
+            overflow: hidden;
             flex-grow: 1;
             display: grid;
-            gap: 30px;
+            gap: 8px;
+            grid-auto-flow: column;
             grid-template-rows: auto;
-            grid-template-columns: repeat(3, minmax(100px, 380px));
+            grid-auto-columns: calc(100% / 3 - 20px);
+            // minmax(100px, 380px);
+
+            @include respond-to("<desktop") {
+                grid-auto-columns: calc(100% / 2 - 4px);
+            }
         }
     }
 
     &__camera {
+        width: 100%;
+        height: min-content;
         position: relative;
+        box-sizing: border-box;
 
-        iframe, & > * {
-            width: 100%;
-            height: 100%;
-            border-radius: 20px;
+        & > div {
+                $max-height: 240px;
+                $aspect-ratio: 2/3;
+            box-sizing: border-box;
+            padding-bottom:
+                min(#{$max-height}, calc(100% * #{$aspect-ratio}));
+            iframe, & > * {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                border-radius: 20px;
+            }
         }
 
         &--live {
