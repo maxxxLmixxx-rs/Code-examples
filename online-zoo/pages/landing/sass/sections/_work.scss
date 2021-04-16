@@ -3,23 +3,30 @@
 .work {
     &__wrapper {
         width: 100%;
-        max-width: 1240px;
-        margin: 0 auto;
-        position: relative;
+        margin-bottom: 100px;
     }
 
     &__header {
         margin: 0 0 100px 0;
     }
 
+    &__main {
+        max-width: 1240px;
+        margin: 0 auto;
+    }
+
     &__list {
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
-    &__item:not(:last-child) {
-        margin: 0 30px 0 0;
+    &__item {
+        margin: 0 30px;
+        &:not(:first-child),
+        &:not(:last-child) {
+            margin: 0;
+        }
     }
 
     @include respond-to("<tablet") {

@@ -55,18 +55,20 @@
     $link-color: colors.$white;
 
 .nav {        
-    flex-basis: 675px;
+    flex-basis: 685px;
     color: $link-color;
     font-size: 18px;
     font-weight: 500;
     @include RobotoMono;
+
+    h1 {
+        margin: 0;
+    }
     
     &__list {
-        display: flex;
-        justify-content: space-between;
-
         list-style: none;
         display: flex;
+        justify-content: space-between;
         align-items: center;
     }
 

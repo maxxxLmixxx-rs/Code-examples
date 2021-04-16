@@ -23,13 +23,14 @@
     }
 
     .copyright {
-        margin: 20px 0 0 20px;
+        margin: 30px 0 0 20px;
         @include Roboto;
         font-size: 16px;
         text-align: right;
         color: colors.$copyright-color;
         white-space: nowrap;
-
+        text-transform: uppercase;
+        
         @include respond-to("<desktop") {
             font-size: 12px;
         }

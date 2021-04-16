@@ -22,19 +22,19 @@ $objects: (
     "bamboo-1": (
         ">1920px": (
             x: calc(50vw - 843px - 115px),
-            y: percentage(60, $bg-height),
+            y: percentage(100, $bg-height),
             w: 116px,
             h: 206px,
         ),
         "<1920px": (
             x: 0%,
-            y: percentage(60, $bg-height),
+            y: percentage(100, $bg-height),
             w: 116px,
             h: 206px,
         ),
         "<1200px": (
             x: calc(50vw - 600px),
-            y: percentage(60, $bg-height),
+            y: percentage(100, $bg-height),
             w: 116px,
             h: 206px,
         ),
@@ -43,19 +43,19 @@ $objects: (
     "tree-1": (
         ">1920px": (
             x: calc(50vw - 610px - 130px),
-            y: percentage(130, $bg-height),
+            y: percentage(80, $bg-height),
             w: auto,
             h: 230px,
         ),
         "<1920px": (
             x: #{50 - vw(610 + 130)}vw,
-            y: percentage(130, $bg-height),
+            y: percentage(80, $bg-height),
             w: auto,
             h: max(min(230px, 25vw), 90px),
         ),
         "<1200px": (
             x: max(calc(50vw - 465px), -5%),
-            y: percentage(130, $bg-height),
+            y: percentage(80, $bg-height),
             w: auto,
             h: max(min(230px, 25vw), 90px),
         ),
@@ -64,25 +64,25 @@ $objects: (
     "bamboo-2": (
         ">1920px": (
             x: calc(50vw + 80px),
-            y: percentage(90, $bg-height),
+            y: percentage(170, $bg-height),
             w: min-max(80px, 147px, vw(147, 1200) * 100 + "vw"),
             h: auto,
         ),
         "<1920px": (
             x: min(1040px, #{100% - percentage(30, 1200)}),
-            y: percentage(90, $bg-height),
+            y: percentage(170, $bg-height),
             w: min-max(80px, 147px, vw(147, 1200) * 100 + "vw"),
             h: auto,
         ),
         "<1200px": (
             x: min(1040px, #{100% - percentage(30, 1200)}),
-            y: percentage(90, $bg-height),
+            y: percentage(170, $bg-height),
             w: min-max(80px, 147px, vw(147, 1200) * 100 + "vw"),
             h: auto,
         ),
         "<640px": (
             x: calc(100% - 35% + 40px),
-            y: percentage(40, $bg-height),
+            y: percentage(170, $bg-height),
             w: min-max(80px, 147px, vw(147, 1200) * 100 + "vw"),
             h: auto,
         ),
@@ -91,25 +91,25 @@ $objects: (
     "panda": (
         ">1920px": (
             x: calc(50vw - 10px),
-            y: percentage(200, $bg-height),
+            y: percentage(280, $bg-height),
             w: min-max(90px, 163px, vw(163, 1200) * 100 + "vw"),
             h: auto,
         ),
         "<1920px": (
             x: min(950px, #{100% - percentage(115, 1200)}),
-            y: percentage(200, $bg-height),
+            y: percentage(280, $bg-height),
             w: min-max(90px, 163px, vw(163, 1200) * 100 + "vw"),
             h: auto,
         ),
         "<1200px": (
             x: min(950px, #{100% - percentage(115, 1200)}),
-            y: percentage(200, $bg-height),
+            y: percentage(280, $bg-height),
             w: min-max(90px, 163px, vw(163, 1200) * 100 + "vw"),
             h: auto,
         ),
         "<640px": (
             x: calc(100% - 35%),
-            y: percentage(200, $bg-height),
+            y: percentage(280, $bg-height),
             w: min-max(90px, 163px, vw(163, 1200) * 100 + "vw"),
             h: auto,
         ),
@@ -119,13 +119,13 @@ $objects: (
     "tree-2": (
         ">1920px": (
             x: calc(50vw -  75px - 90px),
-            y: percentage(105, $bg-height),
+            y: percentage(150, $bg-height),
             w: 90px,
             h: 160px,
         ),
         "<1920px": (
             x: #{50 - vw(75 + 90)}vw, 
-            y: percentage(105, $bg-height),
+            y: percentage(150, $bg-height),
             w: auto,
             h: min(160px, 20vw),
         ),
@@ -134,13 +134,13 @@ $objects: (
     "tree-3": (
         ">1920px": (
             x: calc(50vw + 655px),
-            y: percentage(160, $bg-height),
+            y: percentage(280, $bg-height),
             w: 130px,
             h: 230px,
         ),
         "<1920px": (
             x: calc(50vw + 655px),
-            y: percentage(160, $bg-height),
+            y: percentage(280, $bg-height),
             w: 130px,
             h: 230px,
         ),
