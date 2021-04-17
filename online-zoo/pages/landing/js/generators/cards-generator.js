@@ -20,7 +20,8 @@ const config = {
         },
         {
             name: 'Alligators',
-            description: 'St. Augustine\'s Alligator Farm Zoological&nbsp;Park',
+            description: 'St. Augustine\'s Zoological&nbsp;Park',
+            // description: 'St. Augustine\'s Alligator Farm Zoological&nbsp;Park',
             url: pathTo + 'matthew-essman.jpg',
             linkTo: '../zoos/alligator/',
         },

@@ -21,7 +21,7 @@
         background, transform, opacity, width, height;
     transition-duration: .3s;
 
-    @include respond-to("<desktop") {
+    @include respond-to("<tablet-large") {
         font-size: 16px;
     }
     
@@ -47,18 +47,24 @@
 
     &--m-pd {
         padding: 15px 85px;
-        @include respond-to("<desktop") {
-            padding: 15px 50px;
+        @include respond-to("<tablet-large") {
+            padding: 10px 50px;
         }
         @include respond-to("<tablet") {
-            padding: 15px 35px;
+            padding: 10px 35px;
+        }
+
+        &--br {
+            @include respond-to("<desktop") {
+                padding: 10px 50px;
+            }   
         }
     }
 
     /* Special */
 
     img, svg {
-        margin-right: 18px;
+        margin-right: 10px;
     }
 
     &--no-fill {
@@ -78,7 +84,11 @@
     }
 
     &--l-ls {
-        letter-spacing: 0.1 * $font-size;
+        letter-spacing: 0.1em;
+    }
+
+    &--s-ls {
+        letter-spacing: -0.05em;
     }
 
     &--s-pd {

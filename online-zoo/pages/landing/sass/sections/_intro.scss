@@ -18,6 +18,9 @@
         margin-bottom: 50px;
     }
     &__col-2 {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
         margin-bottom: -130px;
         @include respond-to("<tablet-large") {
             margin-bottom: 15px;
@@ -47,10 +50,8 @@
         margin-bottom: -50px;
     }
     @include respond-to("<tablet") {
-          // background-size: 3000px 210px;
-          // background-position: -550px bottom;
-        background-size: 3500px 210px;
-        background-position: -725px bottom;
+        background-size: 3750px 210px;
+        background-position: -780px bottom;
         margin-bottom: -150px;
     }
 
@@ -70,8 +71,9 @@
     }
 
     &__article {
-            $txt-color: colors.$hero-text;
-        color: $txt-color;
+        color: colors.$hero-text;
+        min-width: max-content;
+        margin-right: 20px;
     }
 
     &__heading {
@@ -99,6 +101,20 @@
         font-weight: normal;
         line-height: 140%;
         @include Roboto;
+    }
+
+    &__buttons {
+        max-width: 115%;
+        display: flex;
+        justify-content: space-between;
+        gap: 5%;
+        padding-right: 5%;
+
+        @include respond-to("<tablet-large") {
+            & > * {
+                flex-basis: 100%;
+            }
+        }
     }
 
     @include respond-to(">tablet-large") {
@@ -140,6 +156,7 @@
 }
 
 .clip-video {
+    flex-grow: 1;
     display: flex;
     align-items: center;
     position: relative;
@@ -155,9 +172,6 @@
         fill: colors.$clip-video-filter;
     }
 
-    // @include respond-to("<desktop") {
-    //     max-width: 530px;
-    // }
     @include respond-to("<tablet-large") {
         max-width: 400px;
     }

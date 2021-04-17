@@ -14,6 +14,7 @@ $breakpoints: (
     '<tablet' : ( max-width:  640px ),
 
     '<mobile' : ( max-width:  320px ),
+    '>mobile' : ( max-width:  320px ),
 );
 
 // inspect() -> toString()

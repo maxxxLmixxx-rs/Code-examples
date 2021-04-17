@@ -1,5 +1,6 @@
-@use '../../_share/_vars/colors';
+@use '../../_share/_vars/breakpoints' as *;
 @use '../../_share/_import/fonts' as *;
+@use '../../_share/_vars/colors';
 
 .story-card {
     display: inline-flex;
@@ -15,10 +16,20 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        @include respond-to("<tablet-large") {
+            width: 115px;
+            height: 115px;
+        }
     }
 
     &__img {
+        width: auto;
+        height: 50px;
         user-select: none;
+        @include respond-to("<tablet-large") {
+            width: auto;
+            height: 40px;
+        }
     }
 
     &__txt {

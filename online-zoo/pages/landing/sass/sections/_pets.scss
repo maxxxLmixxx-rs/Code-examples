@@ -3,15 +3,19 @@
 
 .pets {
     $right-mg: 130px;
+    position: relative;
 
     &__wrapper {
         padding: 65px 0 100px;
         @include respond-to("<desktop") {
-            padding: 50px 0 100px;
+            padding: 50px 0 90px;
         }  
         @include respond-to("<tablet-large") {
-            padding: 30px 0 100px;
-        }        
+            padding: 30px 0 45px;
+        }
+        @include respond-to("<tablet") {
+            padding: 0 0 120px 0;
+        }
     }
 
     &__header {
@@ -20,6 +24,19 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @include respond-to("<tablet") {
+            margin-bottom: 25px;
+            & > *:last-child {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                position: absolute;
+                bottom: 30px;
+                & > *:first-child {
+                    margin-right: 15%;
+                }
+            }
+        }
     }
 
     &__cards {
@@ -43,18 +60,20 @@
             grid-auto-columns: calc(100% / 2 - 10px);
         }
         @include respond-to("<tablet") {
+            justify-items: center;
             grid-auto-columns: calc(100% / 1);
         }
     }
 
     &__aside {
+        padding-right: 2%;
         flex-grow: 1;
-        padding-left: 10px;
+        padding-left: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
         background: 
-            60% calc(100% - 13px) no-repeat 
+            max(15px, 60%) calc(100% - 13px) no-repeat 
             url("../../../assets/icons/pingvo.svg");
     }
 

@@ -30,6 +30,15 @@
         }
     }
 
+    @include respond-to("<tablet-large") {
+        width: 100%;
+        z-index: 100;
+        position: fixed;
+        & + * {
+            margin-top: 80px;
+        }
+    }
+
     ._burger-active {
         .burger { @include burger.active-state; }
     }
@@ -41,10 +50,10 @@
 
         .user,
         .search,
+        .nav__item,
         .menu__search,
         .menu__log-in,
-        .menu__log-out,
-        .nav__item:not(:first-child) {
+        .menu__log-out {
             display: none;
         }
     }
@@ -54,18 +63,24 @@
 
     $link-color: colors.$white;
 
-.nav {        
+.nav {
+    display: flex;
+    justify-content: space-between;
     flex-basis: 685px;
     color: $link-color;
     font-size: 18px;
     font-weight: 500;
     @include RobotoMono;
 
-    h1 {
-        margin: 0;
+    &__logo {
+        margin-right: 50px;
+        h1 {
+            margin: 0;
+        }
     }
-    
+
     &__list {
+        flex-grow: 1;
         list-style: none;
         display: flex;
         justify-content: space-between;
@@ -90,15 +105,12 @@
             margin: 5px 0 -5px;
         }
         
-        &:hover:not(:first-child) {
-            /* Not logo */
+        &:hover {
             opacity: 0.8;
         }
 
         @include respond-to("<tablet-large") {
-            &:not(:first-child) {
-                display: none;
-            }
+            display: none;
         }
     }
 

@@ -1,3 +1,4 @@
+@use '../_vars/breakpoints' as *;
 @use '../_vars/colors';
 
 body {
@@ -55,4 +56,11 @@ button {
     font: inherit;
     color: inherit;
     cursor: pointer;
+}
+
+._tablet-appear {
+    display: none;
+    @include respond-to("<tablet-large") {
+        display: block;
+    }
 }

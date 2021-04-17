@@ -59,6 +59,12 @@ $objects: (
             w: auto,
             h: max(min(230px, 25vw), 90px),
         ),
+        "<640px": (
+            x: max(calc(50vw - 465px), -5%),
+            y: percentage(150, $bg-height),
+            w: auto,
+            h: max(min(230px, 25vw), 90px),
+        ),
         url: url("../../../assets/icons/bg-items/tree.svg")
     ),
     "bamboo-2": (
@@ -207,8 +213,8 @@ $objects: (
                 get-background($objects, "panda",  "<1200px"),
                 get-background($objects, "bamboo-1", "<1200px"),
                 get-background($objects, "tree-1",   "<1200px"),
-                 get-background($objects, "tree-2", "<1920px"),
-                 get-background($objects, "tree-3", "<1920px"),
+                get-background($objects, "tree-2", "<1920px"),
+                get-background($objects, "tree-3", "<1920px"),
                 get-background($objects, "background", "<1200px");
         }
 
@@ -218,9 +224,9 @@ $objects: (
                 get-background($objects, "bamboo-2", "<640px"),
                 get-background($objects, "panda",  "<640px"),
                 get-background($objects, "bamboo-1", "<1200px"),
-                get-background($objects, "tree-1",   "<1200px"),
+                get-background($objects, "tree-1",   "<640px"),
                 // get-background($objects, "tree-2", "<1920px"),
-                 get-background($objects, "tree-3", "<1920px"),
+                get-background($objects, "tree-3", "<1920px"),
                 get-background($objects, "background", "<1200px");
         }
     }

@@ -37,13 +37,13 @@ $objects: (
     ),
     "background": (
         ">1920px": (
-            x: 50%, 
+            x: 45%, 
             y: 0%,
             w: 100%,
             h: 100%,
         ),
         "<1920px": (
-            x: 50%, 
+            x: 45%, 
             y: 0%,
             w: auto,
             h: auto,
@@ -54,14 +54,14 @@ $objects: (
         "<992px": (
             x: 0%,
             y: 0%,
-            w: 100%,
+            w: 992px,
             h: 100%,
         ),
         url: url("../../../assets/images/bg-delims/feed-640.svg"),
     ),
     "background-mobile": (
         "<640px": (
-            x: 0%,
+            x: 50%,
             y: 0%,
             w: 100%,
             h: 100%,
@@ -71,17 +71,17 @@ $objects: (
 );
 
 .feed {
+    padding: 90px 0 157px;
     box-sizing: border-box;
+    position: relative;
     display: flex;
     align-items: flex-end;
-    padding: 90px 0 157px;
 
     @include respond-to(">desktop") {
         height: 70vw * 564 / 1920;
         min-height: 564px;
         max-height: 700px;
     }
-
 
     background:
         get-background($objects, "bamboo", "<1920px"),
@@ -103,6 +103,7 @@ $objects: (
     }
     
     @include respond-to("<tablet-large") {
+        padding: 45px 0 75px;
         background:
             get-background($objects, "bamboo", ">1920px"),
             get-background($objects, "tree", ">1920px"),
@@ -110,6 +111,7 @@ $objects: (
     }
 
     @include respond-to("<tablet") {
+        padding: 50px 0 180px 0;
         background:
             get-background($objects, "bamboo", ">1920px"),
             get-background($objects, "tree", ">1920px"),
@@ -121,6 +123,17 @@ $objects: (
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @include respond-to("<tablet-large") {
+            margin-bottom: 45px;
+        }
+        @include respond-to("<tablet") {
+            margin-bottom: 25px;
+            & > *:last-child {
+                position: absolute;
+                left: 50%; bottom: 90px;
+                transform: translateX(-50%);
+            }
+        }
     }
 
     &__main {
@@ -155,6 +168,12 @@ $objects: (
             left: calc(50% + 125px);
         }
 
+        @include respond-to("<tablet-large") {
+            &::before, &::after {
+                top: 30%;
+            }
+        }
+
         @include respond-to("<tablet") {
             flex-direction: column;
             &::before, &::after {
@@ -162,10 +181,10 @@ $objects: (
                 transform: translate(-50%) rotate(90deg);
             }
             &::before {
-                top: 200px;
+                top: 29%;
             }
             &::after {
-                top: 450px;
+                top: 67%;
             }
         }
     }
@@ -174,7 +193,9 @@ $objects: (
         display: flex;
         justify-content: center;
         @include respond-to("<tablet") {
-            margin-bottom: 80px;
+            &:not(:last-child) {
+                margin-bottom: 80px;
+            }
         }
     }
 }

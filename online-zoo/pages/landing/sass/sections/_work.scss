@@ -4,10 +4,16 @@
     &__wrapper {
         width: 100%;
         margin-bottom: 100px;
+        @include respond-to("<tablet-large") {
+            margin-bottom: 30px;
+        }
     }
 
     &__header {
         margin: 0 0 100px 0;
+        @include respond-to("<tablet-large") {
+            margin: 0 0 40px 0;
+        }
     }
 
     &__main {
@@ -17,16 +23,15 @@
 
     &__list {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-between;
+        gap: 5px;
     }
 
     &__item {
-        margin: 0 30px;
-        &:not(:first-child),
-        &:not(:last-child) {
-            margin: 0;
-        }
+        flex-basis: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     @include respond-to("<tablet") {
@@ -34,6 +39,7 @@
             margin-bottom: 35px;
         }
         &__list {
+            align-items: center;
             flex-direction: column;
         }
         &__item:not(:last-child) {

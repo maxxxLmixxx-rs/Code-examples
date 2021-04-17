@@ -2,18 +2,27 @@
 
 .beautifuls {
     padding-bottom: 105px;
+    @include respond-to("<desktop") {
+        padding-bottom: 70px;
+    }
     @include respond-to("<tablet") {
-        padding-bottom: 30px;
+        padding-bottom: 20px;
     }
 
     &__header {
         margin-bottom: 65px;
+        @include respond-to("<tablet-large") {
+            margin-bottom: 30px;
+        }
     }
     
     &__main {
         display: flex;
         align-items: center;
         padding-right: 65px;
+        @include respond-to("<desktop") {
+            padding-right: 15px;
+        }
         @include respond-to("<tablet") {
             flex-direction: column;
             padding-right: 0;
@@ -21,11 +30,11 @@
     }
 
     &__animals-container {
-        // margin: -20px -35px 0 -15px;
+        width: 100%;
         flex-grow: 1;
         overflow: hidden;
         display: grid;
-        justify-items: flex-start;
+        justify-items: center;
         grid-auto-flow: column;
         grid-auto-columns: calc(100% / 7);
 
@@ -36,20 +45,19 @@
             grid-auto-columns: calc(100% / 4);
         }
         @include respond-to("<tablet") {
-            row-gap: 60px;
+            row-gap: 40px;
             grid-template-rows: auto auto;
             grid-auto-columns: calc(100% / 3);
         }
     }
 
     &__arrows {
-        // margin-left: 10px;
         display: flex;
         height: 104px;
         flex-direction: column;
         justify-content: space-around;
         @include respond-to("<tablet") {
-            margin-top: 50px;
+            margin-top: 30px;
             height: auto;
         }
     }
