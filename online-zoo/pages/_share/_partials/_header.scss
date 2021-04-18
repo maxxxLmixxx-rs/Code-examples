@@ -19,9 +19,9 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        @include respond-to("<desktop") {
-            height: 120px;
-        }
+        // @include respond-to("<desktop") {
+        //     height: 120px;
+        // }
         @include respond-to("<tablet-large") {
             height: 80px;
             .nav__item:not(:first-child) {

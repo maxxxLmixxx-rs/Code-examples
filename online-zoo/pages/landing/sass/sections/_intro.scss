@@ -38,7 +38,7 @@
     // transition: background-position-x .5s;
 
     background: 
-        center bottom / auto 210px no-repeat colors.$bg
+        center calc(100% + 5px) / auto 210px no-repeat colors.$bg
         url("../../../assets/images/bg-delims/intro.svg");
 
     @include respond-to(">boundaries") {
