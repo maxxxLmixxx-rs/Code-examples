@@ -1,5 +1,6 @@
-@use '../_vars/colors';
+@use '../_vars/breakpoints' as *;
 @use '../_import/fonts' as *;
+@use '../_vars/colors';
 
 .pet-avatar {
 
@@ -12,7 +13,9 @@
 
     &__link-wrapper {
         display: flex;
+        align-items: center;
         flex-direction: column;
+        justify-content: space-between;
         color: inherit;
         text-decoration: none;
     }
@@ -51,5 +54,31 @@
 
     &--active:hover &__back {
         fill: var(--bg-active-hover);
+    }
+
+    @include respond-to("<desktop") {
+        &--tablet-small &__outer-svg {
+            width: 77px;
+            height: 77px;
+        }
+    }
+
+    @include respond-to("<tablet") {
+        &--mobile-row {
+            --bg-active: #{colors.$bg};
+            --bg-inactive: #{colors.$bg};
+            --bg-active-hover: #{colors.$bg};
+            filter: none !important;
+        }
+        &--mobile-row &__outer-svg {
+            margin-right: 20px;
+        }
+        &--mobile-row &__link-wrapper {
+            flex-direction: row;
+        }
+        &--mobile-row &__name {
+            margin: 0;
+            color: colors.$white;
+        }
     }
 }

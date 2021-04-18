@@ -25,6 +25,10 @@
         position: absolute;
         left: 50%; bottom: 70px;
         transform: translateX(-50%);
+
+        @include respond-to("<tablet-large") {
+            bottom: 35px;
+        }
     }
 
     @include respond-to("<tablet") {
@@ -37,9 +41,19 @@
 .main__wrapper {
     display: flex;
     justify-content: space-between;
+
+    @include respond-to("<tablet") {
+        flex-direction: column;
+    }
 }
 
 .zoo-wrapper {
     max-width: 1325px;
     flex-grow: 1;
+}
+
+/* POSITION STICKY FIX */
+
+body, .main { 
+    overflow: initial !important; 
 }

@@ -51,19 +51,20 @@ $objects: (
             x: #{50 - vw(610 + 130)}vw,
             y: percentage(80, $bg-height),
             w: auto,
-            h: max(min(230px, 25vw), 90px),
+            h: min-max(90, 230, 25vw),
+            // h: max(min(230px, 25vw), 90px),
         ),
         "<1200px": (
             x: max(calc(50vw - 465px), -5%),
             y: percentage(80, $bg-height),
             w: auto,
-            h: max(min(230px, 25vw), 90px),
+            h: min-max(90, 230, 25vw),
         ),
         "<640px": (
             x: max(calc(50vw - 465px), -5%),
             y: percentage(150, $bg-height),
             w: auto,
-            h: max(min(230px, 25vw), 90px),
+            h: min-max(90, 230, 25vw),
         ),
         url: url("../../../assets/icons/bg-items/tree.svg")
     ),
@@ -187,25 +188,25 @@ $objects: (
         // [.] max-height: 700px;
 
         @include respond-to(">boundaries") {
-        background:
-            get-background($objects, "bamboo-2", ">1920px"),
-            get-background($objects, "panda",  ">1920px"),
-            get-background($objects, "bamboo-1", ">1920px"),
-            get-background($objects, "tree-1",   ">1920px"),
-            get-background($objects, "tree-2", ">1920px"),
-            get-background($objects, "tree-3", ">1920px"),
-            get-background($objects, "background", ">1920px");
+            background:
+                get-background($objects, "bamboo-2", ">1920px"),
+                get-background($objects, "panda",  ">1920px"),
+                get-background($objects, "bamboo-1", ">1920px"),
+                get-background($objects, "tree-1",   ">1920px"),
+                get-background($objects, "tree-2", ">1920px"),
+                get-background($objects, "tree-3", ">1920px"),
+                get-background($objects, "background", ">1920px");
         }
-
-        background:
-            get-background($objects, "bamboo-2", "<1920px"),
-            get-background($objects, "panda",  "<1920px"),
-            get-background($objects, "bamboo-1", "<1920px"),
-            get-background($objects, "tree-1",   "<1920px"),
-            get-background($objects, "tree-2", "<1920px"),
-            get-background($objects, "tree-3", "<1920px"),
-            get-background($objects, "background", "<1920px");
-
+        @include respond-to("<boundaries") {
+            background:
+                get-background($objects, "bamboo-2", "<1920px"),
+                get-background($objects, "panda",  "<1920px"),
+                get-background($objects, "bamboo-1", "<1920px"),
+                get-background($objects, "tree-1",   "<1920px"),
+                get-background($objects, "tree-2", "<1920px"),
+                get-background($objects, "tree-3", "<1920px"),
+                get-background($objects, "background", "<1920px");
+        }
         @include respond-to("<desktop") {
             height: #{vw(525, 1200) * 100}vw;
             background:

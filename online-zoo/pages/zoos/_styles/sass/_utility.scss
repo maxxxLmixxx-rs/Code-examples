@@ -1,3 +1,4 @@
+@use '../../../_share/_vars/breakpoints' as *;
 @use '../../../_share/_import/fonts' as *;
 @use '../../../_share/_vars/colors';
 
@@ -12,5 +13,9 @@
         text-transform: capitalize;
         font-size: 18px;
         @include Rubik;
+
+        @include respond-to("<desktop") {
+            font-size: 14px;
+        }
     }
 }

@@ -1,20 +1,21 @@
 $breakpoints: (
-    '>boundaries': ( min-width: 1920px ),
+    '>boundaries': ( min-width: 1921px ),
+    '<boundaries': ( max-width: 1920px ),
     
-    '>wrapper': ( min-width: 1610px ),
+    '>wrapper': ( min-width: 1611px ),
     '<wrapper': ( max-width: 1610px ),
 
-    '>desktop': ( min-width: 1200px ),
+    '>desktop': ( min-width: 1201px ),
     '<desktop': ( max-width: 1200px ),
     
-    '>tablet-large': ( min-width: 992px ),
+    '>tablet-large': ( min-width: 993px ),
     '<tablet-large': ( max-width: 992px ),
 
-    '>tablet' : ( min-width:  640px ),
+    '>tablet' : ( min-width:  641px ),
     '<tablet' : ( max-width:  640px ),
 
-    '<mobile' : ( max-width:  320px ),
     '>mobile' : ( max-width:  320px ),
+    '<mobile' : ( max-width:  320px ),
 );
 
 // inspect() -> toString()

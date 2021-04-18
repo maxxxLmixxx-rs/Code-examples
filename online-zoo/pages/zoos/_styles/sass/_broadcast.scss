@@ -6,19 +6,37 @@
     padding-top: 55px;
     margin-bottom: 100px;
 
+    @include respond-to("<desktop") {
+        padding-top: 30px;
+        margin-bottom: 50px;
+    }
+
     &__header {
         display: flex;
         justify-content: space-between;
         margin-bottom: 53px;
 
+        @include respond-to("<desktop") {
+            margin-bottom: 35px;
+        }
+
         &-icons {
             display: flex;
+            @include respond-to("<tablet-large") {
+                svg {
+                    width: 25px;
+                    height: 25px;
+                }
+            }
         }
 
         &-icon {
             cursor: pointer;
             &:not(:last-child) {
                 margin-right: 34px;
+                @include respond-to("<tablet-large") {
+                    margin-right: 15px;
+                }
             }
         }
     }
@@ -31,6 +49,14 @@
         margin-bottom: 85px;
         position: relative;
         border-radius: 50%;
+
+        @include respond-to("<desktop") {
+            margin-bottom: 55px;
+        }
+        @include respond-to("<tablet") {
+            margin-bottom: 30px;
+        }
+
         & > div {
                 $max-height: 605px;
                 $aspect-ratio: 3/5;
@@ -120,12 +146,21 @@
     }
 
     &__arrows {
-        margin-left: 30px;
+        margin-left: 10px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         & > *:first-child {
             margin-bottom: 20px;
+            @include respond-to("<tablet") {
+                margin-bottom: 0px;
+            }
+        }
+
+        @include respond-to("<tablet") {
+            .arrow.arrow--left {
+                display: none;
+            }
         }
     }
 }
