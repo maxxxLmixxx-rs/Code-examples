@@ -1,7 +1,9 @@
+@use '../../_share/_vars/breakpoints' as *;
 @use '../../_share/_import/fonts' as *;
 @use '../../_share/_vars/colors';
 
 .map {
+    width: 100%;
     flex: 1 1 100%;
 	display: flex;
 	flex-direction: column;
@@ -17,6 +19,15 @@
 
     &__header {
         margin: 30px 0 55px;
+    }
+
+    &__heading {
+        @include respond-to("<tablet-large") {
+            font-size: 18px;
+        }
+        @include respond-to("<tablet") {
+            display: none;
+        }
     }
 
     &__body {
