@@ -54,6 +54,8 @@
 
 /* POSITION STICKY FIX */
 
-body, .main { 
-    overflow: initial !important; 
+body, .main {
+    @include respond-to(">tablet") {
+        overflow: initial !important;
+    }
 }

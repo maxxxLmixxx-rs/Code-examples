@@ -28,6 +28,7 @@ $header-tablet: 80px;
     @include respond-to("<tablet-large") {
         width: 100%;
         position: fixed;
+        box-shadow: none;
         
         & + * {
             margin-top: $header-tablet;
@@ -86,9 +87,12 @@ $header-tablet: 80px;
 
     &__body {
         flex-grow: 1;
+        display: flex;
+        align-items: center;
     }
 
     &__list {
+        flex-grow: 1;
         list-style: none;
         display: flex;
         justify-content: space-between;
@@ -136,10 +140,12 @@ $header-tablet: 80px;
         font-size: 25px;
 
         @include respond-to("<tablet-large") {
+            font-size: 18px;
             width: auto;
             height: 65px;
         } 
         @include respond-to("<tablet") {
+            font-size: 12px;
             width: auto;
             height: 40px;
         }
@@ -152,6 +158,7 @@ $header-tablet: 80px;
             width: 100%;
             height: 100%;
            
+            display: block;
             position: fixed;
             top: -100%; left: 0;
             overflow-y: auto;
@@ -168,6 +175,7 @@ $header-tablet: 80px;
                 top: 0; left: 0;
                 z-index: 10;
                 background: colors.$bg;
+                box-shadow: colors.$header-box-shadow;
             }
         }
         
@@ -183,8 +191,11 @@ $header-tablet: 80px;
             margin-bottom: 50px;
             font-size: 24px;
             text-align: center;
-            &--active::after {
-                display: none;
+            &--active {
+                opacity: 0.75;
+                &::after {
+                    display: none;
+                }
             }
         }
     }

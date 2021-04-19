@@ -34,6 +34,7 @@
 
     @include respond-to("<tablet-large") {
         &__list {
+            margin-bottom: 0;
             top: calc(var(--top-offset) + 80px);
         }
     }
