@@ -21,7 +21,7 @@
     }
 
     &__back {
-        transition: fill 1s, transform 1s;
+        transition: transform 1s;
         transform: rotate(0deg);
         transform-origin: 52px 52px;
         fill: var(--bg-inactive);
@@ -50,6 +50,7 @@
 
     &--active &__back {
         fill: var(--bg-active);
+        transition: fill 1s, transform 1s;
     }
 
     &--active:hover &__back {

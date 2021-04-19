@@ -32,6 +32,12 @@
         }
     }
 
+    @include respond-to("<tablet-large") {
+        &__list {
+            top: calc(var(--top-offset) + 80px);
+        }
+    }
+
     @include respond-to("<tablet") {
             $duration: .75s;
         width: calc(100% + 20px);
