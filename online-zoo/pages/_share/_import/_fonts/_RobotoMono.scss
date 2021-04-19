@@ -1,0 +1,21 @@
+@font-face {
+    font-family: "Roboto Mono";
+    font-weight: 400;
+    font-style: normal;
+    src: url("../../../assets/fonts/Roboto-mono/RobotoMono-Regular.woff2") format("woff2"),
+         url("../../../assets/fonts/Roboto-mono/fallback/RobotoMono-Regular.woff") format("woff");
+}
+@font-face {
+    font-family: "Roboto Mono";
+    font-weight: 500;
+    font-style: normal;
+    src: url("../../../assets/fonts/Roboto-mono/RobotoMono-Medium.woff2") format("woff2"),
+         url("../../../assets/fonts/Roboto-mono/fallback/RobotoMono-Medium.woff") format("woff");
+}
+@font-face {
+    font-family: "Roboto Mono";
+    font-weight: 700;
+    font-style: normal;
+    src: url("../../../assets/fonts/Roboto-mono/RobotoMono-Bold.woff2") format("woff2"),
+         url("../../../assets/fonts/Roboto-mono/fallback/RobotoMono-Bold.woff") format("woff");
+}

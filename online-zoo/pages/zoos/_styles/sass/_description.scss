@@ -1,0 +1,29 @@
+@use '../../../_share/_vars/breakpoints' as *;
+
+.description {
+    &__container {
+        display: flex;
+        justify-content: space-between;
+
+        @include respond-to("<tablet-large") {
+            flex-direction: column;
+        }
+    }
+}
+
+.zoo-info {
+    max-width: 530px;
+    &__header {
+        margin-bottom: 25px;
+    }
+    &__item {
+        margin-bottom: 40px;
+    }
+}
+
+.zoo-facts {
+    max-width: 605px;
+    &__header {
+        margin-bottom: 25px;
+    }
+}

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
     <script src="../_share/_scripts/search-bar.js" defer></script>
+    <style> .tooltip { opacity: 0; } </style>
     <title>Map</title>
 </head>
 <body>
@@ -13,15 +14,15 @@
         <div class="_wrapper _wrapper--right">
             <div class="header__wrapper _wrapper__inner">
                 <nav class="nav">
-                    <ul class="nav__list">
-                        <li class="nav__item">
+                    <div class="nav__logo">
+                        <h1 class="logo">
                             <!-- https://stackoverflow.com/questions/3239202/whats-the-correct-way-to-hide-the-h1-tag-and-not-be-banned-from-google -->
-                            <h1 class="logo">
-                                <a class="logo__link nav__link" href="../landing/">
-                                    <img class="logo__img" src="../../assets/icons/logo.svg" alt="online zoo">
-                                </a>
-                            </h1>
-                        </li>
+                            <a class="logo__link nav__link" href="../landing/">
+                                <img class="logo__img" width="108" height="84" src="../../assets/icons/logo.svg" alt="online zoo">
+                            </a>
+                        </h1>
+                    </div>
+                    <ul class="nav__list">
                         <li class="nav__item"><a class="nav__link" href="../landing/">About</a></li>
                         <li class="nav__item nav__item--active"><a class="nav__link" href="../map/">Map</a></li>
                         <li class="nav__item"><a class="nav__link" href="../zoos/panda/">Zoos</a></li>
@@ -32,7 +33,7 @@
                 </nav>
                 <div class="menu">
                     <ul class="menu__list">
-                        <li class="menu__item">
+                        <li class="menu__item menu__search">
                             <div id="search" class="search">
                                 <input class="search__input" type="text" placeholder="Search...">
                                 <button class="search__btn">
@@ -40,14 +41,18 @@
                                 </button>
                             </div>
                         </li>
-                        <li class="menu__item">
+                        <li class="menu__item menu__log-in">
                             <button id="log-button" class="menu__button">Log in</button>
                         </li>
-                        <li class="menu__item">
+                        <li class="menu__item menu__sign-up">
                             <button id="sign-button" class="menu__button menu__button--round">Sign up</button>
+                        </li>
+                        <li class="menu__item menu__user">
+                            <button class="user"></button>
                         </li>
                     </ul>
                 </div>
+                <button class="burger"><span></span></button>
             </div>
         </div>
     </header>
@@ -56,7 +61,7 @@
             <div class="_wrapper _wrapper--middle">
                 <div class="map__wrapper _wrapper__inner">
                     <div class="map__header">
-                        <h3 class="pets__heading section-heading section-heading--light">Choose your favorite Animal</h3>
+                        <h3 class="map__heading section-heading section-heading--light">Choose your favorite Animal</h3>
                     </div>
                 </div>
             </div>
@@ -126,7 +131,7 @@
                             <!-- border-radius: 120% 120% 170% 100% / 120% 120% 150% 150%; -->
                             <!-- LESS LAGGY then <g transform="translate(x,y)"> ... </g>   -->
                             <g id="eagle">
-                                <svg x="172" y="365" width="90" height="85" viewBox="-5 -5 86 86"
+                                <svg x="140" y="345" width="120" height="115" viewBox="-5 -5 86 86"
                                      class="avatar"
                                     >
                                     <a href="../zoos/eagle/">
@@ -135,7 +140,7 @@
                                         <image class="avatar__img" x="-65" y="-22" width="165" height="110" clip-path="url(#eagleClip)" href="../../assets/images/animals/nathan-lemon.jpg"/>
                                     </a>
                                 </svg>
-                                <svg x="10" y="255" width="410" height="110"
+                                <svg x="0" y="225" width="410" height="110"
                                      viewBox="0 0 410 110"
                                      class="tooltip"
                                     >
@@ -149,7 +154,7 @@
                                 </svg>
                             </g>
                             <g id="alligator">
-                                <svg x="328" y="435" width="90" height="85" viewBox="-5 -5 86 86"
+                                <svg x="320" y="435" width="120" height="115" viewBox="-5 -5 86 86"
                                      class="avatar"
                                     >
                                     <a href="../zoos/alligator/">
@@ -158,7 +163,7 @@
                                         <image class="avatar__img" x="-5" y="-17" width="139" height="93" clip-path="url(#alligatorClip)" href="../../assets/images/animals/matthew-essman.jpg"/>
                                     </a>
                                 </svg>
-                                <svg x="165" y="525" width="410" height="110" 
+                                <svg x="165" y="555" width="410" height="110" 
                                      viewBox="0 0 410 110"
                                      class="tooltip tooltip--reverse" fill="none"
                                     >
@@ -173,7 +178,7 @@
                                 </svg>
                             </g>
                             <g id="gorilla">
-                                <svg x="690" y="535" width="90" height="85" viewBox="-5 -5 86 86"
+                                <svg x="655" y="510" width="120" height="115" viewBox="-5 -5 86 86"
                                      class="avatar"
                                     >
                                     <a href="../zoos/gorilla/">
@@ -182,7 +187,7 @@
                                         <image class="avatar__img" x="-25" y="-7" width="120" height="81" clip-path="url(#gorillaClip)" href="../../assets/images/animals/simbi-yvan.jpg"/>
                                     </a>
                                 </svg>
-                                <svg x="525" y="425" width="410" height="110" 
+                                <svg x="510" y="390" width="410" height="110" 
                                      viewBox="0 0 410 110" 
                                      class="tooltip"
                                     >
@@ -196,7 +201,7 @@
                                 </svg>
                             </g>
                             <g id="panda">
-                                <svg x="1035" y="400" width="90" height="85" viewBox="-5 -5 86 86"
+                                <svg x="1035" y="400" width="120" height="115" viewBox="-5 -5 86 86"
                                      class="avatar"
                                     >
                                     <a href="../zoos/panda/">
@@ -205,7 +210,7 @@
                                         <image class="avatar__img" x="-20" y="-5" width="115" height="77" clip-path="url(#pandaClip)" href="../../assets/images/animals/xtina-yu.jpg"/>
                                     </a>
                                 </svg>
-                                <svg x="875" y="285" width="410" height="110" 
+                                <svg x="890" y="280" width="410" height="110" 
                                      viewBox="0 0 410 110" 
                                      class="tooltip"
                                     >
@@ -246,14 +251,14 @@
         <div class="_wrapper _wrapper--right">
             <div class="footer__wrapper _wrapper__inner">
                 <div class="nav">
+                    <div class="nav__logo">
+                        <div class="logo">
+                            <a class="logo__link nav__link" href="../landing/">
+                                <img class="logo__img" src="../../assets/icons/logo.svg" alt="online zoo">
+                            </a>
+                        </div>
+                    </div>
                     <ul class="nav__list">
-                        <li class="nav__item">
-                            <div class="logo">
-                                <a class="logo__link nav__link" href="../landing/">
-                                    <img class="logo__img" src="../../assets/icons/logo.svg" alt="online zoo">
-                                </a>
-                            </div>
-                        </li>
                         <li class="nav__item"><a class="nav__link" href="../landing/">About</a></li>
                         <li class="nav__item"><a class="nav__link" href="../map/">Map</a></li>
                         <li class="nav__item"><a class="nav__link" href="../zoos/panda/">Zoos</a></li>

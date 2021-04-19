@@ -1,0 +1,216 @@
+@use 'sass:map';
+@use '../../_vars/breakpoints' as *;
+@use '../../_vars/functions' as *;
+@use '../../_vars/colors';
+
+/* VARS */
+
+$bg-height: 521;
+$bg-width: 1920;
+
+@function percentage($value, $base) {
+    @return $value / $base * 100%;
+}
+
+@function min-max($min, $max, $toShrink) {
+    @return MIN(MAX(#{$toShrink}, #{$min}), #{$max});
+}
+
+/* OBJECTS */
+
+$objects: (
+    "tree-1": (
+        ">1920px": (
+            x: calc(50vw - 610px - 130px),
+            y: percentage(80, $bg-height),
+            w: auto,
+            h: 230px,
+        ),
+        "<1920px": (
+            x: #{50 - vw(610 + 130)}vw,
+            y: percentage(80, $bg-height),
+            w: auto,
+            h: 230px,
+        ),
+        "<1200px": (
+            x: max(calc(50vw - 465px), -5%),
+            y: percentage(80, $bg-height),
+            w: auto,
+            h: 230px,
+        ),
+        "<992px": (
+            x: max(calc(50vw - 465px), -5%),
+            y: percentage(35, $bg-height),
+            w: auto,
+            h: 230px,
+        ),
+        url: url("../../../assets/icons/bg-items/tree.svg")
+    ),
+    "bamboo-2": (
+        ">1920px": (
+            x: calc(50vw + 80px),
+            y: 0,
+            w: 145px,
+            h: auto,
+        ),
+        "<1920px": (
+            x: calc(50vw + 80px),
+            y: 0,
+            w: 145px,
+            h: auto,
+        ),
+        "<992px": (
+            x: calc(50vw + 20px),
+            y: 30px,
+            w: 100px,
+            h: auto,
+        ),
+        "<640px": (
+            x: calc(50vw + 20px),
+            y: 0px,
+            w: 100px,
+            h: auto,
+        ),
+        url: url("../../../assets/icons/bg-items/bamboo.svg")
+    ),
+    "panda": (  
+        ">1920px": (
+            x: calc(50vw - 10px),
+            y: 95px,
+            w: 163px,
+            h: auto,
+        ),
+        "<1920px": (
+            x: calc(50vw - 10px),
+            y: 95px,
+            w: 163px,
+            h: auto,
+        ),
+        "<992px": (
+            x: calc(50vw - 50px),
+            y: 110px,
+            w: 115px,
+            h: auto,
+        ),
+        "<640px": (
+            x: calc(50vw - 50px),
+            y: 75px,
+            w: 115px,
+            h: auto,
+        ),
+        url: url("../../../assets/icons/bg-items/panda.svg")
+    ),
+    "tree-3": (
+        ">1920px": (
+            x: calc(50vw + 665px),
+            y: percentage(50, $bg-height),
+            w: auto,
+            h: 230px,
+        ),
+        "<1920px": (
+            x: #{50 + vw(655)}vw,
+            y: percentage(50, $bg-height),
+            w: auto,
+            h: 230px,
+        ),
+        "<1200px": (
+            x: #{50 + vw(655)}vw,
+            y: percentage(50, $bg-height),
+            w: auto,
+            h: 230px,
+        ),
+        "<992px": (
+            x: calc(50vw + 280px),
+            y: percentage(25, $bg-height),
+            w: auto,
+            h: 157px,
+        ),
+        url: url("../../../assets/icons/bg-items/tree.svg")
+    ),
+    "background-1": (
+        ">1920px": (
+            x: 50%, 
+            y: 0%,
+            w: 100%,
+            h: 100%,
+        ),
+        "<1920px": (
+            x: 50%,
+            y: 0%,
+            w: auto,
+            h: auto,
+        ),
+        "<1200px": (
+            x: 50%,
+            y: 0%,
+            w: auto,
+            h: auto,
+        ),
+        url: url("../../../assets/images/bg-delims/scene-1.svg")
+    ),
+    "background-2": (
+        "<992px": (
+            x: 0%,
+            y: 0%,
+            w: auto,
+            h: 100%,
+        ),
+        url: url("../../../assets/images/bg-delims/scene-1-992.svg")
+    ),
+);
+
+._scene._scene--partial {
+    position: relative;
+    overflow-y: hidden;
+    &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: #{$bg-height}px;
+        position: relative;
+        z-index: -1;
+        margin-bottom: -120px;
+
+        @include respond-to(">boundaries") {
+            background:
+                get-background($objects, "bamboo-2", ">1920px"),
+                get-background($objects, "panda", ">1920px"),
+                get-background($objects, "tree-1", ">1920px"),
+                get-background($objects, "tree-3", ">1920px"),
+                get-background($objects, "background-1", ">1920px");
+        }
+        @include respond-to("<boundaries") {
+            background:
+                get-background($objects, "bamboo-2", "<1920px"),
+                get-background($objects, "panda", "<1920px"),
+                get-background($objects, "tree-1", "<1920px"),
+                get-background($objects, "tree-3", "<1920px"),
+                get-background($objects, "background-1", "<1920px");
+        }
+        @include respond-to("<desktop") {
+            background:
+                get-background($objects, "bamboo-2", "<1920px"),
+                get-background($objects, "panda", "<1920px"),
+                get-background($objects, "tree-1", "<1200px"),
+                get-background($objects, "tree-3", "<1200px"),
+                get-background($objects, "background-1", "<1200px");
+        }
+        @include respond-to("<tablet-large") {
+            height: 310px;
+            margin: 30px 0 0 0;
+            background:
+                get-background($objects, "bamboo-2", "<992px"),
+                get-background($objects, "panda", "<992px"),
+                get-background($objects, "tree-1", "<992px"),
+                get-background($objects, "tree-3", "<992px"),
+                get-background($objects, "background-2", "<992px");
+        }
+        @include respond-to("<tablet") {
+            height: 280px;
+            background:
+                get-background($objects, "bamboo-2", "<640px"),
+                get-background($objects, "panda", "<640px"),
+                colors.$bg;
+        }
+    }
+}

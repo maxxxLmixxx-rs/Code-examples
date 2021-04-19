@@ -1,0 +1,70 @@
+@use '../../_share/_vars/breakpoints' as *;
+@use '../../_share/_import/fonts' as *;
+@use '../../_share/_vars/colors';
+
+.story-card {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__container {
+        width: 145px;
+        height: 145px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include respond-to("<tablet-large") {
+            width: 115px;
+            height: 115px;
+        }
+    }
+
+    &__img {
+        width: auto;
+        height: 50px;
+        user-select: none;
+        @include respond-to("<tablet-large") {
+            width: auto;
+            height: 40px;
+        }
+    }
+
+    &__txt {
+        margin: 0;
+        font-size: 14px;
+        @include Roboto;
+        text-align: center;
+        // white-space: nowrap;
+    }
+
+    &--white &__container {
+        background: colors.$story-card-white-bg;
+    }
+
+    $themes: "dark", "white";
+    $card-colors: (
+        "txt": (
+            "dark": colors.$story-card-dark,
+            "white": colors.$story-card-white,
+        ),
+        "bx-shadow": (
+            "dark": colors.$story-card-dark-shadow,
+            "white": colors.$story-card-white-shadow,
+        ),
+    );
+    @each $theme in $themes {
+        &--additional-#{$theme} &__txt {
+            color: map-get(
+                map-get($card-colors, "txt"), $theme
+            );
+        }
+        &--additional-#{$theme} &__container {
+            box-shadow: map-get(
+                map-get($card-colors, "bx-shadow"), $theme
+            );
+        }
+    }
+}

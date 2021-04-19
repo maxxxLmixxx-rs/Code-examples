@@ -13,15 +13,15 @@
         <div class="_wrapper _wrapper--right">
             <div class="header__wrapper _wrapper__inner">
                 <nav class="nav">
-                    <ul class="nav__list">
-                        <li class="nav__item">
+                    <div class="nav__logo">
+                        <h1 class="logo">
                             <!-- https://stackoverflow.com/questions/3239202/whats-the-correct-way-to-hide-the-h1-tag-and-not-be-banned-from-google -->
-                            <h1 class="logo">
-                                <a class="logo__link nav__link" href="../landing/">
-                                    <img class="logo__img" src="../../assets/icons/logo.svg" alt="online zoo">
-                                </a>
-                            </h1>
-                        </li>
+                            <a class="logo__link nav__link" href="../landing/">
+                                <img class="logo__img" width="108" height="84" src="../../assets/icons/logo.svg" alt="online zoo">
+                            </a>
+                        </h1>
+                    </div>
+                    <ul class="nav__list">
                         <li class="nav__item nav__item--active"><a class="nav__link" href="../landing/">About</a></li>
                         <li class="nav__item"><a class="nav__link" href="../map/">Map</a></li>
                         <li class="nav__item"><a class="nav__link" href="../zoos/panda/">Zoos</a></li>
@@ -32,7 +32,7 @@
                 </nav>
                 <div class="menu">
                     <ul class="menu__list">
-                        <li class="menu__item">
+                        <li class="menu__item menu__search">
                             <div id="search" class="search">
                                 <input class="search__input" type="text" placeholder="Search...">
                                 <button class="search__btn">
@@ -40,14 +40,18 @@
                                 </button>
                             </div>
                         </li>
-                        <li class="menu__item">
+                        <li class="menu__item menu__log-in">
                             <button id="log-button" class="menu__button">Log in</button>
                         </li>
-                        <li class="menu__item">
+                        <li class="menu__item menu__sign-up">
                             <button id="sign-button" class="menu__button menu__button--round">Sign up</button>
+                        </li>
+                        <li class="menu__item menu__user">
+                            <button class="user"></button>
                         </li>
                     </ul>
                 </div>
+                <button class="burger"><span></span></button>
             </div>
         </div>
     </header>
@@ -59,13 +63,17 @@
                         <div class="intro__article">
                             <h2 class="intro__heading">Watch your favorite<br><b>animals online</b></h2>
                             <p class="intro__text">Observe different animals from around the world online in live time. Help volunteers to take a good care of animals, donate to your favorite ones.</p>
-                            <a class="_btn _btn--m-pd _btn--white _btn--glow" href="../zoos/panda/">Watch now</a>
+                            <div class="intro__buttons">
+                                <a class="_btn _btn--m-pd _btn--s-ls _btn--white _btn--glow" href="../zoos/panda/">Watch now</a>
+                                <button class="_tablet-appear _btn _btn--m-pd _btn--light-green _btn--glow">Donate</button>
+                            </div>
                         </div>
                     </div>
                     <div class="intro__col-2">
                         <div class="clip-video">
                             <svg class="clip-video__svg" width="805" height="665" viewBox="0 0 805 665">
                                 <defs>
+                                    <!-- style="transform-origin: center;" transform="scale(0.8)" -->
                                     <clipPath id="clipVideo-border">
                                         <path class="clip-video__clip-path" d="M724 173c68 90 95 186 71 273a313 313 0 01-195 198c-96 34-212 27-329-8C153 602 32 540 6 456c-27-82 41-187 128-280C222 83 331 0 440 0c108 0 217 83 284 173z"/>
                                     </clipPath>
@@ -75,7 +83,7 @@
                                     </g>
                                 </defs>
                                 <a class="clip-video__visible" href="../zoos/panda/">
-                                    <image width="804px" height="666px" class="clip-video__img" clip-path="url(#clipVideo-border)" href="../../assets/images/panda.jpg"/>
+                                    <image width="805px" height="665px" class="clip-video__img" clip-path="url(#clipVideo-border)" href="../../assets/images/panda.jpg"/>
                                     <rect class="clip-video__filter" width="100%" height="100%" clip-path="url(#clipVideo-border)" fill="none" />
                                     <use x="384" y="330" href="#clipVideo-button"/>
                                 </a>
@@ -127,11 +135,13 @@
                 <div class="pets__wrapper _wrapper__inner">
                     <div class="pets__header">
                         <h3 class="pets__heading section-heading section-heading--dark">Pets in Zoo</h3>
-                        <a href="../map/" class="_btn _btn--no-fill _btn--l-ls _btn--s-pd">
-                            <svg width="20" height="18" fill="none">
-                                <path stroke="#19707D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M17.5 9.6L10 17 2.5 9.6A5 5 0 1110 3a5 5 0 117.5 6.6"/>
-                            </svg>Choose your favorite
-                        </a>
+                        <div>
+                            <a href="../map/" class="_btn _btn--no-fill _btn--l-ls _btn--s-pd">
+                                <svg width="20" height="18" fill="none">
+                                    <path stroke="#19707D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M17.5 9.6L10 17 2.5 9.6A5 5 0 1110 3a5 5 0 117.5 6.6"/>
+                                </svg>Choose your favorite
+                            </a>
+                        </div>
                     </div>
                     <div class="pets__cards">
                         <!-- SVG: CLIP FIGURE REFERENCE -->
@@ -163,12 +173,12 @@
                                 </defs>
                             </svg>
                             <div class="pets__arrows">
-                                <button class="arrow arrow--left">
+                                <button class="arrow arrow--right">
                                     <svg width="17" height="24" fill="none">
                                         <use href="#arrowRight"/>
                                     </svg>
                                 </button>
-                                <button class="arrow arrow--right">
+                                <button class="arrow arrow--left">
                                     <svg width="17" height="24" fill="none">
                                         <use href="#arrowRight"/>
                                     </svg>
@@ -184,7 +194,9 @@
                 <div class="feed__wrapper _wrapper__inner">
                     <div class="feed__header">
                         <h3 class="pets__heading section-heading section-heading--light">Pay and feed</h3>
-                        <button class="_btn _btn--m-pd _btn--light-green _btn--glow">Donate to volunteers</button>
+                        <div>
+                            <button class="_btn _btn--m-pd _btn--m-pd--br _btn--light-green _btn--glow">Donate to volunteers</button>
+                        </div>
                     </div>
                     <div class="feed__main">
                         <div class="feed__item">
@@ -217,14 +229,16 @@
         </section>
         <section class="reviews">
             <div class="_wrapper _wrapper--middle">
-                <div class="feed__wrapper _wrapper__inner">
+                <div class="reviews__wrapper _wrapper__inner">
                     <div class="reviews__header">
                         <h3 class="pets__heading section-heading section-heading--dark">Testimonials</h3>
-                        <a href="" class="_btn _btn--no-fill _btn--l-ls _btn--s-pd">
-                            <svg width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 17V4a3 3 0 013-3h10a3 3 0 013 3v6a3 3 0 01-3 3H5l-4 4zM5 5h8M5 9h6" stroke="#19707D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                              </svg>Leave feedback
-                        </a>
+                        <div>
+                            <a href="" class="_btn _btn--no-fill _btn--l-ls _btn--s-pd">
+                                <svg width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 17V4a3 3 0 013-3h10a3 3 0 013 3v6a3 3 0 01-3 3H5l-4 4zM5 5h8M5 9h6" stroke="#19707D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>Leave feedback
+                            </a>
+                        </div>
                     </div>
                     <div class="reviews__main">
                         <div class="review">
@@ -288,12 +302,17 @@
                             <script type="module" src="./js/generators/pet-avatars-generator.js"></script>
                         </div>
                         <div class="beautifuls__arrows">
+                            <button class="arrow arrow--right">
+                                <svg width="17" height="24" fill="none">
+                                    <use href="#arrowRight"/>
+                                </svg>
+                            </button>
                             <button class="arrow arrow--left">
                                 <svg width="17" height="24" fill="none">
                                     <use href="#arrowRight"/>
                                 </svg>
                             </button>
-                            <button class="arrow arrow--right">
+                            <button class="arrow arrow--bottom">
                                 <svg width="17" height="24" fill="none">
                                     <use href="#arrowRight"/>
                                 </svg>
@@ -308,14 +327,14 @@
         <div class="_wrapper _wrapper--right">
             <div class="footer__wrapper _wrapper__inner">
                 <div class="nav">
+                    <div class="nav__logo">
+                        <div class="logo">
+                            <a class="logo__link nav__link" href="../landing/">
+                                <img class="logo__img" width="108" height="84" src="../../assets/icons/logo.svg" alt="online zoo">
+                            </a>
+                        </div>
+                    </div>
                     <ul class="nav__list">
-                        <li class="nav__item">
-                            <div class="logo">
-                                <a class="logo__link nav__link" href="../landing/">
-                                    <img class="logo__img" src="../../assets/icons/logo.svg" alt="online zoo">
-                                </a>
-                            </div>
-                        </li>
                         <li class="nav__item"><a class="nav__link" href="../landing/">About</a></li>
                         <li class="nav__item"><a class="nav__link" href="../map/">Map</a></li>
                         <li class="nav__item"><a class="nav__link" href="../zoos/panda/">Zoos</a></li>

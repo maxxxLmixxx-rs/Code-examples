@@ -1,0 +1,66 @@
+@use '../_vars/breakpoints' as *;
+@use '../_vars/colors';
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: colors.$bg-light;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* wrapper */
+
+._wrapper {
+        $lr-pad: 130px;
+        $inner-wrapper: 1480px;
+        $outer-wrapper: $inner-wrapper + 2 * $lr-pad;
+    flex: 1 1 auto;
+    padding: 0 20px;
+    margin: 0 auto;
+    display: grid;
+    max-width: $outer-wrapper;
+    grid-template-columns:
+        minmax(0, $lr-pad)
+        Min(100%, $inner-wrapper)
+        minmax(0, $lr-pad);
+
+    &--left &__inner {
+        grid-column: 1 / 3;
+    }
+    &--right &__inner {
+        grid-column: 2 / 4;
+    }
+    &--middle &__inner {
+        grid-column: 2 / 3;
+    }
+    &--full-size &__inner {
+        grid-column: 1 / 4;
+    }
+}
+
+/* reset button styles */
+
+button {
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+._tablet-appear {
+    display: none;
+    @include respond-to("<tablet-large") {
+        display: block;
+    }
+}

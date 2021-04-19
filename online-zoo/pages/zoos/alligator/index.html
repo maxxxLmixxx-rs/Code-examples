@@ -13,26 +13,26 @@
         <div class="_wrapper _wrapper--right">
             <div class="header__wrapper _wrapper__inner">
                 <nav class="nav">
-                    <ul class="nav__list">
-                        <li class="nav__item">
+                    <div class="nav__logo">
+                        <h1 class="logo">
                             <!-- https://stackoverflow.com/questions/3239202/whats-the-correct-way-to-hide-the-h1-tag-and-not-be-banned-from-google -->
-                            <h1 class="logo">
-                                <a class="logo__link nav__link" href="../../landing/">
-                                    <img class="logo__img" src="../../../assets/icons/logo.svg" alt="online zoo">
-                                </a>
-                            </h1>
-                        </li>
+                            <a class="logo__link nav__link" href="../landing/">
+                                <img class="logo__img" width="108" height="84" src="../../../assets/icons/logo.svg" alt="online zoo">
+                            </a>
+                        </h1>
+                    </div>
+                    <ul class="nav__list">
                         <li class="nav__item"><a class="nav__link" href="../../landing/">About</a></li>
                         <li class="nav__item"><a class="nav__link" href="../../map/">Map</a></li>
                         <li class="nav__item nav__item--active"><a class="nav__link" href="../zoos/panda/">Zoos</a></li>
                         <li class="nav__item"><a class="nav__link" href="../../error/">Contact us</a></li>
-                        <li class="nav__item"><a class="nav__link"
+                        <li class="nav__item"><a class="nav__link" 
                             href="https://www.figma.com/file/vzrwoqf0kSG1uOify8BRBR/online-zoo?node-id=0%3A1">Design</a></li>
                     </ul>
                 </nav>
                 <div class="menu">
                     <ul class="menu__list">
-                        <li class="menu__item">
+                        <li class="menu__item menu__search">
                             <div id="search" class="search">
                                 <input class="search__input" type="text" placeholder="Search...">
                                 <button class="search__btn">
@@ -40,14 +40,18 @@
                                 </button>
                             </div>
                         </li>
-                        <li class="menu__item">
+                        <li class="menu__item menu__log-in">
                             <button id="log-button" class="menu__button">Log in</button>
                         </li>
-                        <li class="menu__item">
+                        <li class="menu__item menu__sign-up">
                             <button id="sign-button" class="menu__button menu__button--round">Sign up</button>
+                        </li>
+                        <li class="menu__item menu__user">
+                            <button class="user"></button>
                         </li>
                     </ul>
                 </div>
+                <button class="burger"><span></span></button>
             </div>
         </div>
     </header>
@@ -68,7 +72,7 @@
                             </defs>
                         </svg>
                         <li class="side-menu__item">
-                            <div class="pet-avatar">
+                            <div class="pet-avatar pet-avatar--mobile-row">
                                 <a class="pet-avatar__link-wrapper" href="../panda/">
                                     <svg class="pet-avatar__outer-svg" width="105" height="96" viewBox="0 0 105 96">
                                         <svg class="pet-avatar__inner-svg" mask="url(#avatarOuterClip)" fill="#F6F9FA">
@@ -81,7 +85,7 @@
                              </div>
                         </li>
                         <li class="side-menu__item">
-                            <div class="pet-avatar">
+                            <div class="pet-avatar pet-avatar--mobile-row">
                                 <a class="pet-avatar__link-wrapper" href="../eagle/">
                                     <svg class="pet-avatar__outer-svg" width="105" height="96" viewBox="0 0 105 96">
                                         <svg class="pet-avatar__inner-svg" mask="url(#avatarOuterClip)" fill="#F6F9FA">
@@ -94,7 +98,7 @@
                              </div>
                         </li>
                         <li class="side-menu__item">
-                            <div class="pet-avatar">
+                            <div class="pet-avatar pet-avatar--mobile-row">
                                 <a class="pet-avatar__link-wrapper" href="../gorilla/">
                                     <svg class="pet-avatar__outer-svg" width="105" height="96" viewBox="0 0 105 96">
                                         <svg class="pet-avatar__inner-svg" mask="url(#avatarOuterClip)" fill="#F6F9FA">
@@ -107,7 +111,7 @@
                              </div>
                         </li>
                         <li class="side-menu__item">
-                            <div class="pet-avatar pet-avatar--active">
+                            <div class="pet-avatar pet-avatar--mobile-row pet-avatar--active">
                                 <a class="pet-avatar__link-wrapper" href="../alligator/">
                                     <svg class="pet-avatar__outer-svg" width="105" height="96" viewBox="0 0 105 96">
                                         <svg class="pet-avatar__inner-svg" mask="url(#avatarOuterClip)" fill="#F6F9FA">
@@ -127,13 +131,13 @@
                             <h2 class="broadcast__heading section-heading section-heading--dark">Alligators</h2>
                             <div class="broadcast__header-icons">
                                 <button class="broadcast__header-icon">
-                                    <svg width="43" height="42" fill="none">
+                                    <svg width="43" height="42" viewBox="0 0 43 42" fill="none">
                                         <rect stroke-width="1.5" x=".75" y=".75" width="40.5" height="40.5" rx="20.25" stroke="#19707D"/>
                                         <path fill="#19707D" d="M22 31h-2.17V18.32H22V31zm-2.35-16.04c0-.35.1-.65.32-.9.22-.24.54-.36.96-.36.42 0 .74.12.96.37.22.24.33.54.33.89s-.11.64-.33.88c-.22.23-.54.35-.96.35-.42 0-.74-.12-.96-.35a1.26 1.26 0 01-.32-.88z"/>
                                     </svg>
                                 </button>
                                 <button class="broadcast__header-icon">
-                                    <svg width="42" height="42" fill="none">
+                                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
                                         <rect stroke="#19707D" x=".75" y=".75" width="40.5" height="40.5" rx="20.25" stroke-width="1.5"/>
                                         <path stroke="#19707D" d="M28.51 23.58l-7.5 7.43-7.5-7.43a5 5 0 117.5-6.56 5 5 0 117.5 6.57" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
@@ -258,14 +262,14 @@
         <div class="_wrapper _wrapper--right">
             <div class="footer__wrapper _wrapper__inner">
                 <div class="nav">
+                    <div class="nav__logo">
+                        <div class="logo">
+                            <a class="logo__link nav__link" href="../../landing/">
+                                <img class="logo__img" src="../../../assets/icons/logo.svg" alt="online zoo">
+                            </a>
+                        </div>
+                    </div>
                     <ul class="nav__list">
-                        <li class="nav__item">
-                            <div class="logo">
-                                <a class="logo__link nav__link" href="../../landing/">
-                                    <img class="logo__img" src="../../../assets/icons/logo.svg" alt="online zoo">
-                                </a>
-                            </div>
-                        </li>
                         <li class="nav__item"><a class="nav__link" href="../../landing/">About</a></li>
                         <li class="nav__item"><a class="nav__link" href="../../map/">Map</a></li>
                         <li class="nav__item"><a class="nav__link" href="../zoos/panda/">Zoos</a></li>

@@ -1,0 +1,20 @@
+// @use '../../_share/_partials/panda-scene';
+// @use '../../_share/_partials/pet-avatar';
+// @use '../../_share/_partials/button';
+
+@use '../../_share/_partials/header';
+@use '../../_share/_partials/footer';
+@use '../../_share/_partials/headings';
+@use '../../_share/_import';
+@use './map';
+
+@use '../../_share/_vars/colors';
+
+body {
+    background: colors.$bg;
+}
+
+.main {
+	flex: 1 1 100%;
+	display: flex;
+}

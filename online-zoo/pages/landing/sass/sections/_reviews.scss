@@ -1,0 +1,149 @@
+@use '../../../_share/_vars/breakpoints' as *;
+@use '../../../_share/_import/fonts' as *;
+@use '../../../_share/_vars/colors';
+
+.reviews {
+    padding: 100px 0;
+    position: relative;
+    max-width: 100%;
+
+    @include respond-to("<desktop") {
+        padding: 50px 0 100px 0;
+    }
+    @include respond-to("<tablet-large") {
+        padding: 50px 0 50px 0;
+    }
+    @include respond-to("<tablet") {
+        padding: 35px 0 125px 0;
+    }
+
+    &__wrapper {
+        margin: 0 auto;
+    }
+
+    &__header {
+        margin-bottom: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include respond-to("<desktop") {
+            max-width: calc(100vw - 40px);
+        }
+        @include respond-to("<tablet-large") {
+            margin-bottom: 35px;
+        }
+        @include respond-to("<tablet") {
+            max-width: initial;
+            margin-bottom: 25px;
+            & > *:last-child {
+                position: absolute;
+                left: 50%; bottom: 45px;
+                transform: translateX(-50%);
+            }
+        }
+    }
+
+    &__main {
+        gap: 20px;
+        display: grid;
+        justify-items: center;
+        grid-auto-flow: column;
+        grid-auto-columns: calc(100% / 3 - 20px);
+        grid-template-rows: 260px;
+        @include respond-to("<desktop") {
+            min-width: 1140px;
+        }
+        @include respond-to("<tablet-large") {
+            gap: 25px;
+            min-width: initial;
+            grid-auto-columns: calc(100% / 2 - 12.5px);
+            grid-template-rows: 190px;
+        }
+        @include respond-to("<tablet") {
+            grid-auto-flow: row;
+            grid-auto-columns: auto;
+        }
+    }
+
+    .review {
+        display: flex;
+        flex-direction: column;
+        font-size: 10px;
+        @include Roboto;
+
+        @include respond-to("<tablet") {
+            max-width: 425px;
+        }
+
+        &__figure {
+                $main-color: colors.$review-main;
+                $drop-shadow: colors.$review-shadow;
+            flex-grow: 1;
+            max-width: 48em;
+            max-height: 19em;
+            box-sizing: border-box;
+
+            padding: 2.8em 4.5em;
+            border-radius: 10px;
+            background: $main-color;
+            position: relative;
+            filter: drop-shadow(#{$drop-shadow});
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 70px; 
+                bottom: 0px;
+                transform: translateY(100%);
+                /* Triangle */
+                border: 16px solid transparent;
+                border-top: 18px solid $main-color;
+                border-bottom: none;
+            }
+
+            @include respond-to("<desktop") {
+                padding: 2em 1.5em;
+            }
+        }
+
+        &__date {
+            font-size: 1.4em;
+            color: colors.$review-date-txt;
+            @include respond-to("<tablet-large") {
+                font-size: 1.2em;
+            }
+        }
+
+        &__txt {
+            margin-top: 10px;
+            font-size: 1.6em;
+            font-style: italic;
+            color: colors.$review-txt;
+            @include respond-to("<tablet-large") {
+                font-size: 1.4em;
+            }
+        }
+
+        /* <img> inline in div.avatar */
+
+        &__avatar {
+            margin: 1.7em 0 0 0;
+            display: flex;
+            align-items: center;
+            font-size: 1.6em;
+            font-style: italic;
+            color: colors.$review-avatar-txt;
+        }
+
+        &__img {
+            border-radius: 50%;
+            margin-right: 15px;
+            margin-left: 20px;
+            @include respond-to("<tablet-large") {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+}

@@ -1,0 +1,123 @@
+@use '../../../_share/_vars/breakpoints' as *;
+@use '../../../_share/_import/fonts' as *;
+@use '../../../_share/_vars/colors';
+
+.pet-card {
+        --card-color: #{colors.$pet-card-main};
+
+    width: 100%;
+    // min-width: 240px;
+    max-width: 480px;
+    max-height: 365px;
+    position: relative;
+    box-shadow: colors.$pet-card-box-shadow;
+    @include Roboto;
+    text-align: center;
+    background: var(--card-color);
+    transition: transform .35s;
+    border-radius: 5px;
+
+    @include respond-to("<tablet") {
+        height: min-content;
+        max-width: 300px;
+    }
+
+    &__link {
+        padding: 20px 0;
+        display: block;
+        text-decoration: none;
+        @include respond-to("<tablet") {
+            padding: 40px 0 25px;
+        }
+
+        &::after {
+            content: "";
+            width: 27px;
+            height: 27px;
+            position: absolute;
+            bottom: 35px; 
+            right: 35px;
+            display: block;
+            background: 
+                left / 100% 100% no-repeat 
+                url("../../../assets/icons/tv.svg");
+            @include respond-to("<desktop") {
+                width: 20px;
+                height: 20px;
+                top: 30px;
+                right: 25px;
+            }
+        }
+    }
+
+    &:hover {
+        transform: scale(1.01);
+    }
+    &:hover &__back {
+        transform: rotate(360deg);
+    }
+
+    /* --> SVG */
+    &__mask {
+        width: 50%;
+        height: auto;
+    }
+
+    &__img {
+        width: auto;
+        height: 100%;
+    }
+
+    &__filter {
+        fill: colors.$pet-card-filter;
+    }
+
+    &__back {  
+        fill: var(--card-color);
+        transition: transform 1s;
+        transform: rotate(0deg);
+        transform-origin: center;
+    }
+
+    &__description {
+        margin-top: 10px;
+        padding: 0 15% 0 30px;
+        text-align: left;
+        border-top: colors.$pet-card-description-border;
+        @include respond-to("<desktop") {
+            padding-right: 30px;
+        }
+        @include respond-to("<desktop") {
+            padding-right: 15px;
+        }
+    }
+
+    &__heading {
+        margin: 17px 0 0;
+        font-size: 26px;
+        font-weight: 500;
+        color: colors.$pet-card-heading;
+        @include respond-to("<desktop") {
+            font-size: 18px;
+        }
+    }
+
+    &__paragraph {
+        margin: 6px 0 0 0;
+        font-size: 16px;
+        font-weight: 400;
+        color: colors.$pet-card-paragraph;
+        @include respond-to("<desktop") {
+            font-size: 14px;
+        }
+        @include respond-to("<tablet") {
+            font-size: 11px;
+        }
+    }
+
+    // &__icon {
+    //     position: absolute;
+    //     bottom: 34px;
+    //     right: 33px;
+    // }
+}
