@@ -52,7 +52,6 @@ $objects: (
             y: percentage(80, $bg-height),
             w: auto,
             h: min-max(90px, 230px, 25vw),
-            // h: max(min(230px, 25vw), 90px),
         ),
         "<1200px": (
             x: max(calc(50vw - 465px), -5%),
@@ -183,9 +182,6 @@ $objects: (
         display: block;
         width: 100%;
         height: #{$bg-height}px;
-
-        // [.] height: $resize-height;
-        // [.] max-height: 700px;
 
         @include respond-to(">boundaries") {
             background:

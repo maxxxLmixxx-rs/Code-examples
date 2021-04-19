@@ -4,6 +4,7 @@
 body {
     width: 100%;
     min-height: 100vh;
+    min-width: 320px;
     margin: 0;
     overflow-x: hidden;
     display: flex;
@@ -63,4 +64,8 @@ button {
     @include respond-to("<tablet-large") {
         display: block;
     }
+}
+
+._js-no-scroll {
+    overflow: hidden;
 }
