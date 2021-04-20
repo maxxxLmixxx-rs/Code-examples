@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
-    <script src="../_share/_scripts/search-bar.js" defer></script>
+    <script src="../_share/_scripts/header.js" defer></script>
     <style> .tooltip { opacity: 0; } </style>
     <title>Map</title>
 </head>
@@ -13,7 +13,7 @@
     <header class="header">
         <div class="_wrapper _wrapper--right">
             <div class="header__wrapper _wrapper__inner">
-                <nav class="nav">
+                <nav class="nav nav--burger-tablet">
                     <div class="nav__logo">
                         <h1 class="logo">
                             <!-- https://stackoverflow.com/questions/3239202/whats-the-correct-way-to-hide-the-h1-tag-and-not-be-banned-from-google -->
@@ -22,14 +22,17 @@
                             </a>
                         </h1>
                     </div>
-                    <ul class="nav__list">
-                        <li class="nav__item"><a class="nav__link" href="../landing/">About</a></li>
-                        <li class="nav__item nav__item--active"><a class="nav__link" href="../map/">Map</a></li>
-                        <li class="nav__item"><a class="nav__link" href="../zoos/panda/">Zoos</a></li>
-                        <li class="nav__item"><a class="nav__link" href="../error/">Contact us</a></li>
-                        <li class="nav__item"><a class="nav__link" 
-                            href="https://www.figma.com/file/vzrwoqf0kSG1uOify8BRBR/online-zoo?node-id=0%3A1">Design</a></li>
-                    </ul>
+                    <div class="nav__body">
+                        <ul class="nav__list">
+                            <li class="nav__item"><a class="nav__link" href="../landing/">About</a></li>
+                            <li class="nav__item nav__item--active"><a class="nav__link" href="../map/">Map</a></li>
+                            <li class="nav__item"><a class="nav__link" href="../zoos/panda/">Zoos</a></li>
+                            <li class="nav__item"><a class="nav__link" href="../error/">Contact us</a></li>
+                            <li class="nav__item"><a class="nav__link" 
+                                href="https://www.figma.com/file/vzrwoqf0kSG1uOify8BRBR/online-zoo?node-id=0%3A1">Design</a></li>
+                            <li class="nav__item _tablet-appear"><a class="nav__link" href="../error/">My Account</a></li>
+                        </ul>
+                    </div>
                 </nav>
                 <div class="menu">
                     <ul class="menu__list">
@@ -42,17 +45,17 @@
                             </div>
                         </li>
                         <li class="menu__item menu__log-in">
-                            <button id="log-button" class="menu__button">Log in</button>
+                            <button id="logButton" class="menu__button">Log in</button>
                         </li>
                         <li class="menu__item menu__sign-up">
-                            <button id="sign-button" class="menu__button menu__button--round">Sign up</button>
+                            <button id="signButton" class="menu__button menu__button--round">Sign up</button>
                         </li>
                         <li class="menu__item menu__user">
                             <button class="user"></button>
                         </li>
                     </ul>
                 </div>
-                <button class="burger"><span></span></button>
+                <button id="burger" class="burger"><span></span></button>
             </div>
         </div>
     </header>

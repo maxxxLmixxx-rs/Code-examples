@@ -5,30 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../_styles/_main.css">
-    <script src="../../_share/_scripts/search-bar.js" defer></script>
+    <script src="../../_share/_scripts/header.js" defer></script>
     <title>Zoos alligator page</title>
 </head>
 <body>
     <header class="header">
         <div class="_wrapper _wrapper--right">
             <div class="header__wrapper _wrapper__inner">
-                <nav class="nav">
+                <nav class="nav nav--burger-tablet">
                     <div class="nav__logo">
                         <h1 class="logo">
                             <!-- https://stackoverflow.com/questions/3239202/whats-the-correct-way-to-hide-the-h1-tag-and-not-be-banned-from-google -->
-                            <a class="logo__link nav__link" href="../landing/">
+                            <a class="logo__link nav__link" href="../../landing/">
                                 <img class="logo__img" width="108" height="84" src="../../../assets/icons/logo.svg" alt="online zoo">
                             </a>
                         </h1>
                     </div>
-                    <ul class="nav__list">
-                        <li class="nav__item"><a class="nav__link" href="../../landing/">About</a></li>
-                        <li class="nav__item"><a class="nav__link" href="../../map/">Map</a></li>
-                        <li class="nav__item nav__item--active"><a class="nav__link" href="../zoos/panda/">Zoos</a></li>
-                        <li class="nav__item"><a class="nav__link" href="../../error/">Contact us</a></li>
-                        <li class="nav__item"><a class="nav__link" 
-                            href="https://www.figma.com/file/vzrwoqf0kSG1uOify8BRBR/online-zoo?node-id=0%3A1">Design</a></li>
-                    </ul>
+                    <div class="nav__body">
+                        <ul class="nav__list">
+                            <li class="nav__item"><a class="nav__link" href="../../landing/">About</a></li>
+                            <li class="nav__item"><a class="nav__link" href="../../map/">Map</a></li>
+                            <li class="nav__item nav__item--active"><a class="nav__link" href="../zoos/panda/">Zoos</a></li>
+                            <li class="nav__item"><a class="nav__link" href="../../error/">Contact us</a></li>
+                            <li class="nav__item"><a class="nav__link" 
+                                href="https://www.figma.com/file/vzrwoqf0kSG1uOify8BRBR/online-zoo?node-id=0%3A1">Design</a></li>
+                            <li class="nav__item _tablet-appear"><a class="nav__link" href="../error/">My Account</a></li>
+                        </ul>
+                    </div>
                 </nav>
                 <div class="menu">
                     <ul class="menu__list">
@@ -41,17 +44,17 @@
                             </div>
                         </li>
                         <li class="menu__item menu__log-in">
-                            <button id="log-button" class="menu__button">Log in</button>
+                            <button id="logButton" class="menu__button">Log in</button>
                         </li>
                         <li class="menu__item menu__sign-up">
-                            <button id="sign-button" class="menu__button menu__button--round">Sign up</button>
+                            <button id="signButton" class="menu__button menu__button--round">Sign up</button>
                         </li>
                         <li class="menu__item menu__user">
                             <button class="user"></button>
                         </li>
                     </ul>
                 </div>
-                <button class="burger"><span></span></button>
+                <button id="burger" class="burger"><span></span></button>
             </div>
         </div>
     </header>
@@ -62,6 +65,7 @@
                     <ul class="side-menu__list">
                         <svg id="petAvatarReference" style="position: absolute;" width="0" height="0" viewBox="0 0 105 96">
                             <defs>
+                                <rect id="avatarClippedRect" x="-25%" y="-25%" width="150%" height="150%" mask="url(#avatarInnerClip)"/>
                                 <mask id="avatarOuterClip">
                                     <path fill="white" d="M95.76 19.93c9.1 11.63 11.63 27.48 6.91 39.67-4.72 12.2-16.52 20.8-30.1 27.5-13.49 6.68-28.74 11.54-41.73 7.32-12.98-4.14-23.77-17.2-28.4-32.67-4.56-15.45-2.96-33.3 6.82-45.01C19.12 4.94 37.08-.8 54.03.09c16.86.87 32.62 8.28 41.73 19.84z"/>
                                 <mask>
@@ -77,7 +81,7 @@
                                     <svg class="pet-avatar__outer-svg" width="105" height="96" viewBox="0 0 105 96">
                                         <svg class="pet-avatar__inner-svg" mask="url(#avatarOuterClip)" fill="#F6F9FA">
                                             <image class="pet-avatar__img" y="13" height="79" href="../../../assets/images/animals/xtina-yu.jpg"/>
-                                            <rect class="pet-avatar__back" x="-25%" y="-25%" width="150%" height="150%" mask="url(#avatarInnerClip)"/>
+                                            <use class="pet-avatar__back" href="#avatarClippedRect"/>
                                         </svg>
                                     </svg>
                                     <span class="pet-avatar__name">Pandas</span>
@@ -90,7 +94,7 @@
                                     <svg class="pet-avatar__outer-svg" width="105" height="96" viewBox="0 0 105 96">
                                         <svg class="pet-avatar__inner-svg" mask="url(#avatarOuterClip)" fill="#F6F9FA">
                                             <image class="pet-avatar__img" y="13" height="79" href="../../../assets/images/animals/nathan-lemon.jpg"/>
-                                            <rect class="pet-avatar__back" x="-25%" y="-25%" width="150%" height="150%" mask="url(#avatarInnerClip)"/>
+                                            <use class="pet-avatar__back" href="#avatarClippedRect"/>
                                         </svg>
                                     </svg>
                                     <span class="pet-avatar__name">Eagles</span>
@@ -103,7 +107,7 @@
                                     <svg class="pet-avatar__outer-svg" width="105" height="96" viewBox="0 0 105 96">
                                         <svg class="pet-avatar__inner-svg" mask="url(#avatarOuterClip)" fill="#F6F9FA">
                                             <image class="pet-avatar__img" y="13" height="79" href="../../../assets/images/animals/simbi-yvan.jpg"/>
-                                            <rect class="pet-avatar__back" x="-25%" y="-25%" width="150%" height="150%" mask="url(#avatarInnerClip)"/>
+                                            <use class="pet-avatar__back" href="#avatarClippedRect"/>
                                         </svg>
                                     </svg>
                                     <span class="pet-avatar__name">Gorillas</span>
@@ -111,12 +115,12 @@
                              </div>
                         </li>
                         <li class="side-menu__item">
-                            <div class="pet-avatar pet-avatar--mobile-row pet-avatar--active">
+                            <div class="pet-avatar pet-avatar--active pet-avatar--mobile-row">
                                 <a class="pet-avatar__link-wrapper" href="../alligator/">
                                     <svg class="pet-avatar__outer-svg" width="105" height="96" viewBox="0 0 105 96">
                                         <svg class="pet-avatar__inner-svg" mask="url(#avatarOuterClip)" fill="#F6F9FA">
                                             <image class="pet-avatar__img" y="13" height="79" href="../../../assets/images/animals/matthew-essman.jpg"/>
-                                            <rect class="pet-avatar__back" x="-25%" y="-25%" width="150%" height="150%" mask="url(#avatarInnerClip)"/>
+                                            <use class="pet-avatar__back" href="#avatarClippedRect"/>
                                         </svg>
                                     </svg>
                                     <span class="pet-avatar__name">Alligators</span>
@@ -128,7 +132,7 @@
                 <div class="zoo-wrapper">
                     <section class="broadcast">
                         <div class="broadcast__header">
-                            <h2 class="broadcast__heading section-heading section-heading--dark">Alligators</h2>
+                            <h2 class="broadcast__heading section-heading section-heading--dark">The Giant Pandas</h2>
                             <div class="broadcast__header-icons">
                                 <button class="broadcast__header-icon">
                                     <svg width="43" height="42" viewBox="0 0 43 42" fill="none">
@@ -142,7 +146,6 @@
                                         <path stroke="#19707D" d="M28.51 23.58l-7.5 7.43-7.5-7.43a5 5 0 117.5-6.56 5 5 0 117.5 6.57" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                 </button>
-
                             </div>
                         </div>
                         <div class="broadcast__body">
@@ -163,13 +166,19 @@
                                 </svg>
                                 <div class="broadcast__cameras-container">
                                     <div class="broadcast__camera broadcast__camera--live broadcast__camera--gag">
-                                        <iframe width="560" height="315" frameborder="0" src="https://www.youtube.com/embed/boQgZGj9Umg?modestbranding=1&showinfo=0&rel=0&iv_load_policy=3"></iframe>
+                                        <div>
+                                            <iframe width="560" height="315" frameborder="0" src="https://www.youtube.com/embed/boQgZGj9Umg?modestbranding=1&showinfo=0&rel=0&iv_load_policy=3"></iframe>
+                                        </div>
                                     </div>
                                     <div class="broadcast__camera broadcast__camera--live broadcast__camera--gag">
-                                        <iframe width="560" height="315" frameborder="0" src="https://www.youtube.com/embed/boQgZGj9Umg?modestbranding=1&showinfo=0&rel=0&iv_load_policy=3"></iframe>
+                                        <div>
+                                            <iframe width="560" height="315" frameborder="0" src="https://www.youtube.com/embed/boQgZGj9Umg?modestbranding=1&showinfo=0&rel=0&iv_load_policy=3"></iframe>
+                                        </div>
                                     </div>
                                     <div class="broadcast__camera broadcast__camera--live broadcast__camera--gag">
-                                        <iframe width="560" height="315" frameborder="0" src="https://www.youtube.com/embed/boQgZGj9Umg?modestbranding=1&showinfo=0&rel=0&iv_load_policy=3"></iframe>
+                                        <div>
+                                            <iframe width="560" height="315" frameborder="0" src="https://www.youtube.com/embed/boQgZGj9Umg?modestbranding=1&showinfo=0&rel=0&iv_load_policy=3"></iframe>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="broadcast__arrows">
