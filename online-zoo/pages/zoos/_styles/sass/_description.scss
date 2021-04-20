@@ -16,7 +16,7 @@
     &__header {
         margin-bottom: 25px;
     }
-    &__item {
+    &__item:not(:last-child) {
         margin-bottom: 40px;
     }
 }

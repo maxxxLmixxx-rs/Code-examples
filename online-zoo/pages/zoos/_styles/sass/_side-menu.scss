@@ -12,24 +12,33 @@
     width: 105px;
     margin-right: 20px;
     padding-top: var(--top-offset);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
 
     &__list {
+        flex-basis: 600px;
+        max-height: 70vh;
+        min-height: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         position: sticky;
         top: var(--top-offset);
         list-style: none;
-        margin-bottom: 32px;
     }
 
-    @include margin-between {
-        margin-bottom: 60px;
+    @include respond-to(">tablet") {
+        .pet-avatar {
+            &__outer-svg {
+                max-height: min(95px, max(12vh, 60px));
+            }
+        }
     }
 
-    /* ADAPTIVE */
     @include respond-to("<desktop") {
         --top-offset: 28px;
-        @include margin-between {
-            margin-bottom: 40px;
-        }
     }
 
     @include respond-to("<tablet-large") {
@@ -70,6 +79,7 @@
         }
 
         &__list {
+            width: 100%;
             margin-bottom: 0;
             justify-content: flex-start;
         }
