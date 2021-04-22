@@ -19,6 +19,10 @@
     &__item:not(:last-child) {
         margin-bottom: 40px;
     }
+
+    @include respond-to("<tablet") {
+        margin-bottom: 40px;
+    }
 }
 
 .zoo-facts {
