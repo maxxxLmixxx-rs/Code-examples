@@ -4,6 +4,7 @@ import {ImageBind} from '../ImageBind.js';
 export class FiltersHandler extends ImageBind {
     errors = {
         notFilterInstance: 'Second param should contain only Filter instances',
+        disabledInMozilla: 'Custom error: Download option for filtered *.svg files is disabled in Mozilla Firefox'
     };
 
     static STORAGE_FILTERS = 'filters';
@@ -61,7 +62,10 @@ export class FiltersHandler extends ImageBind {
 
     getDataURI() {
         if (this.imgElement.src.startsWith('data:image/svg+xml')) {
-            return this.imgElement.src;
+            if (navigator.userAgent.indexOf("Firefox") != -1) {
+                console.error(this.errors.disabledInMozilla);
+                return this.imgElement.src;
+            }
         }
 
         const canvas = document.createElement('canvas');
