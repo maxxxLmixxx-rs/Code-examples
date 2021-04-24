@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap" rel="stylesheet" />
+  <link href="./styles/style.css" rel="stylesheet" />
+  <title>Photo-filter</title>
+</head>
+<body>
+  <header class="header">
+    <h1 id="h1" class="header-title">По рюмочке?</h1>
+    <script>
+        const quotes = [
+            'По рюмочке?', 'Как дела?', 'Ковер - русские скрепы', 'Поставил максимальный бал?',
+            'Скоро пасха', 'Ах, бы блинчиков', 'Тут ничего интересного', 'Высший бал!',
+            'А теперь тост', 'It can be in English too', 'Засранец, держись у меня',
+            'Очень интересно', 'Решил привнести в дизайн русской души',  'Была не была',
+            'Считать не вредно', 'Держи карман шире', 'Балбешка стоеросовая', 'Гол как сокол',
+            'Вилами по воде писано', 'Бить челом', 'Артист погорелого театра', 'Не смотри сюда',
+            'Котейки все таки лучше собак'
+        ];
+        const index = Math.floor(Math.random() * quotes.length);
+        document.getElementById('h1').innerText = quotes[index];
+    </script>
+  </header>
+  <main class="main">
+    <div class="filters">
+      <label>
+        Blur:
+        <input name="blur" type="range" min="0" max="10" value="0" />
+        <output name="result"></output>
+      </label>
+      <label>
+        Invert:
+        <input name="invert" type="range" min="0" max="100" value="0" />
+        <output name="result"></output>
+      </label>
+      <label>
+        Sepia:
+        <input name="sepia" type="range" min="0" max="100" value="0" />
+        <output name="result"></output>
+      </label>
+      <label>
+        Saturate:
+        <input name="saturate" type="range" min="0" max="200" value="100" />
+        <output name="result"></output>
+      </label>
+      <label>
+        Hue rotate:
+        <input name="hue" type="range" min="0" max="360" value="0" />
+        <output name="result"></output>
+      </label>
+    </div>
+    <div class="editor">
+      <div class="btn-container">
+        <button id="reset" class="btn btn-reset">Reset</button>
+        <button id="next" class="btn btn-next btn-active">Next picture</button>
+        <label class="btn btn-load" for="btnInput">
+          Load picture
+          <input id="load" class="btn-load--input" name="upload" type="file" placeholder="Load picture" />
+        </label>
+        <button id="save" class="btn btn-save">Save picture</button>
+      </div>
+      <img id="showImage" src="" alt="image" crossorigin="anonymous" />
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="footer-container">
+      <a class="github" href="#" target="_blank" rel="noopener noreferrer">github</a>
+      <a class="rss" href="https://rs.school/js/" target="_blank" rel="noopener">
+        <span class="rss-year">'21</span>
+      </a>
+    </div>
+  </footer>
+  <button id="fullscreen" class="fullscreen"></button>
+
+  <script type="module">
+    import {ImageSwitcher} from './scripts/ImageSwitcher.js';
+    import {FiltersHandler} from './scripts/Filters/FiltersHandler.js';
+    import {filtersArray} from './scripts/Filters/Filter.js';
+    import {Fullscreen} from './scripts/Fullscreen.js';
+    
+    const targetQuery = '#showImage';
+    
+    const imageSwitcher = new ImageSwitcher(targetQuery, 'assets/img/img.jpg');
+    const filtersHandler = new FiltersHandler(targetQuery, filtersArray);
+    const fullscreen = new Fullscreen();
+
+    const [ loadInput, nextBtn, saveBtn, resetBtn, fullscreenBtn ] = [ 
+      document.getElementById('load'),
+      document.getElementById('next'),
+      document.getElementById('save'),
+      document.getElementById('reset'),
+      document.getElementById('fullscreen'),
+    ];
+
+    loadInput.addEventListener('change', ({target}) => {
+      const selectedFile = target.files[0];
+      const reader = new FileReader();
+      reader.addEventListener('load', () => {
+        imageSwitcher.changeImageSrc(reader.result);
+      });
+      if (selectedFile) reader.readAsDataURL(selectedFile);
+    });
+
+    nextBtn.addEventListener('click', () => imageSwitcher.next());
+    saveBtn.addEventListener('click', () => filtersHandler.save());
+    resetBtn.addEventListener('click', () => filtersHandler.reset());
+    
+    fullscreenBtn.addEventListener('click', ({target}) => {
+      const isFullscreen = fullscreen.showState();
+      if (isFullscreen) fullscreen.outFull();
+      else fullscreen.inFull();
+      target.classList.toggle('openfullscreen');
+    });
+  </script>
+</body>
+</html>
