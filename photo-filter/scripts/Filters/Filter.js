@@ -38,8 +38,8 @@ export function Filter({filterName, varFallback, inputQuery, outputQuery}) {
 
     /* --> reset */
     createFunction(this, 'reset', () => {
+        if(this.output) this.output.value = this.toReset;
         this.input.value = this.toReset;
-        this.output.value = this.toReset;
     });
 
     /* --> onChange hook */
@@ -49,19 +49,27 @@ export function Filter({filterName, varFallback, inputQuery, outputQuery}) {
         return onChangeCallbacks.slice();
     });
 
+    /* Session storage */
+    const updateInput = (value) => {
+        if(this.output) this.output.innerText = value;
+        this.input.setAttribute('value', value);
+        sessionStorage.setItem(filterName, value);
+    };
+
+    if (sessionStorage.getItem(filterName)) {
+        updateInput(sessionStorage.getItem(filterName));
+    }
+
     /* Bind input */
     const callFunctions = (callbacks) => {
         callbacks.forEach(func => func());
     };
-    const updateOutput = (value) => {
-        if (this.output) this.output.innerText = value;
-    };
     this.input.addEventListener('input', ({ target: {value} }) => {
         callFunctions(onChangeCallbacks);
-        updateOutput(value);
+        updateInput(value);
     });
 
-    updateOutput(this.input.value);
+    updateInput(this.input.value);
 }
 
 export function BlurFilter(img, props) {
