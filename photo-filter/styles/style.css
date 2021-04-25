@@ -43,7 +43,7 @@ label:not(.btn) {
   display: block;
   position: relative;
   margin-bottom: 40px;
-  margin-right: 140px;
+  margin-right: 110px;
   /* color: #a2abb3; */
   color: white;
   font-size: 16px;
@@ -61,7 +61,7 @@ input[type='range'] {
   display: block;
   appearance: none;
   height: 3px;
-  background-color: #a2abb3;
+  background-color: #c0c9cf;
   margin-top: 22px;
   outline: none;
   border-radius: 0.25rem;
@@ -69,18 +69,37 @@ input[type='range'] {
   cursor: pointer;
   width: 100%;
 }
+input[type=range]::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background-color: #313940;
+  border: 3px solid #d2d8dd;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
 input[type='range']::-webkit-slider-thumb {
   appearance: none;
   width: 25px;
   height: 25px;
   background-color: #313940;
-  border: 3px solid #a2abb3;
+  border: 3px solid #d2d8dd;
   border-radius: 50%;
   cursor: pointer;
   transition: 0.3s;
 }
+label:hover input[type=range]::-moz-range-thumb {
+  background-color: #00c9b7;
+}
 label:hover input[type='range']::-webkit-slider-thumb {
   background-color: #00c9b7;
+}
+
+label:active input[type=range]::-moz-range-thumb {
+  background-color: #008275;
+  width:20px;
+  border-radius: 25%;
 }
 label:active input[type='range']::-webkit-slider-thumb {
   background-color: #008275;
@@ -171,7 +190,7 @@ label:active output {
   width: 100%;
   max-width: 40%;
   margin: 0 20px 40px 0;
-  padding: 2em 0 2em 2em;
+  padding: 2em 0 1em 2em;
   padding-top: 1em;
   background: rgba(0,0,0,.3);
 }
