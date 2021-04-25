@@ -14,7 +14,7 @@ body {
   min-height: 100vh;
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   overflow-x: hidden;
-  background: center / cover url("../assets/img/carpet.jpg");
+  /* background: center / cover url("../assets/img/carpet.jpg"); */
 }
 .header {
   text-align: center;
