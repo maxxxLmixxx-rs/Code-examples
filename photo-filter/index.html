@@ -101,6 +101,7 @@
     loadInput.addEventListener('change', ({target}) => {
       const selectedFile = target.files[0];
       const reader = new FileReader();
+      loadInput.value = '';
       reader.addEventListener('load', () => {
         imageSwitcher.changeImageSrc(reader.result);
       });
