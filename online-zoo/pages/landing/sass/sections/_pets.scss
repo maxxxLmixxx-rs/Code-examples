@@ -44,16 +44,19 @@
     }
 
     &__cards-container {
-            --card-color: #{colors.$pet-card-main};
-        max-width: 1480px;
-        overflow: hidden;
         flex: 1 1 100%;
+        max-width: 1480px;
         min-width: 240px;
+        overflow: hidden;
+    }
+
+    &__cards-carousel {
+            --card-color: #{colors.$pet-card-main};
         display: grid;
         gap: 20px;
         
         grid-auto-flow: column;
-        grid-auto-columns: calc(100% / 3 - 15px);
+        grid-auto-columns: calc(100% / 3 - 17px);
         grid-template-rows: repeat(2, auto);
 
         @include respond-to("<tablet-large") {

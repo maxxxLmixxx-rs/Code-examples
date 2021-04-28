@@ -1,0 +1,48 @@
+@use '../../../_share/_vars/breakpoints' as *;
+
+$duration: .3s;
+
+.pets__cards-carousel {
+    will-change: transform;
+    transform: translateX(calc(-100% / 3));
+    
+    @include respond-to("<tablet-large") {
+        transform: translateX(calc(-100% / 2));
+    }
+    @include respond-to("<tablet") {
+        transform: translateX(calc(-100% / 1));
+    }
+
+    &._move-left {
+        animation: move-left-1 $duration;
+        @include respond-to("<tablet-large") {
+            animation: move-left-2 $duration;
+        }
+        @include respond-to("<tablet") {
+            animation: move-left-3 $duration;
+        }
+    }
+    &._move-right {
+        animation: move-right-1 $duration;
+        @include respond-to("<tablet-large") {
+            animation: move-right-2 $duration;
+        }
+        @include respond-to("<tablet") {
+            animation: move-right-3 $duration;
+        }
+    }
+
+    $s: 1; $e: 4;
+    @for $cols from $s to $e {
+        @keyframes move-left-#{$cols} {
+            to {
+                transform: translateX(-200% / ($e - $cols));
+            }
+        }
+        @keyframes move-right-#{$cols} {
+            to {
+                transform: translateX(0%);
+            }
+        }
+    }
+}

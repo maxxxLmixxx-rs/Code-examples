@@ -163,7 +163,8 @@
                         </svg>
                         <div class="pets__cards-container">
                             <!-- SCRIPT: CARDS GENERATOR -->
-                            <script type="module" src="./js/generators/cards-generator.js"></script>
+                            <script type="module" src="./js/generators/sliders/pet-card.js"></script>
+                            <div id="pet-carousel" class="pets__cards-carousel"></div>
                         </div>
                         <div class="pets__aside">
                             <!-- SVG: ARROWS REFERENCE -->
@@ -176,12 +177,12 @@
                                 </defs>
                             </svg>
                             <div class="pets__arrows">
-                                <button class="arrow arrow--right">
+                                <button id="pet-right" class="arrow arrow--right">
                                     <svg width="17" height="24" fill="none">
                                         <use href="#arrowRight"/>
                                     </svg>
                                 </button>
-                                <button class="arrow arrow--left">
+                                <button id="pet-left" class="arrow arrow--left">
                                     <svg width="17" height="24" fill="none">
                                         <use href="#arrowRight"/>
                                     </svg>
@@ -302,7 +303,7 @@
                                 </defs>
                             </svg>
                             <!-- SCRIPT: PET AVATARS GENERATOR -->
-                            <script type="module" src="./js/generators/pet-avatars-generator.js"></script>
+                            <script type="module" src="./js/generators/sliders/pet-avatar.js"></script>
                         </div>
                         <div class="beautifuls__arrows">
                             <button class="arrow arrow--right">
