@@ -80,7 +80,7 @@ export function BlurFilter(img, props) {
             {width, height} 
         ] = [ img, img.getBoundingClientRect() ];
         if (!naturalWidth || !naturalHeight) return 1;
-        return Math.trunc(Math.max(naturalWidth / width, naturalHeight / height));
+        return Math.max(naturalWidth / width, naturalHeight / height);
     };
     createGetter(this, 'ctxFilter', $=> `${this.name}(${this.value * calculateMultiplier() + this.unit})`);
 };
