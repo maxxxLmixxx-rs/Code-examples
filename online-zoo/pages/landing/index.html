@@ -163,7 +163,7 @@
                         </svg>
                         <div class="pets__cards-container">
                             <!-- SCRIPT: CARDS GENERATOR -->
-                            <script type="module" src="./js/generators/sliders/pet-card.js"></script>
+                            <script type="module" src="./js/sliders/pet-card.js"></script>
                             <div id="pet-carousel" class="pets__cards-carousel"></div>
                         </div>
                         <div class="pets__aside">
@@ -245,39 +245,70 @@
                         </div>
                     </div>
                     <div class="reviews__main">
-                        <div class="review">
-                            <div class="review__figure">
-                                <time class="review__date" datetime="2020-12-20">20 December 2020</time>
-                                <p class="review__txt">Awesome place to observe my favourite aligators at Florida, the quality of the video is great.</p>
-
+                        <div id="reviews-carousel" class="reviews__carousel _slide-action">
+                            <div class="review">
+                                <div class="review__figure">
+                                    <time class="review__date" datetime="2020-12-20">20 December 2020</time>
+                                    <p class="review__txt">Awesome place to observe my favourite aligators at Florida, the quality of the video is great.</p>
+                                </div>
+                                <p class="review__avatar">
+                                    <img class="review__img" width="68" height="68" src="../../assets/images/reviewers/Adam.png" alt="adam avatar">
+                                    Adam, Spain
+                                </p>
                             </div>
-                            <p class="review__avatar">
-                                <img class="review__img" src="../../assets/images/reviewers/Adam.png" alt="adam avatar">
-                                Adam, Spain
-                            </p>
-                        </div>
-                        <div class="review">
-                            <div class="review__figure">
-                                <time class="review__date" datetime="2020-12-20">20 December 2020</time>
-                                <p class="review__txt">Awesome place to observe my favourite aligators at Florida, the quality of the video is great.</p>
-
+                            <div class="review">
+                                <div class="review__figure">
+                                    <time class="review__date" datetime="2020-12-20">20 December 2020</time>
+                                    <p class="review__txt">Awesome place to observe my favourite aligators at Florida, the quality of the video is great.</p>
+                                </div>
+                                <p class="review__avatar">
+                                    <img class="review__img" width="68" height="68" src="../../assets/images/reviewers/Chris.png" alt="chris avatar">
+                                    Chris, Australia
+                                </p>
                             </div>
-                            <p class="review__avatar">
-                                <img class="review__img" src="../../assets/images/reviewers/Chris.png" alt="chris avatar">
-                                Chris, Australia
-                            </p>
-                        </div>
-                        <div class="review">
-                            <div class="review__figure">
-                                <time class="review__date" datetime="2020-12-20">20 December 2020</time>
-                                <p class="review__txt">Awesome place to observe my favourite aligators at Florida, the quality of the video is great.</p>
-
+                            <div class="review">
+                                <div class="review__figure">
+                                    <time class="review__date" datetime="2020-12-20">20 December 2020</time>
+                                    <p class="review__txt">Awesome place to observe my favourite aligators at Florida, the quality of the video is great.</p>
+                                </div>
+                                <p class="review__avatar">
+                                    <img class="review__img" width="68" height="68" src="../../assets/images/reviewers/Amely.png" alt="amely avatar">
+                                    Amely, Canada
+                                </p>
                             </div>
-                            <p class="review__avatar">
-                                <img class="review__img" src="../../assets/images/reviewers/Amely.png" alt="amely avatar">
-                                Amely, USA
-                            </p>
+                            <div class="review">
+                                <div class="review__figure">
+                                    <time class="review__date" datetime="2020-12-20">20 December 2020</time>
+                                    <p class="review__txt">Awesome place to observe my favourite aligators at Florida, the quality of the video is great.</p>
+                                </div>
+                                <p class="review__avatar">
+                                    <img class="review__img" width="68" height="68" src="../../assets/images/reviewers/Lian.png" alt="amely avatar">
+                                    Lian, China
+                                </p>
+                            </div>
+                            <div class="review">
+                                <div class="review__figure">
+                                    <time class="review__date" datetime="2020-12-20">20 December 2020</time>
+                                    <p class="review__txt">Awesome place to observe my favourite aligators at Florida, the quality of the video is great.</p>
+    
+                                </div>
+                                <p class="review__avatar">
+                                    <img class="review__img" width="68" height="68" src="../../assets/images/reviewers/Ksenya.png" alt="amely avatar">
+                                    Ksenya, Russia
+                                </p>
+                            </div>
+                            <div class="review">
+                                <div class="review__figure">
+                                    <time class="review__date" datetime="2020-12-20">20 December 2020</time>
+                                    <p class="review__txt">Awesome place to observe my favourite aligators at Florida, the quality of the video is great.</p>
+                                </div>
+                                <p class="review__avatar">
+                                    <img class="review__img" width="68" height="68" src="../../assets/images/reviewers/Bred.png" alt="amely avatar">
+                                    Bred, USA
+                                </p>
+                            </div>
                         </div>
+                        <script src="./js/sliders/review.js"></script>
                     </div>
                 </div>
             </div>
@@ -303,20 +334,20 @@
                                 </defs>
                             </svg>
                             <!-- SCRIPT: PET AVATARS GENERATOR -->
-                            <script type="module" src="./js/generators/sliders/pet-avatar.js"></script>
+                            <script type="module" src="./js/sliders/pet-avatar.js"></script>
                         </div>
                         <div class="beautifuls__arrows">
-                            <button class="arrow arrow--right">
+                            <button id="avatar-right" class="arrow arrow--right">
                                 <svg width="17" height="24" fill="none">
                                     <use href="#arrowRight"/>
                                 </svg>
                             </button>
-                            <button class="arrow arrow--left">
+                            <button id="avatar-left" class="arrow arrow--left">
                                 <svg width="17" height="24" fill="none">
                                     <use href="#arrowRight"/>
                                 </svg>
                             </button>
-                            <button class="arrow arrow--bottom">
+                            <button id="avatar-bottom" class="arrow arrow--bottom">
                                 <svg width="17" height="24" fill="none">
                                     <use href="#arrowRight"/>
                                 </svg>

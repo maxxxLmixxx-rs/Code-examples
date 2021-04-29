@@ -1,4 +1,4 @@
-import {getNode, generateTemplates} from '../templates/gen-templates.js';
+import {generateTemplates} from '../templates/gen-templates.js';
 import {getCardTemplate} from '../templates/_pet-card.js';
 import {animals} from '../animals.js';
 
@@ -11,7 +11,7 @@ import {animals} from '../animals.js';
         animals.eagle,
         animals.alligator,
         animals.elephant,
-        animals.lemur,        
+        animals.lemur,
     ];
     
     /* Initialization */

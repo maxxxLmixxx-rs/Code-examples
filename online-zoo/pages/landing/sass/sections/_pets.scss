@@ -64,7 +64,7 @@
         }
         @include respond-to("<tablet") {
             justify-items: center;
-            grid-auto-columns: calc(100% / 1);
+            grid-auto-columns: calc(100% / 1 - 10px);
         }
     }
 

@@ -1,0 +1,25 @@
+@use '../../../_share/_vars/breakpoints' as *;
+
+$duration: 2.5s;
+
+.reviews__carousel {
+    will-change: transform;
+    
+    &._move-left {
+        animation: move-left-br1 $duration;
+        @include respond-to("<tablet-large") {
+            animation: none;
+        }
+    }
+
+    @keyframes move-left-br1 {
+        to {
+            transform: translateX(calc(-100% / 3 - 5px));
+        }
+    }
+    @keyframes move-left-br2 {
+        to {
+            transform: translateX(calc(-100% / 2 - 10px));
+        }
+    }
+}

@@ -44,44 +44,52 @@
     }
 
     &__main {
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    &__carousel {
         gap: 20px;
         display: grid;
         justify-items: center;
         grid-auto-flow: column;
-        grid-auto-columns: calc(100% / 3 - 20px);
+        grid-auto-columns: calc(100% / 3 - 15px);
         grid-template-rows: 260px;
-        @include respond-to("<desktop") {
-            min-width: 1140px;
-        }
+        
         @include respond-to("<tablet-large") {
-            gap: 25px;
-            min-width: initial;
-            grid-auto-columns: calc(100% / 2 - 12.5px);
-            grid-template-rows: 190px;
+            grid-auto-columns: calc(100% / 2 - 10px);
+            grid-template-rows: min-content;
+            @include respond-to(">tablet") {
+                .review:nth-of-type(n + 3) {
+                    display: none;
+                }
+            }
         }
         @include respond-to("<tablet") {
             grid-auto-flow: row;
+            grid-auto-rows: auto;
             grid-auto-columns: auto;
+
+            .review:nth-of-type(n + 4) {
+                display: none;
+            }
         }
     }
 
     .review {
         display: flex;
+        word-wrap: anywhere;
         flex-direction: column;
         font-size: 10px;
         @include Roboto;
-
-        @include respond-to("<tablet") {
-            max-width: 425px;
-        }
 
         &__figure {
                 $main-color: colors.$review-main;
                 $drop-shadow: colors.$review-shadow;
             flex-grow: 1;
-            max-width: 48em;
-            max-height: 19em;
             box-sizing: border-box;
+
+            margin: 0.1em;
 
             padding: 2.8em 4.5em;
             border-radius: 10px;
