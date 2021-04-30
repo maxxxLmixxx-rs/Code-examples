@@ -14,7 +14,7 @@ export function moveLeft(carousel, childClass, moveNumber = 1) {
             childNodes.forEach(node => node.remove());
             carousel.classList.remove('_move-left');
             carousel.removeEventListener('animationend', animationend);
-            resolve(childNodes);
+            resolve();
         }
     });
 }

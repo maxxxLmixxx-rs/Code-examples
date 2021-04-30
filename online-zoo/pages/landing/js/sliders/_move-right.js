@@ -10,10 +10,12 @@ export function moveRight(carousel, childClass, moveNumber = 1) {
     
         function animationend(event) {
             childNodes.forEach(node => node.remove());
-            childNodes.forEach(node => carousel.prepend(node.cloneNode(true)));
+            Array.from(childNodes)
+                .reverse()
+                .forEach(node => carousel.prepend(node.cloneNode(true)));
             carousel.classList.remove('_move-right');
             carousel.removeEventListener('animationend', animationend);
-            resolve(childNodes);
+            resolve();
         }
     });
 }
