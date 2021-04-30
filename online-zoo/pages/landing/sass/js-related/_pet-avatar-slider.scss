@@ -1,0 +1,57 @@
+@use '../../../_share/_vars/breakpoints' as *;
+
+$duration: .3s;
+
+.beautifuls__carousel {
+    will-change: transform;
+    transform: translateX(calc(-100% / 7));
+    
+    @include respond-to("<desktop") {
+        transform: translateX(calc(-100% / 6));
+    }
+    @include respond-to("<tablet-large") {
+        transform: translateX(calc(-100% / 4));
+    }
+    @include respond-to("<tablet") {
+        transform: translateX(0%);
+    }
+
+    &._move-left {
+        animation: move-left-7el $duration;
+        @include respond-to("<desktop") {
+            animation: move-left-6el $duration;
+        }
+        @include respond-to("<tablet-large") {
+            animation: move-left-4el $duration;
+        }
+        @include respond-to("<tablet") {
+            animation: none;
+        }
+    }
+    &._move-right {
+        animation: move-right-7el $duration;
+        @include respond-to("<desktop") {
+            animation: move-left-6el $duration;
+        }
+        @include respond-to("<tablet-large") {
+            animation: move-left-4el $duration;
+        }
+        @include respond-to("<tablet") {
+            animation: none;
+        }
+    }
+
+    $els: 7, 4, 6;
+    @each $el in $els {
+        @keyframes move-left-#{$el}el {
+            to {
+                transform: translateX(-200% / ($el));
+            }
+        }
+        @keyframes move-right-#{$el}el {
+            to {
+                transform: translateX(0%);
+            }
+        }   
+    }
+}

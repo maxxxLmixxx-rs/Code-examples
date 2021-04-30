@@ -15,5 +15,6 @@
 @use './sections/reviews';
 @use './sections/beautifuls';
 
-@use './js-related/pet-cards-slider';
-@use './js-related/reviews-slider';
+@use './js-related/pet-avatar-slider';
+@use './js-related/pet-card-slider';
+@use './js-related/review-slider';

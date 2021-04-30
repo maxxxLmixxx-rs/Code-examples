@@ -15,13 +15,12 @@ import {animals} from '../animals.js';
     ];
     
     /* Initialization */
-    const container = document.querySelector('.pets__cards-carousel');
-    generateTemplates(container, getCardTemplate, animalsArray);
+    const carousel = document.getElementById('pet-carousel');
+    generateTemplates(carousel, getCardTemplate, animalsArray);
     
     /* Slider */
     const leftBtn = document.getElementById('pet-left');
     const rightBtn = document.getElementById('pet-right');
-    const carousel = document.getElementById('pet-carousel');
     
     leftBtn.addEventListener('click', moveLeft);
     rightBtn.addEventListener('click', moveRight);
