@@ -1,3 +1,5 @@
+import {moveLeft} from '../sliders/_move-left.js';
+
 {
     const carousel = document.getElementById('reviews-carousel');
     let isBlocked = false;
@@ -15,20 +17,7 @@
     }
 
     function timeoutFunction() {
-        if (isBlocked) return;
-
-        const child_first = document.querySelector('.review:first-of-type');
-
-        carousel.classList.add('_move-left');
-        carousel.addEventListener('animationend', animationend);
-
-        function animationend(event) {
-            child_first.remove();
-            carousel.append(child_first.cloneNode(true));
-            carousel.classList.remove('_move-left');
-            carousel.removeEventListener('animationend', animationend);
-            createTick();
-        }
+        if (!isBlocked) moveLeft(carousel, '.review').then(createTick);
     }
 
     createTick();
