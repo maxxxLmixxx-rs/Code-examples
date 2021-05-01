@@ -58,3 +58,11 @@ $camera-live-text: #FFFFFF;
 $camera-live-background: #2E2E2ECC; // alpha = 80%
 
 $article-link-txt-shadow: 0px 4px 10px $white;
+
+$pop-up-back: rgba(0,0,0,.8);
+$pop-up-main: #FFFFFF;
+$pop-up-header: $bg;
+$pop-up-inactive-link: $white;
+$pop-up-active-link: $pop-up-header;
+$pop-up-drop-shadow: drop-shadow(0px 0px 10px rgba(255,255,255,.3));
+$pop-up-input-box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.06);

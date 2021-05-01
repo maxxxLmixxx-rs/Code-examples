@@ -1,5 +1,7 @@
 @use '../_import/normalize';
 @use '../_import/general';
+
+@use './_popups/auth-popup';
 @use './burger';
 
 @use '../_vars/breakpoints' as *;
@@ -13,7 +15,6 @@ $header-tablet: 80px;
     background: $bg-color;
     position: relative;
     z-index: 1000;
-    box-shadow: colors.$header-box-shadow;
 
     &__wrapper {
         height: 110px;
@@ -23,6 +24,7 @@ $header-tablet: 80px;
         @include respond-to("<tablet-large") {
             height: $header-tablet;
         }
+        box-shadow: colors.$header-box-shadow;
     }
 
     @include respond-to("<tablet-large") {
@@ -31,7 +33,7 @@ $header-tablet: 80px;
         box-shadow: none;
         
         & + * {
-            margin-top: $header-tablet;
+            margin-top: $header-tablet - 5px;
         }
 
         .burger {

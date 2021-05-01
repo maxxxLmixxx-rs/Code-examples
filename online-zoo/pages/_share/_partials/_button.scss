@@ -3,6 +3,11 @@
 @use '../_vars/colors';
 
 ._btn {
+    outline: none;
+    padding: 0;
+    border: none;
+    background: none;
+    color: inherit;
         $font-size: 18px;
     height: min-content;
     display: inline-flex;
@@ -38,6 +43,11 @@
     &--light-green {
         color: colors.$btn-black;
         background: colors.$white;
+    }
+
+    &--dark-green {
+        color: colors.$white;
+        background: colors.$bg;
     }
     
     /* Glow */

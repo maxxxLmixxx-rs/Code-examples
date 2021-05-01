@@ -27,3 +27,8 @@
         setTimeout(() => searchInput.value = "", 300);
     });
 }
+
+/** POPUP */
+{
+
+}

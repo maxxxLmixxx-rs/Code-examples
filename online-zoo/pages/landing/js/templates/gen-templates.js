@@ -1,8 +1,4 @@
-export const getNode = (htmlString) => {
-    const template = document.createElement('template');
-    template.innerHTML = htmlString.trim();
-    return template.content.firstChild;
-};
+import {getNode} from '../../../_share/_scripts/_getNode.js';
 
 export const generateTemplates = (container, template, configArray) => {
     configArray
