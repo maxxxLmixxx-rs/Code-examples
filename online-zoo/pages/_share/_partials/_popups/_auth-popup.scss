@@ -70,24 +70,58 @@
 
     &__container {
         max-width: 40em;
+        width: 100%;
     }
 
     /* State */
 
-    #sign-form,
-    #log-form {
-        display: none;
+    #signForm,
+    #logForm {
+        height: 0;
+        padding: 1px;
+        overflow: hidden;
+        transition: height 1s;
+
+        input[type=submit] {
+            border: 2px solid; 
+            border-color: transparent;
+            transition: transform .3s;
+            &:hover {
+                transform: scale(.95);
+            }
+        }
+
+        &._js-disabled {
+            input[type=submit] {
+                cursor: default;
+                pointer-events: none;
+                filter: brightness(.9);
+                &:hover {
+                    transform: none;
+                }
+            }
+        }
     }
 
-    &._sign #sign-form {
-        display: block;
+    /* Sign-up toggle*/
+
+    &._sign #signForm {
+        height: 455px;
+    }
+    &._sign #logForm {
+        height: 0px;
     }
     &._sign &__switch-btn:first-child::after {
         background: colors.$pop-up-active-link;
     }
 
-    &._log #log-form {
-            display: block;
+    /* Log-in toggle*/
+
+    &._log #logForm {
+        height: 325px;
+    }
+    &._log #signForm {
+        height: 0px;
     }
     &._log &__switch-btn:last-child::after {
         background: colors.$pop-up-active-link;

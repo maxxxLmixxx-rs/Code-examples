@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
-    <script src="../_share/_scripts/_header.js" defer></script>
+    <script type="module" src="../_share/_scripts/_header.js" defer></script>
     <style> .tooltip { opacity: 0; } </style>
     <title>Map</title>
 </head>
@@ -44,14 +44,22 @@
                                 </button>
                             </div>
                         </li>
-                        <li class="menu__item menu__log-in">
+                        <li class="menu__item menu__log-in _header-load">
                             <button id="logButton" class="menu__button">Log in</button>
                         </li>
-                        <li class="menu__item menu__sign-up">
+                        <li class="menu__item menu__sign-up _header-load">
                             <button id="signButton" class="menu__button menu__button--round">Sign up</button>
                         </li>
                         <li class="menu__item menu__user">
-                            <button class="user"></button>
+                            <div id="authUser" class="user">
+                                <button id="userLogo" class="user__logo"></button>
+                                <span class="user__name"></span>
+                                <ul class="user__dropdown">
+                                    <li class="user__dropdown-item">
+                                        <button id="userLogOut" class="user__log-button">Log out</button>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                     </ul>
                 </div>
