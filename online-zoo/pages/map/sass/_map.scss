@@ -11,6 +11,7 @@
     ._wrapper {
         width: 100%;
         box-sizing: border-box;
+        flex: initial;
     }
 
     &__wrapper {
@@ -18,7 +19,12 @@
     }
 
     &__header {
-        margin: 30px 0 55px;
+        position: relative;
+
+        & > * {
+            position: absolute;
+            top: 40px;
+        }
     }
 
     &__heading {
@@ -31,28 +37,21 @@
     }
 
     &__body {
-        flex: 1 1 100%;
-        width: 100vw;
+        flex-grow: 1;
         display: flex;
     }
 
     &__svg-container {
-        min-width: 610px;
-        margin: 0 auto;
-        padding: 0 15px;
-
-        flex-grow: 1;
-        margin-bottom: 20px;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
+        width: 100%;
+        display: grid;
     }
 
-    &__svg {
-        // width: 100%;
-        height: auto;
-    }
+    // &__svg {
+    // }
 }
+
+// #mapCenter {
+// }
 
 .avatar {
     cursor: pointer;
@@ -77,18 +76,10 @@
         transform: rotate(360deg);
     }
 
-    // &__back {
-    // }
-
-    // &__img {
-    // }
-
     &:hover {
         & + .tooltip {
             opacity: 1;
         }
-        // & + .tooltip.tooltip--reverse {
-        // }
     }
 }
 
@@ -116,7 +107,20 @@
 .zoom {
     position: absolute;
     display: flex;
-    bottom: 25px;
+    // bottom: 240px;
+    bottom: 350px;
     right: 0;
     gap: 15px;
+
+    svg {
+        background: colors.$bg;
+        border-radius: 50%;
+    }
+
+    @include respond-to("<desktop") {
+        bottom: 160px;
+    }
+    @include respond-to("<tablet-large") {
+        bottom: 130px;
+    }
 }
