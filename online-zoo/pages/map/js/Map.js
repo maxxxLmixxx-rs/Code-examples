@@ -29,6 +29,11 @@ export class Map {
             zoom: {
                 min: {w:  500, h: null},
                 max: {w: 3000, h: null},
+            },
+            move: {
+                xAxis: { min: -1200, max: 1200, },
+                yAxis: { min: -600, max: 600, },
+                threshold: 75,
             }
         };
     }
@@ -99,12 +104,15 @@ export class Map {
 
     createNormalizer() {
         const CTM = this.svg.getScreenCTM();
-        return (...values) => values.map(v => (v - CTM.e) / CTM.a);
+        return (...values) => {
+            const resultArray = values.map(v => (v - CTM.e) / CTM.a);
+            return resultArray.length === 1 ? resultArray.pop() : resultArray;
+        };
     }
 
     _checkZoomLimits(sign) {
         const {min, max} = this.limits.zoom;
-        const [x, y, w, h] = this.getViewBox();
+        const [,, w, h] = this.getViewBox();
         switch (true) {
             case min.w && w <= min.w && sign === +1:
             case min.h && h <= min.h && sign === +1:
@@ -135,8 +143,25 @@ export class Map {
     zoomOut(props) {
         this._zoomEvent(props, -1);
     }
+    
+    _checkMoveLimits(dx, dy) {
+        const normalize = this.createNormalizer();
+        const {xAxis, yAxis} = this.limits.move;
+        const [xSign, ySign] = [Math.sign(dx), Math.sign(dy)];
+        const {width, height} = this.svgContainer.getBBox();
+        const {x, y} = this.svgContainer.getBoundingClientRect();
+        switch(true) {
+            case xAxis.min && normalize(x) - normalize(dx) <= xAxis.min && xSign === -1:
+            case yAxis.min && normalize(y) - normalize(dy) <= yAxis.min && ySign === -1:
+            case xAxis.max && normalize(window.innerWidth)  - normalize(x) - width  <= -xAxis.max && xSign === +1:
+            case yAxis.max && normalize(window.innerHeight) - normalize(y) - height <= -yAxis.max && ySign === +1:
+            return true;
+        }
+        return false;
+    }
 
     move(dx, dy) {
+        if (this._checkMoveLimits(dx, dy)) return;
         const [x, y, w, h] = this.getViewBox();
         this.setViewBox([ x - dx, y - dy, w, h ]);
     }
