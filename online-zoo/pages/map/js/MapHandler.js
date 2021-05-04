@@ -9,39 +9,38 @@ export class MapHandler {
         if (!map instanceof Map) throw new Error(this.messages.notMap);
         this.map = map;
         this.map.setFullscreen();
-        this.zoomStep = 0.1;
+    }
+
+    _throttle(eventFunction, timeFrame) {
+        if (!timeFrame) return eventFunction;
+        let lastTime = 0;
+        return (params) => {
+            let now = Date.now();
+            if (now - lastTime >= timeFrame) {
+                eventFunction(params);
+                lastTime = now;
+            }
+        };
     }
 
     _mouseMove() {
         const prev = { x: null, y: null };
-        const divider = 1.2;
-        return ({pageX, pageY}) => {
+        const normalize = this.map.createNormalizer();
+        return ({clientX, clientY}) => {
+            [clientX, clientY] = normalize(clientX, clientY);
             if (prev.x === null || prev.y === null) {
-                prev.x = pageX;
-                prev.y = pageY;
-                return;
+                return [prev.x, prev.y] = [clientX, clientY];
             }
-            this.map.move((pageX - prev.x) / divider, (pageY - prev.y) / divider);
-            prev.x = pageX; 
-            prev.y = pageY;
+            this.map.move(clientX - prev.x, clientY - prev.y);
+            [prev.x, prev.y] = [clientX, clientY];
         };
-    }
-
-    startScrollEvent(step = this.zoomStep) {
-        document.addEventListener('wheel', ({ deltaY }) => {
-            if (Math.sign(deltaY) < 0) {
-                this.map.zoomIn(step || this.zoomStep);
-            } else {
-                this.map.zoomOut(step || this.zoomStep);
-            }
-        });
     }
 
     startDragEvents() {
         const draggableElement = this.map.svgContainer;
         draggableElement.addEventListener('mousedown', () => {
             const dragstart = (event) => event.preventDefault();
-            const mousemove = this._mouseMove();
+            const mousemove = this._throttle(this._mouseMove());
             const clearEvents = () => {
                 draggableElement.removeEventListener('dragstart', dragstart);
                 document.removeEventListener('mousemove', mousemove);
@@ -53,15 +52,26 @@ export class MapHandler {
         });
     }
 
-    bindZoomIn({eventType = 'click', step, element}) {
-        element.addEventListener(eventType, event => {
-            this.map.zoomIn(step || this.zoomStep);
+    startScrollEvent() {
+        const wheel = ({ deltaY, clientX, clientY }) => {
+            if (Math.sign(deltaY) < 0) {
+                this.map.zoomIn({ zoomStep: 0.025, clientX, clientY, duration: null });
+            } else {
+                this.map.zoomOut({ zoomStep: 0.025, clientX, clientY, duration: null });
+            }
+        };
+        document.addEventListener('wheel', this._throttle(wheel));
+    }
+
+    bindZoomIn({eventType = 'click', element, duration, zoomStep}) {
+        element.addEventListener(eventType, () => {
+            this.map.zoomIn({ zoomStep, duration });
         });
     }
 
-    bindZoomOut({eventType = 'click', step, element}) {
-        element.addEventListener(eventType, event => {
-            this.map.zoomOut(step || this.zoomStep);
+    bindZoomOut({eventType = 'click', element, duration, zoomStep}) {
+        element.addEventListener(eventType, () => {
+            this.map.zoomOut({ zoomStep, duration });
         });
     }
 }

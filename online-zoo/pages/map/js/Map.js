@@ -1,67 +1,63 @@
 export class Map {
     messages = {
         notSvg: `First Constructor() argument should be a <svg> element`,
-        noViewBox: `<svg> element doesn't contain viewBox.`,
-        noZoomIn: `Maximum zoom in.`,
-        noZoomOut: `Maximum zoom out.`,
-        noInnerElementWidth: 'Inner svg should contain width attribute',
-        noDOMElement: 'No such DOM element'
+        noViewBox: `<svg> element should contain 'viewBox' attribute`,
+        notGroupElement: `Svg container should be a group element`,
+        noSuchElement: (selector) => `DOM does not contain ${selector} element`,
     };
 
-    constructor(svgMapSelector, innerSvgContainerSelector) {
-        this.svg = document.querySelector(svgMapSelector);
-        if (this.svg.tagName !== 'svg') throw new Error(this.messages.notSvg);
+    static animations = {
+        linear: (timeFraction) => timeFraction,
+        pow2: (timeFraction) => Math.pow(timeFraction, 2),
+    };
+
+    constructor(svgSelector, svgContainerSelector) {
+        this.svg = document.querySelector(svgSelector);
+        this.svgContainer = this.svg.querySelector(svgContainerSelector);
+
+        if (!this.svg) throw new Error(this.messages.noSuchElement(svgSelector));
+        if (!this.svgContainer) throw new Error(this.messages.noSuchElement(svgContainerSelector));
         if (!this.svg.getAttribute('viewBox')) throw new Error(this.messages.noViewBox);
+        if (this.svg.tagName !== 'svg') throw Error(this.messages.notSvg);
+        if (this.svgContainer.tagName !== 'g') throw Error(this.messages.notGroupElement);
 
-        this.svgContainer = this.svg.querySelector(innerSvgContainerSelector);
-        if (!this.svgContainer) throw new Error(this.messages.noDOMElement);
-        if (!this.svgContainer.getAttribute('width')) throw new Error(this.messages.noInnerElementWidth);
-
-        this.baseVal = this.svg.getAttribute('viewBox').split(' ').map(n => +n);
-        this.scale = 1;
-        this.moveX = 0;
-        this.moveY = 0;
-
-        this.limits = {
-            zoom: {
-                in: 5.0,
-                out: .1,
-            }
-        }
+        this.containerOffset = { x: 0, y: 250 };
+        this.zoomStep = 0.2;
+        this._toFixed = 3;
     }
 
-    setFullscreen() {     
-        this.svgContainer.style.setProperty('--scale', '1');
-        
-        let lastInnerWidth = window.innerWidth;
-        let lastInnerHeight = window.innerHeight;
+    _round(values, accuracy = this._toFixed) {
+        const round = (v) => Number(v).toFixed(accuracy);
+        return !Array.isArray(values) ? round(values) : values.map(v => round(v));
+    }
 
-        const {width, height} = this.svg.getBoundingClientRect();
-        this.update([0, 0, width, height]);
+    getViewBox() {
+        return Array.from(
+            this.svg.getAttribute('viewBox').split(' ')
+            .map(v => Number(v))
+        );
+    }
 
-        const onResize = () => {
-            const diffX = window.innerWidth - lastInnerWidth;
-            const diffY = window.innerHeight - lastInnerHeight;
-
-            /* Center inner svg based on it's width */
-            const {width} = this.svg.getBoundingClientRect();
-            const xOffset = (width - this.svgContainer.getAttribute('width')) / 2;
-            this.svgContainer.setAttribute('x', xOffset);
-            
-            /* Resize viewBox */
-            this.update([
-                this.baseVal[0], this.baseVal[1], 
-                this.baseVal[2] + diffX, this.baseVal[3]
-            ]);
-            this.update([
-                this.baseVal[0], this.baseVal[1], 
-                this.baseVal[2], this.baseVal[3] + diffY
-            ]);
-            lastInnerWidth = window.innerWidth;
-            lastInnerHeight = window.innerHeight;
-        };
-        onResize();
-        window.addEventListener('resize', onResize);
+    setViewBox([x1, y1, w1, h1], {
+        duration = null, callback = () => '',
+        timing = Map.animations.linear,
+    } = {}) {
+        if (!duration) {
+            const [rx1, ry1, rw1, rh1] = [x1, y1, w1, h1].map(v => this._round(v));
+            return this.svg.setAttribute('viewBox', `${rx1} ${ry1} ${rw1} ${rh1}`);
+        }
+        const [x, y, w, h] = this.getViewBox();
+        const [dx, dy, dw, dh] = [x1 - x, y1 - y, w1 - w, h1 - h];
+        this._animate({
+            duration, timing,
+            draw: (progress) => {
+                if (progress >= 1) return callback();
+                const [px, py, pw, ph] = [dx, dy, dw, dh].map(v => progress * v);
+                const [rx, ry, rw, rh] =
+                    [x + px, y + py, w + pw, h + ph].map(v => this._round(v));
+                this.svg.setAttribute('viewBox', `${rx} ${ry} ${rw} ${rh}`);
+            },
+        });
     }
 
     _animate({ timing, draw, duration }) {
@@ -75,77 +71,54 @@ export class Map {
         }.bind(this));
     }
 
+    setFullscreen() {
+        const containerWidth = this.svgContainer.getBBox().width;
+        this.containerOffset.x = (window.innerWidth - containerWidth) / 2;
+        let prevInnerWidth = window.innerWidth;
+        const onResize = () => {
+            const dx = window.innerWidth === prevInnerWidth ? 0 :
+                (window.innerWidth - prevInnerWidth) / 2;
+            this.setViewBox([0, 0, window.innerWidth, window.innerHeight]);
+            this.svgContainer.style.setProperty(
+                `transform`, `translate(${this.containerOffset.x += dx}px, ${this.containerOffset.y}px)`
+            );
+            prevInnerWidth = window.innerWidth;
+        };
+        onResize();
+        window.addEventListener('resize', onResize);
+        this.svg.style.setProperty('width', '100vw');
+        this.svg.style.setProperty('height', '100vh');
+    }
 
-    _animateMove({ currentX, initialX, currentY, initialY }) {
-        this._animate({
-            duration: 100,
-            draw: (progress) => {
-                let dx = currentX - initialX;
-                let dy = currentY - initialY;
-                this.svgContainer.style.setProperty('--move-x', initialX + dx * progress + 'px');
-                this.svgContainer.style.setProperty('--move-y', initialY + dy * progress + 'px');
-            },
-            timing: (timeFraction) => timeFraction,
+    createNormalizer() {
+        const CTM = this.svg.getScreenCTM();
+        return (...values) => values.map(v => (v - CTM.e) / CTM.a);
+    }
+
+    _zoomEvent({ 
+        zoomStep = this.zoomStep, duration = 250, clientX = 0, clientY = 0 
+    }, sign) {
+        const [x, y, w, h] = this.getViewBox();
+        this.setViewBox([
+            x + sign * w * zoomStep / 2,
+            y + sign * y * zoomStep / 2,
+            w - sign * w * zoomStep,
+            h - sign * h * zoomStep,
+        ], {
+            duration, timing: Map.animations.pow2,
         });
     }
 
-    _animateZoom({ currentZoom, initialZoom }) {
-        this._animate({
-            duration: 100,
-            draw: (progress) => {
-                let dx = currentZoom - initialZoom;
-                this.svgContainer.style.setProperty('--scale', initialZoom + dx * progress);
-            },
-            timing: (timeFraction) => Math.pow(timeFraction, 2),
-        });
+    zoomIn(props) {
+        this._zoomEvent(props, +1);
     }
 
-    update(baseVal) {
-        const rounded = baseVal.map(v => +v);
-        this.baseVal = rounded;
-        this.svg.setAttribute('viewBox', rounded.join(' '));
+    zoomOut(props) {
+        this._zoomEvent(props, -1);
     }
 
-    _nextZoom(zoomStep, sign) {
-        return this.scale + Math.sign(sign) * this.scale * zoomStep;
-    }
-
-    _zoomEvent(zoomStep, eventName) {
-        const initialZoom = this.scale;
-        const currentZoom = eventName === 'zoomIn' ? 
-            this._nextZoom(zoomStep, +1):
-            this._nextZoom(zoomStep, -1);
-        this._animateZoom({ currentZoom, initialZoom });
-        this.scale = currentZoom;
-    }
-
-    /* Interface */
-
-    _isZoomLimit() {
-        const { zoom } = this.limits;
-        if (this.scale >= zoom.in) return 'in';
-        if (this.scale <= zoom.out) return 'out'
-        return false;
-    }
-
-    zoomIn(zoomStep) {
-        if (this._isZoomLimit() === 'in') return;
-        this._zoomEvent(zoomStep, 'zoomIn');
-    }
-
-    zoomOut(zoomStep) {
-        if (this._isZoomLimit() === 'out') return;
-        this._zoomEvent(zoomStep, 'zoomOut');
-    }
-
-    move(x, y) {
-        this._animateMove({
-            currentX: this.moveX + x,
-            initialX: this.moveX,
-            currentY: this.moveY + y,
-            initialY: this.moveY,
-        });
-        this.moveX += x;
-        this.moveY += y;
+    move(dx, dy) {
+        const [x, y, w, h] = this.getViewBox();
+        this.setViewBox([ x - dx, y - dy, w, h ]);
     }
 }

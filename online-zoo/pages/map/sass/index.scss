@@ -7,13 +7,27 @@
 @use '../../_share/_partials/headings';
 @use '../../_share/_import';
 @use './map';
-@use './js-related/Map';
 
 @use '../../_share/_vars/colors';
 
 body {
     background: colors.$bg;
-	max-height: 100vh;
+	max-height: max(100vh, 1000px);
+	overflow: hidden;
+}
+
+.header,
+.footer {
+	position: absolute;
+	width: 100%;
+}
+
+.header {
+	top :0;
+}
+
+.footer {
+	bottom: 0;
 }
 
 .main {
@@ -23,10 +37,4 @@ body {
 
 ._hide-onload {
     visibility: hidden;
-}
-
-.footer {
-	position: absolute;
-	width: 100%;
-	bottom: 0;
 }

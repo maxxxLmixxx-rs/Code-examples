@@ -23,7 +23,11 @@
 
         & > * {
             position: absolute;
-            top: 40px;
+            top: 160px;
+
+            @include respond-to("<tablet-large") {
+                top: 50px;
+            }
         }
     }
 
@@ -49,9 +53,6 @@
     // &__svg {
     // }
 }
-
-// #mapCenter {
-// }
 
 .avatar {
     cursor: pointer;
@@ -107,8 +108,7 @@
 .zoom {
     position: absolute;
     display: flex;
-    // bottom: 240px;
-    bottom: 350px;
+    bottom: 250px;
     right: 0;
     gap: 15px;
 
@@ -121,6 +121,6 @@
         bottom: 160px;
     }
     @include respond-to("<tablet-large") {
-        bottom: 130px;
+        bottom: 190px;
     }
 }
