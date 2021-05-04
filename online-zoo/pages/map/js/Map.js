@@ -6,6 +6,10 @@ export class Map {
         noSuchElement: (selector) => `DOM does not contain ${selector} element`,
     };
 
+    static STORAGE = {
+        VIEWBOX: 'MAP_VIEWBOX'
+    };
+
     static animations = {
         linear: (timeFraction) => timeFraction,
         pow2: (timeFraction) => Math.pow(timeFraction, 2),
@@ -36,12 +40,36 @@ export class Map {
                 threshold: 75,
             }
         };
+
+        this._initialize();
+    }
+
+    /** Service */
+
+    _initialize() {
+        const {max: { w: limW, h: limH }} = this.limits.zoom;
+        const [w, h] = [window.innerWidth, window.innerHeight];
+        const storedViewBox = this._getStorageViewBox();
+        const initialViewBox = [0, 0, limW ? limW : w, limH ? limH : h];
+        this.setViewBox(storedViewBox ? storedViewBox : initialViewBox);
+    }
+
+    _setStorageViewBox(array) {
+        sessionStorage.setItem(Map.STORAGE.VIEWBOX, JSON.stringify(array));
+    }
+
+    _getStorageViewBox() {
+        return JSON.parse(
+            sessionStorage.getItem(Map.STORAGE.VIEWBOX)
+        )?.map(v => Number(v));
     }
 
     _round(values, accuracy = this._toFixed) {
         const round = (v) => Number(v).toFixed(accuracy);
         return !Array.isArray(values) ? round(values) : values.map(v => round(v));
     }
+
+    /** Main */
 
     getViewBox() {
         return Array.from(
@@ -54,8 +82,9 @@ export class Map {
         duration = null, callback = () => '',
         timing = Map.animations.linear,
     } = {}) {
+        this._setStorageViewBox(this._round([x1, y1, w1, h1]));
         if (!duration) {
-            const [rx1, ry1, rw1, rh1] = [x1, y1, w1, h1].map(v => this._round(v));
+            const [rx1, ry1, rw1, rh1] = this._round([x1, y1, w1, h1]);
             return this.svg.setAttribute('viewBox', `${rx1} ${ry1} ${rw1} ${rh1}`);
         }
         const [x, y, w, h] = this.getViewBox();
@@ -65,8 +94,7 @@ export class Map {
             draw: (progress) => {
                 if (progress >= 1) return callback();
                 const [px, py, pw, ph] = [dx, dy, dw, dh].map(v => progress * v);
-                const [rx, ry, rw, rh] =
-                    [x + px, y + py, w + pw, h + ph].map(v => this._round(v));
+                const [rx, ry, rw, rh] = this._round([x + px, y + py, w + pw, h + ph]);
                 this.svg.setAttribute('viewBox', `${rx} ${ry} ${rw} ${rh}`);
             },
         });
@@ -90,7 +118,6 @@ export class Map {
         const onResize = () => {
             const dx = window.innerWidth === prevInnerWidth ? 0 :
                 (window.innerWidth - prevInnerWidth) / 2;
-            this.setViewBox([0, 0, window.innerWidth, window.innerHeight]);
             this.svgContainer.style.setProperty(
                 `transform`, `translate(${this.containerOffset.x += dx}px, ${this.containerOffset.y}px)`
             );
@@ -109,6 +136,8 @@ export class Map {
             return resultArray.length === 1 ? resultArray.pop() : resultArray;
         };
     }
+
+    /** Map actions */
 
     _checkZoomLimits(sign) {
         const {min, max} = this.limits.zoom;
@@ -129,8 +158,8 @@ export class Map {
         if (this._checkZoomLimits(sign)) return;
         const [x, y, w, h] = this.getViewBox();
         this.setViewBox([
-            x + sign * w * zoomStep / 2,
-            y + sign * y * zoomStep / 2,
+            x + sign * w * zoomStep / 2 - 0.25 * w * zoomStep,
+            y + sign * y * zoomStep / 2 - 0.25 * h * zoomStep,
             w - sign * w * zoomStep,
             h - sign * h * zoomStep,
         ], { duration, timing: Map.animations.pow2 });
