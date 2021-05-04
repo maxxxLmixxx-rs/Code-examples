@@ -136,14 +136,6 @@ export class Map {
         ], { duration, timing: Map.animations.pow2 });
     }
 
-    zoomIn(props) {
-        this._zoomEvent(props, +1);
-    }
-
-    zoomOut(props) {
-        this._zoomEvent(props, -1);
-    }
-    
     _checkMoveLimits(dx, dy) {
         const normalize = this.createNormalizer();
         const {xAxis, yAxis} = this.limits.move;
@@ -160,9 +152,43 @@ export class Map {
         return false;
     }
 
-    move(dx, dy) {
+    _move(dx, dy) {
         if (this._checkMoveLimits(dx, dy)) return;
         const [x, y, w, h] = this.getViewBox();
         this.setViewBox([ x - dx, y - dy, w, h ]);
+    }
+
+    _splitMoveCall(dx, dy) {
+        const callsArray = [];
+        const {threshold} = this.limits.move;
+        const count = Math.ceil(
+            Math.max(
+                Math.abs(dx / threshold), 
+                Math.abs(dy / threshold),
+            )
+        );
+        if (count <= 1) return this._move(dx, dy);
+        for (let i = 1; i <= count; i++) {
+            callsArray.push({
+                dx: i * threshold <= Math.abs(dx) ? Math.sign(dx) * threshold : 0,
+                dy: i * threshold <= Math.abs(dy) ? Math.sign(dy) * threshold : 0,
+            });
+        }
+        callsArray.push({ dx: dx % threshold, dy: dy % threshold });
+        callsArray.forEach(({dx, dy}) => this._move(dx, dy));
+    }
+    
+    /** Action interface */
+
+    zoomIn(...props) {
+        this._zoomEvent(...props, +1);
+    }
+
+    zoomOut(...props) {
+        this._zoomEvent(...props, -1);
+    }
+
+    move(...props) {
+        this._splitMoveCall(...props);
     }
 }
