@@ -24,6 +24,13 @@ export class Map {
         this.containerOffset = { x: 0, y: 250 };
         this.zoomStep = 0.2;
         this._toFixed = 3;
+
+        this.limits = {
+            zoom: {
+                min: {w:  500, h: null},
+                max: {w: 3000, h: null},
+            }
+        };
     }
 
     _round(values, accuracy = this._toFixed) {
@@ -95,18 +102,30 @@ export class Map {
         return (...values) => values.map(v => (v - CTM.e) / CTM.a);
     }
 
+    _checkZoomLimits(sign) {
+        const {min, max} = this.limits.zoom;
+        const [x, y, w, h] = this.getViewBox();
+        switch (true) {
+            case min.w && w <= min.w && sign === +1:
+            case min.h && h <= min.h && sign === +1:
+            case max.w && w >= max.w && sign === -1:
+            case max.h && h >= max.h && sign === -1:
+            return true;
+        }
+        return false;
+    }
+
     _zoomEvent({ 
         zoomStep = this.zoomStep, duration = 250, clientX = 0, clientY = 0 
     }, sign) {
+        if (this._checkZoomLimits(sign)) return;
         const [x, y, w, h] = this.getViewBox();
         this.setViewBox([
             x + sign * w * zoomStep / 2,
             y + sign * y * zoomStep / 2,
             w - sign * w * zoomStep,
             h - sign * h * zoomStep,
-        ], {
-            duration, timing: Map.animations.pow2,
-        });
+        ], { duration, timing: Map.animations.pow2 });
     }
 
     zoomIn(props) {
