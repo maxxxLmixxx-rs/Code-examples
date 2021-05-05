@@ -59,9 +59,10 @@ export class Map {
     }
 
     _getStorageViewBox() {
-        return JSON.parse(
-            sessionStorage.getItem(Map.STORAGE.VIEWBOX)
-        )?.map(v => Number(v));
+        return this.getViewBox();
+        // return JSON.parse(
+        //     sessionStorage.getItem(Map.STORAGE.VIEWBOX)
+        // )?.map(v => Number(v));
     }
 
     _round(values, accuracy = this._toFixed) {
