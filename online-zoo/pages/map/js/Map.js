@@ -116,10 +116,12 @@ export class Map {
         this.containerOffset.x = (window.innerWidth - containerWidth) / 2;
         let prevInnerWidth = window.innerWidth;
         const onResize = () => {
-            const dx = window.innerWidth === prevInnerWidth ? 0 :
-                (window.innerWidth - prevInnerWidth) / 2;
+            const dx = window.innerWidth - prevInnerWidth;
+            const [x, y, w, h] = this.getViewBox();
+            const scale = w / window.innerWidth;
+            this.setViewBox([x, y, w + dx * scale, h]);
             this.svgContainer.style.setProperty(
-                `transform`, `translate(${this.containerOffset.x += dx}px, ${this.containerOffset.y}px)`
+                `transform`, `translate(${this.containerOffset.x += scale * (dx / 2)}px, ${this.containerOffset.y}px)`
             );
             prevInnerWidth = window.innerWidth;
         };
