@@ -23,11 +23,17 @@ body {
 }
 
 .header {
-	top :0;
+	top: 0;
+	&__wrapper {
+		max-height: 90px;
+	}
 }
 
 .footer {
 	bottom: 0;
+	&__wrapper {
+		max-height: 125px;
+	}
 }
 
 .main {

@@ -13,7 +13,7 @@ import {moveLeft} from '../sliders/_move-left.js';
     });
 
     function createTick() {
-        setTimeout(timeoutFunction, 4000);
+        setTimeout(timeoutFunction, 6000);
     }
 
     function timeoutFunction() {

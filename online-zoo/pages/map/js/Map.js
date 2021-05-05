@@ -25,14 +25,13 @@ export class Map {
         if (this.svg.tagName !== 'svg') throw Error(this.messages.notSvg);
         if (this.svgContainer.tagName !== 'g') throw Error(this.messages.notGroupElement);
 
-        this.containerOffset = { x: 0, y: 250 };
         this.zoomStep = 0.2;
         this._toFixed = 3;
 
         this.limits = {
             zoom: {
                 min: {w:  500, h: null},
-                max: {w: 3000, h: null},
+                max: {w: 5000, h: null},
             },
             move: {
                 xAxis: { min: -1200, max: 1200, },
@@ -40,29 +39,18 @@ export class Map {
                 threshold: 75,
             }
         };
-
-        this._initialize();
     }
 
     /** Service */
-
-    _initialize() {
-        const {max: { w: limW, h: limH }} = this.limits.zoom;
-        const [w, h] = [window.innerWidth, window.innerHeight];
-        const storedViewBox = this._getStorageViewBox();
-        const initialViewBox = [0, 0, limW ? limW : w, limH ? limH : h];
-        this.setViewBox(storedViewBox ? storedViewBox : initialViewBox);
-    }
 
     _setStorageViewBox(array) {
         sessionStorage.setItem(Map.STORAGE.VIEWBOX, JSON.stringify(array));
     }
 
     _getStorageViewBox() {
-        return this.getViewBox();
-        // return JSON.parse(
-        //     sessionStorage.getItem(Map.STORAGE.VIEWBOX)
-        // )?.map(v => Number(v));
+        return JSON.parse(
+            sessionStorage.getItem(Map.STORAGE.VIEWBOX)
+        )?.map(v => Number(v));
     }
 
     _round(values, accuracy = this._toFixed) {
@@ -112,24 +100,21 @@ export class Map {
         }.bind(this));
     }
 
-    setFullscreen() {
-        const containerWidth = this.svgContainer.getBBox().width;
-        this.containerOffset.x = (window.innerWidth - containerWidth) / 2;
-        let prevInnerWidth = window.innerWidth;
-        const onResize = () => {
-            const dx = window.innerWidth - prevInnerWidth;
-            const [x, y, w, h] = this.getViewBox();
-            const scale = w / window.innerWidth;
-            this.setViewBox([x, y, w + dx * scale, h]);
-            this.svgContainer.style.setProperty(
-                `transform`, `translate(${this.containerOffset.x += scale * (dx / 2)}px, ${this.containerOffset.y}px)`
-            );
-            prevInnerWidth = window.innerWidth;
-        };
-        onResize();
-        window.addEventListener('resize', onResize);
-        this.svg.style.setProperty('width', '100vw');
+    toSvgCoordinate(x, y = 0) {
+        const point = this.svg.createSVGPoint();
+        point.x = x;
+        point.y = y;
+        const svgPoint = 
+            point.matrixTransform( this.svg.getScreenCTM().inverse() );
+        return [svgPoint.x, svgPoint.y];
+    }
+
+    initialize(viewBox = this.getViewBox()) {
+        this.svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');  
+        const stored = this._getStorageViewBox();
+        this.setViewBox(stored || viewBox);
         this.svg.style.setProperty('height', '100vh');
+        this.svg.style.setProperty('width', '100vw');
     }
 
     createNormalizer() {
@@ -161,8 +146,8 @@ export class Map {
         if (this._checkZoomLimits(sign)) return;
         const [x, y, w, h] = this.getViewBox();
         this.setViewBox([
-            x + sign * w * zoomStep / 2 - 0.25 * w * zoomStep,
-            y + sign * y * zoomStep / 2 - 0.25 * h * zoomStep,
+            x + sign * w * zoomStep / 2,
+            y + sign * h * zoomStep / 2,
             w - sign * w * zoomStep,
             h - sign * h * zoomStep,
         ], { duration, timing: Map.animations.pow2 });

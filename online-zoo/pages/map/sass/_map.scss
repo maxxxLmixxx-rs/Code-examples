@@ -50,8 +50,10 @@
         display: grid;
     }
 
-    // &__svg {
-    // }
+    &__svg {
+        position: fixed;
+        top: 0; left: 0;
+    }
 }
 
 .avatar {
@@ -108,7 +110,7 @@
 .zoom {
     position: absolute;
     display: flex;
-    bottom: 250px;
+    bottom: 150px;
     right: 0;
     gap: 15px;
 
