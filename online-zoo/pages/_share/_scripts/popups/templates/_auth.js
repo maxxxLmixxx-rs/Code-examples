@@ -9,7 +9,7 @@ export const getAuthTemplate = (state) => {
             <div class="popup__header">
                 <div class="logo">
                     <a class="logo__link nav__link" href="../landing/">
-                        <img class="logo__img" width="108" height="84" src="../../assets/icons/logo.svg" alt="online zoo">
+                        <img class="logo__img" width="108" height="84" src="/online-zoo/assets/icons/logo.svg" alt="online zoo"/>
                     </a>
                 </div>
             </div>
