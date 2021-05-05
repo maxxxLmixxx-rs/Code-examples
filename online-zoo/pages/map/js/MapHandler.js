@@ -8,7 +8,7 @@ export class MapHandler {
     constructor(map) {
         if (!map instanceof Map) throw new Error(this.messages.notMap);
         this.map = map;
-        this.map.setFullscreen();
+        this.map.initialize([-745, -1525, 2885, 4050]);
     }
 
     _throttle(eventFunction, timeFrame) {
@@ -53,7 +53,8 @@ export class MapHandler {
     }
 
     startScrollEvent() {
-        const wheel = ({ deltaY, clientX, clientY }) => {
+        const wheel = ({ ctrlKey, deltaY, clientX, clientY }) => {
+            if (ctrlKey) return;
             if (Math.sign(deltaY) < 0) {
                 this.map.zoomIn({ zoomStep: 0.025, clientX, clientY, duration: null });
             } else {
