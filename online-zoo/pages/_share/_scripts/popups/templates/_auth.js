@@ -8,8 +8,8 @@ export const getAuthTemplate = (state) => {
         <div class="popup__body">
             <div class="popup__header">
                 <div class="logo">
-                    <a class="logo__link nav__link" href="../landing/">
-                        <img class="logo__img" width="108" height="84" src="/online-zoo/assets/icons/logo.svg" alt="online zoo"/>
+                    <a class="logo__link nav__link" href="/maxxxlmixxx-rs-JSFE2021Q1/online-zoo/landing">
+                        <img class="logo__img" width="108" height="84" src="/maxxxlmixxx-rs-JSFE2021Q1/online-zoo/assets/icons/logo.svg" alt="online zoo"/>
                     </a>
                 </div>
             </div>
