@@ -9,11 +9,11 @@ import {moveLeft} from '../sliders/_move-left.js';
         setTimeout(() => {
             isBlocked = false;
             createTick();
-        }, 30_000);
+        }, 25_000);
     });
 
     function createTick() {
-        setTimeout(timeoutFunction, 6000);
+        setTimeout(timeoutFunction, 5_000);
     }
 
     function timeoutFunction() {
