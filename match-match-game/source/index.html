@@ -7,6 +7,110 @@
         <title>Match match game</title>
     </head>
     <body>
-        <div id="root"></div>
+        <div id="root">
+            <aside class="explorer">
+                <div class="explorer__item">
+                    <div class="explorer__label">
+                        <span>Leader board</span>
+                        <a href="leader-board" class="_btn _btn--round _btn--dark _btn--small">goto</a>
+                    </div>
+                    <div class="explorer__space">
+                        <!-- INNER COMPONENT => -->
+                        <div class="user-score">
+                            <div class="user-score__left">
+                                <img class="user-score__img" src="./placeholder.png" alt="avatar">
+                                <div class="user-score__personal">
+                                    <span class="user-score__name">Nicci Troiani</span>
+                                    <span class="user-score__email">nici@gmail.com</span>
+                                </div>
+                            </div>
+                            <div class="user-score__right">
+                                <span class="user-score__points">SCORE: <span>256</span></span>
+                                <span class="_num user-score__position">1</span>
+                            </div>
+                        </div>
+                        <div class="user-score">
+                            <div class="user-score__left">
+                                <img class="user-score__img" src="./placeholder.png" alt="avatar">
+                                <div class="user-score__personal">
+                                    <span class="user-score__name">Nicci Troiani</span>
+                                    <span class="user-score__email">nici@gmail.com</span>
+                                </div>
+                            </div>
+                            <div class="user-score__right">
+                                <span class="user-score__points">SCORE: <span>256</span></span>
+                                <span class="_num user-score__position">1</span>
+                            </div>
+                        </div>
+                        <div class="user-score">
+                            <div class="user-score__left">
+                                <img class="user-score__img" src="./placeholder.png" alt="avatar">
+                                <div class="user-score__personal">
+                                    <span class="user-score__name">Nicci Troiani</span>
+                                    <span class="user-score__email">nici@gmail.com</span>
+                                </div>
+                            </div>
+                            <div class="user-score__right">
+                                <span class="user-score__points">SCORE: <span>256</span></span>
+                                <span class="_num user-score__position">1</span>
+                            </div>
+                        </div>
+                        <!-- <= INNER COMPONENT -->
+                    </div>
+                </div>
+                <div class="explorer__item _js-hide-scrollbar">
+                    <div class="explorer__label">
+                        <span>Settings</span>
+                        <a href="settings" class="_btn _btn--round _btn--dark _btn--small">goto</a>
+                    </div>
+                    <div class="explorer__space">
+                        <!-- INNER COMPONENT => -->
+                            <div class="setting size">
+                                <div class="setting__body setting__body--end">
+                                    <button class="size__btn" data-size="4">4x4</button>
+                                    <button class="size__btn" data-size="6">6x6</button>
+                                    <button class="size__btn _js-active" data-size="8">8x8</button>
+                                </div>
+                                <div class="setting__footer">
+                                    <span class="setting__name">Change field size</span>
+                                </div>
+                            </div>
+                        <!-- <= INNER COMPONENT -->
+                        <!-- INNER COMPONENT => -->
+                            <div class="setting upload _js-active">
+                                <div class="setting__body setting__body--center">
+                                    <svg class="upload__svg" width="106" height="114" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M93.7 36.6H73.4a4 4 0 100 8.2h20.3a4 4 0 014 4v53a4 4 0 01-4 4H12.3a4 4 0 01-4-4v-53a4 4 0 014-4h20.3a4 4 0 100-8.2H12.3C5.5 36.6 0 42.1 0 49v52.9c0 6.7 5.4 12.2 12.2 12.2h81.4c6.8 0 12.2-5.5 12.2-12.2v-53c0-6.7-5.4-12.2-12.2-12.2z"/><path fill="white" d="M76.2 21.5L56 1.2a4 4 0 00-5.8 0L29.8 21.5a4 4 0 005.7 5.8L49 14v67.5a4 4 0 108.2 0V14l13.4 13.4a4 4 0 005.7-5.8z"/></svg>
+                                </div>
+                                <div class="setting__footer">
+                                    <span class="setting__name">Upload cards pack</span>
+                                </div>
+                            </div>
+                        <!-- <= INNER COMPONENT -->
+                    </div>
+                </div>
+                <div class="explorer__item _js-active">
+                    <div class="explorer__label">
+                        <span>Rules</span>
+                        <a href="rules" class="_btn _btn--round _btn--dark _btn--small">goto</a>
+                    </div>
+                    <div class="explorer__space">
+                        <!-- INNER COMPONENT => -->
+                        <div class="rule">
+                            <span class="_num rule__number">1</span>
+                            <p class="rule__description">Register new player in game.</p>
+                        </div>
+                        <div class="rule">
+                            <span class="_num rule__number">2</span>
+                            <p class="rule__description">Configure your game settings.</p>
+                        </div>
+                        <div class="rule">
+                            <span class="_num rule__number">3</span>
+                            <p class="rule__description">Start you new game! Remember card positions and match it before times up.</p>
+                        </div>
+                        <!-- <= INNER COMPONENT -->
+                    </div>
+                </div>
+            </aside>
+        </div>
     </body>
 </html>

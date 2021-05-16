@@ -1,0 +1,35 @@
+@use "./raw-colors" as *;
+
+/* Buttons */
+$btn-dark: $dark-400;
+$btn-dark-text: $light-900;
+$btn-dark-border: $light-300;
+$btn-dark-active-border: $light-900;
+
+/* Aside */
+$aside-secondary: $dark-500;
+$aside-main: gray-400($aside-secondary);
+$aside-accent-light: $light-900;
+$aside-accent-dark: opacify($aside-secondary, .4);
+
+$aside-text-light: $aside-accent-light;
+$aside-text-dark: $aside-main;
+
+$aside-thumb: mix($aside-secondary, $light-900, 35%);
+
+/* Score */
+$score-main: $aside-main;
+$score-secondary: $light-900;
+
+/* Setting */
+$setting-main: $aside-main;
+$setting-secondary: $light-900;
+
+/* Setting > size */
+$setting-accent: mix($dark-500, $aside-main, 40%);
+$setting-accent-hover: mix($light-900, $setting-accent, 20%);
+
+/* Rule */
+$rule-main: $aside-main;
+$rule-main-hover: mix($light-900, $rule-main, 10%);
+$rule-secondary: $aside-accent-light;

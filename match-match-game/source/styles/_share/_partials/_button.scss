@@ -1,0 +1,37 @@
+@use "../_vars/colors";
+
+@mixin button {
+	display: block;
+	width: min-content;
+	height: min-content;
+	white-space: nowrap;
+	text-decoration: none;
+	user-select: none;
+	font-size: 24px;
+	font-family: Offside, Arial, Helvetica, sans-serif;
+	border: 1px solid transparent;
+	transition-property: border;
+	transition-duration: .2s;
+
+	&--round {
+		border-radius: 10px;
+	}
+
+	&--dark {
+		color: colors.$btn-dark-text;
+		background: colors.$btn-dark;
+		border-color: colors.$btn-dark-border;
+
+		&:hover {
+			border-color: colors.$btn-dark-active-border;
+		}
+	}
+
+	&--mp {
+		padding: 15px 10px;
+	}
+
+	&--sp {
+		padding: 5px 10px;
+	}
+}

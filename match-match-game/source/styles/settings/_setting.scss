@@ -1,0 +1,32 @@
+@use "../_share/_vars/colors";
+@use "../_share/_vars/radius";
+
+.setting {
+	width: 100%;
+	padding: 15px;
+	display: grid;
+	gap: 20px;
+	box-sizing: border-box;
+	border-radius: radius.$md;
+	color: colors.$setting-secondary;
+	background: colors.$setting-main;
+
+	&__body {
+		display: grid;
+		gap: 10px;
+		grid-auto-flow: column;
+
+		&--center {
+			place-items: center;
+		}
+
+		&--end {
+			place-items: end;
+		}
+	}
+
+	&__footer {
+		display: grid;
+		place-items: end;
+	}
+}
