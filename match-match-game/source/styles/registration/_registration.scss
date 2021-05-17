@@ -1,0 +1,94 @@
+@use "../_share/_vars/colors";
+@use "../_share/_vars/radius";
+@use "../_share/_partials";
+
+.registration {
+	width: 700px;
+	font-size: 22px;
+	border-radius: radius.$md;
+	color: colors.$registration-secondary;
+	background: colors.$registration-main;
+
+	._btn {
+		cursor: pointer;
+
+		@include partials.button;
+	}
+
+	&__header {
+		width: 100%;
+		padding: 20px;
+		box-sizing: border-box;
+		border-radius: radius.$md;
+		border: 7px solid colors.$registration-main;
+		background: colors.$registration-accent;
+	}
+
+	&__body {
+		padding: 30px;
+		display: grid;
+		row-gap: 50px;
+		column-gap: 40px;
+		grid-template-columns: 1.25fr 1fr;
+		grid-template-rows: 1fr auto;
+	}
+
+	// & > div:nth-of-type(1)
+	&__fieldset {
+		display: grid;
+		gap: 20px;
+	}
+
+	&__input-group {
+		display: grid;
+	}
+
+	&__label {
+		margin-bottom: 5px;
+	}
+
+	&__input {
+		width: 100%;
+		font-size: 18px;
+		padding: 15px 20px;
+		box-sizing: border-box;
+		box-shadow: none;
+		border: none;
+		border-radius: radius.$sm;
+		color: colors.$registration-main;
+		background: colors.$registration-secondary;
+	}
+
+	// & > div:nth-of-type(2)
+	&__avatar {
+		display: grid;
+		place-items: center;
+
+		& > div {
+			overflow: hidden;
+			width: 180px;
+			height: 180px;
+			display: grid;
+			place-items: center;
+			border-radius: radius.$md;
+			background:
+				colors.$registration-avatar
+				center / auto 80% no-repeat url("../../assets/icons/avatar.svg");
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	// & > div:nth-of-type(3)
+	&__controls {
+		grid-column: span 2;
+		display: grid;
+		gap: 15px;
+		grid-auto-flow: column;
+		justify-content: end;
+	}
+}

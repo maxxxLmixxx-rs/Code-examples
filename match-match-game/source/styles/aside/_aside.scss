@@ -100,15 +100,17 @@
 		transform: rotate(-90deg);
 	}
 
-	& {
-		$duration: .6s;
-		transition: 
-			transform $duration, 
-			width $duration $duration;
-		&._hide {
-			width: 0;
-			transform: translateX(100%);
-		}
+	/* Hide aside */
+
+	$duration: .6s;
+
+	transition:
+		transform $duration,
+		width $duration $duration;
+
+	&._hide {
+		width: 0;
+		transform: translateX(100%);
 	}
 
 	@keyframes hide {

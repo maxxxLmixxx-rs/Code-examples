@@ -1,9 +1,9 @@
-$dark-900: #000000;  /* Mix dark color */
+$dark-900: #000;  /* Mix dark color */
 $dark-700: #0F1117;  /* Header, Pop-up primary, Route text, Cards, Notification */
 $dark-500: #171D23;  /* Aside primary, Auth modal primary, Accent Rectangles */
 $dark-400: #21262D;  /* Body background, Auth modal secondary, Buttons, Hints */
 
-$light-900: #FFFFFF; /* Mix light color, Text, Aside labels */
+$light-900: #FFF; /* Mix light color, Text, Aside labels */
 $light-300: #C9D1D9; /* Buttons border, Timer, Route label, Avatar background */
 
 /* Mix gray */
@@ -16,4 +16,4 @@ $_gray-400: #323F4A;
 
 /* Status colors */
 $green-400: #00A958; /* Success */
-$red-400: #FF0000;   /* Error */
+$red-400: #F00;   /* Error */
