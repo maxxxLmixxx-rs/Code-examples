@@ -1,0 +1,28 @@
+@use "../_share/_vars/colors";
+@use "../_share/_partials";
+
+.main {
+    overflow: scroll;
+    @include partials.scrollbar(
+        colors.$main-truck, 
+        colors.$page-primary,
+    );
+
+    &__body {
+        height: 100%;
+        display: grid;
+        place-content: center;
+    }
+
+    &__locator {
+        position: absolute;
+        bottom: 25px; 
+        left: 0;
+        min-width: 100px;
+        min-height: 15px;
+        padding: 5px;
+        font-size: 14px;
+        color: colors.$main-locator-text;
+        background: colors.$main-locator-background;
+    }
+}

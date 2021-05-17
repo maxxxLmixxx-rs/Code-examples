@@ -1,0 +1,10 @@
+@use "../_share/_vars/colors";
+@use "../_share/_vars/radius";
+
+.timer {
+    padding: 5px 10px;
+    font-size: 48px;
+    border-radius: radius.$md;
+    color: colors.$timer-text;
+    background: colors.$timer-main;
+}

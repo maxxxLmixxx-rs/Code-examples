@@ -23,6 +23,7 @@
 		border-color: colors.$btn-dark-border;
 
 		&:hover {
+			background: colors.$btn-dark-active;
 			border-color: colors.$btn-dark-active-border;
 		}
 	}

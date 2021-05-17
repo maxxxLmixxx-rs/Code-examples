@@ -1,37 +1,10 @@
 @use "../_share/_vars/colors";
 @use "../_share/_partials";
 
-@mixin scrollbar($thumb-color, $track-color) {
-	$webkit-width: 10px;
-
-	scrollbar-width: auto;
-	scrollbar-color: $thumb-color $track-color;
-	color: $thumb-color;
-	transition-property: color, scrollbar-color;
-	transition-duration: .35s;
-	transition-timing-function: ease-out;
-
-	@media only screen and (min-width: 1920px) {
-		scrollbar-width: thin;
-	}
-
-	&::-webkit-scrollbar {
-		width: $webkit-width;
-	}
-
-	&::-webkit-scrollbar-track {
-		background: $track-color;
-	}
-
-	&::-webkit-scrollbar-thumb {
-		box-shadow: inset 0 0 0 $webkit-width;
-	}
-}
-
 .explorer {
 	overflow: hidden;
 	width: 435px;
-	height: 100vh;
+	height: 100%;
 	box-sizing: border-box;
 	color: colors.$aside-text-light;
 	background: colors.$aside-secondary;
@@ -97,15 +70,15 @@
 		gap: $gap;
 		box-sizing: border-box;
 
-		@include scrollbar(
-			colors.$aside-main,
-			colors.$aside-main
+		@include partials.scrollbar(
+			colors.$aside-track,
+			colors.$aside-track,
 		);
 
 		&:hover {
-			@include scrollbar(
+			@include partials.scrollbar(
 				colors.$aside-thumb,
-				colors.$aside-main
+				colors.$aside-track,
 			);
 		}
 
@@ -125,5 +98,22 @@
 	&__item._js-active &__label::after {
 		opacity: 0.5;
 		transform: rotate(-90deg);
+	}
+
+	& {
+		$duration: .6s;
+		transition: 
+			transform $duration, 
+			width $duration $duration;
+		&._hide {
+			width: 0;
+			transform: translateX(100%);
+		}
+	}
+
+	@keyframes hide {
+		to {
+			transform: translate(100%);
+		}
 	}
 }

@@ -1,7 +1,14 @@
 @use "./styles/_share/_import";
+
 @use "./styles/aside/aside";
 @use "./styles/score/score";
 @use "./styles/settings/setting";
 @use "./styles/settings/size/size";
 @use "./styles/settings/upload/upload";
 @use "./styles/rule/rule";
+@use "./styles/header/header";
+@use "./styles/header/timer";
+@use "./styles/main/main";
+@use "./styles/main/game/game";
+@use "./styles/app";
+@use "./styles/main/game/card/card";

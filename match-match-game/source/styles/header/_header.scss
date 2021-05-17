@@ -1,0 +1,24 @@
+@use "../_share/_vars/colors";
+@use "../_share/_partials";
+
+.header {
+    width: 100%;
+    height: 90px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: colors.$header-main;
+
+    ._btn {
+        cursor: pointer;
+        @include partials.button;
+    }
+
+    &__block-1, 
+    &__block-2 {
+        display: flex;
+        gap: 20px;
+    }
+}

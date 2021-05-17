@@ -5,6 +5,7 @@ $btn-dark: $dark-400;
 $btn-dark-text: $light-900;
 $btn-dark-border: $light-300;
 $btn-dark-active-border: $light-900;
+$btn-dark-active: mix($light-900, $btn-dark, 10%);
 
 /* Aside */
 $aside-secondary: $dark-500;
@@ -16,6 +17,7 @@ $aside-text-light: $aside-accent-light;
 $aside-text-dark: $aside-main;
 
 $aside-thumb: mix($aside-secondary, $light-900, 35%);
+$aside-track: mix($dark-900, $aside-main, 10%);
 
 /* Score */
 $score-main: $aside-main;
@@ -33,3 +35,20 @@ $setting-accent-hover: mix($light-900, $setting-accent, 20%);
 $rule-main: $aside-main;
 $rule-main-hover: mix($light-900, $rule-main, 10%);
 $rule-secondary: $aside-accent-light;
+
+/* Header */
+$header-main: $dark-700;
+
+/* Timer */
+$timer-main: $light-300;
+$timer-text: $dark-700;
+
+/* Page-group > main */
+$page-primary: $dark-400;
+$main-locator-text: $page-primary;
+$main-locator-background: $light-300;
+$main-truck: mix($dark-900, $light-300, 30%);
+
+/* Game */
+$game-main: $dark-700;
+$game-secondary: $light-900;

@@ -1,0 +1,11 @@
+@use "./_share/_vars/colors";
+
+.page-group {
+    width: 100%;
+    height: calc(100vh - 90px);
+    overflow: hidden;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr auto;
+    background: colors.$page-primary;
+}
