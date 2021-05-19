@@ -1,0 +1,37 @@
+@use "../../_share/_vars/colors";
+@use "../about";
+
+.about-settings {
+	position: relative;
+	display: grid;
+	padding-left: 20px;
+	align-content: start;
+	gap: 20px;
+	width: max-content;
+
+	&__title {
+		width: max-content;
+	}
+
+	& > * {
+		position: relative;
+		z-index: 1;
+	}
+
+	&__formula {
+		*:last-child {
+			text-align: center;
+		}
+	}
+
+	&::after {
+		content: "";
+
+		@include about.decoration;
+
+		width: 70%;
+		height: 85%;
+		position: absolute;
+		top: 40px;
+	}
+}

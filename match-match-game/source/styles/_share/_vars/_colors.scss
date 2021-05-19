@@ -7,6 +7,10 @@ $btn-dark-border: $light-300;
 $btn-dark-active-border: $light-900;
 $btn-dark-active: mix($light-900, $btn-dark, 10%);
 
+/* Description */
+$description-main: $dark-400;
+$description-secondary: $light-900;
+
 /* Aside */
 $aside-secondary: $dark-500;
 $aside-main: gray-400($aside-secondary);
@@ -58,3 +62,9 @@ $registration-main: $dark-500;
 $registration-accent: $dark-400;
 $registration-secondary: $light-900;
 $registration-avatar: $light-300;
+
+/* About */
+$about-secondary: $light-900;
+$about-accent-dark: $dark-500;
+$about-accent-light: $aside-main;
+$about-secondary-active: $light-300;

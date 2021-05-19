@@ -4,11 +4,15 @@
 @use "./styles/settings/setting";
 @use "./styles/settings/size/size";
 @use "./styles/settings/upload/upload";
-@use "./styles/rule/rule";
+@use "./styles/rule-link/rule-link";
 @use "./styles/header/header";
 @use "./styles/header/timer";
 @use "./styles/main/main";
 @use "./styles/main/game/game";
 @use "./styles/app";
 @use "./styles/main/game/card/card";
-@use "./styles/registration/registration";
+@use "./styles/registration-form/registration-form";
+@use "./styles/about/about";
+@use "./styles/about/about-game/about-game";
+@use "./styles/about/about-registration/about-registration";
+@use "./styles/about/about-settings/about-settings";

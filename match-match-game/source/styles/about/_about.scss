@@ -1,0 +1,54 @@
+@use "../_share/_vars/colors";
+@use "../_share/_vars/radius";
+@use "../_share/_partials";
+
+@mixin decoration {
+	display: block;
+	border-radius: radius.$md;
+	background: colors.$about-accent-light;
+}
+
+.about {
+	&__rule {
+		@include partials.description;
+
+		grid-template-columns: auto 1fr;
+	}
+
+	&__counter {
+		@include partials.counter;
+	}
+
+	&__link {
+		padding-bottom: 2px;
+		letter-spacing: 1px;
+		text-decoration: none;
+		color: colors.$about-secondary;
+		border-bottom: 1px solid colors.$about-secondary;
+
+		&:hover {
+			color: colors.$about-secondary-active;
+		}
+	}
+
+	&__ruleset {
+		display: grid;
+		gap: 15px;
+
+		&-heading {
+			font-size: 22px;
+			color: colors.$about-secondary;
+		}
+
+		&-group {
+			display: grid;
+			gap: 15px;
+		}
+	}
+
+	._btn {
+		cursor: default;
+
+		@include partials.button;
+	}
+}
