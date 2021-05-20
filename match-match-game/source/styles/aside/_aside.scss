@@ -2,120 +2,120 @@
 @use "../_share/_partials";
 
 .explorer {
-	overflow: hidden;
-	width: 435px;
-	height: 100%;
-	box-sizing: border-box;
-	color: colors.$aside-text-light;
-	background: colors.$aside-secondary;
-	display: flex;
-	justify-content: start;
-	flex-direction: column;
+    overflow: hidden;
+    width: 435px;
+    height: 100%;
+    box-sizing: border-box;
+    color: colors.$aside-text-light;
+    background: colors.$aside-secondary;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
 
-	._btn {
-		@include partials.button;
-	}
+    ._btn {
+        @include partials.button;
+    }
 
-	$initial-height: 45px;
+    $initial-height: 45px;
 
-	&__item {
-		overflow: hidden;
-		display: grid;
-		height: $initial-height;
-		grid-template-rows: $initial-height 1fr;
-		transition: flex .3s ease-out;
+    &__item {
+        overflow: hidden;
+        display: grid;
+        height: $initial-height;
+        grid-template-rows: $initial-height 1fr;
+        transition: flex .3s ease-out;
 
-		&:not(:first-of-type) {
-			margin-top: 3px;
-		}
-	}
+        &:not(:first-of-type) {
+            margin-top: 3px;
+        }
+    }
 
-	&__label {
-		width: 100%;
-		padding: 0 20px;
-		box-sizing: border-box;
-		height: $initial-height;
-		display: flex;
-		align-items: center;
-		font-size: 22px;
-		background: colors.$aside-main;
-		cursor: pointer; // s-resize;
+    &__label {
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+        height: $initial-height;
+        display: flex;
+        align-items: center;
+        font-size: 22px;
+        background: colors.$aside-main;
+        cursor: pointer; // s-resize;
 
-		span {
-			margin-right: auto;
-			user-select: none;
-		}
+        span {
+            margin-right: auto;
+            user-select: none;
+        }
 
-		&::after {
-			content: "";
-			width: 17px;
-			height: 15px;
-			margin-left: 20px;
-			transition-duration: .2s;
-			transition-timing-function: ease-out;
-			transition-property: transform, opacity;
-			background: no-repeat url("./_icon.svg");
-		}
-	}
+        &::after {
+            content: "";
+            width: 17px;
+            height: 15px;
+            margin-left: 20px;
+            transition-duration: .2s;
+            transition-timing-function: ease-out;
+            transition-property: transform, opacity;
+            background: no-repeat url("./_icon.svg");
+        }
+    }
 
-	&__space {
-		$v-pad: 25px;
-		$gap: 15px;
+    &__space {
+        $v-pad: 25px;
+        $gap: 15px;
 
-		overflow-y: scroll;
-		height: 100%;
-		padding: $v-pad;
-		display: grid;
-		align-content: start;
-		gap: $gap;
-		box-sizing: border-box;
+        overflow-y: scroll;
+        height: 100%;
+        padding: $v-pad;
+        display: grid;
+        align-content: start;
+        gap: $gap;
+        box-sizing: border-box;
 
-		@include partials.scrollbar(
-			colors.$aside-track,
-			colors.$aside-track,
-		);
+        @include partials.scrollbar(
+            colors.$aside-track,
+            colors.$aside-track,
+        );
 
-		&:hover {
-			@include partials.scrollbar(
-				colors.$aside-thumb,
-				colors.$aside-track,
-			);
-		}
+        &:hover {
+            @include partials.scrollbar(
+                colors.$aside-thumb,
+                colors.$aside-track,
+            );
+        }
 
-		&::after {
-			content: "";
-			width: 100%;
-			height: $v-pad - $gap;
-		}
-	}
+        &::after {
+            content: "";
+            width: 100%;
+            height: $v-pad - $gap;
+        }
+    }
 
-	/* Interaction */
+    /* Interaction */
 
-	&__item._js-active {
-		flex-grow: 1;
-	}
+    &__item._js-active {
+        flex-grow: 1;
+    }
 
-	&__item._js-active &__label::after {
-		opacity: 0.5;
-		transform: rotate(-90deg);
-	}
+    &__item._js-active &__label::after {
+        opacity: 0.5;
+        transform: rotate(-90deg);
+    }
 
-	/* Hide aside */
+    /* Hide aside */
 
-	$duration: .6s;
+    $duration: .6s;
 
-	transition:
-		transform $duration,
-		width $duration $duration;
+    transition:
+        transform $duration,
+        width $duration $duration;
 
-	&._hide {
-		width: 0;
-		transform: translateX(100%);
-	}
+    &._hide {
+        width: 0;
+        transform: translateX(100%);
+    }
 
-	@keyframes hide {
-		to {
-			transform: translate(100%);
-		}
-	}
+    @keyframes hide {
+        to {
+            transform: translate(100%);
+        }
+    }
 }

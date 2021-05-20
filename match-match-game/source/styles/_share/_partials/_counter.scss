@@ -1,15 +1,15 @@
 @use "../_vars/colors";
 
 @mixin counter {
-	width: 35px;
-	height: 35px;
-	flex-shrink: 0;
-	margin-right: 15px;
-	display: grid;
-	user-select: none;
-	place-items: center;
-	font-size: 24px;
-	border-radius: 5px;
-	color: colors.$score-main;
-	background: colors.$score-secondary;
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+    margin-right: 15px;
+    display: grid;
+    user-select: none;
+    place-items: center;
+    font-size: 24px;
+    border-radius: 5px;
+    color: colors.$score-main;
+    background: colors.$score-secondary;
 }

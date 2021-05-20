@@ -2,23 +2,23 @@
 @use "../../_share/_vars/radius";
 
 .size {
-	&__btn {
-		width: 100px;
-		height: 90px;
-		font-size: 36px;
-		border-radius: radius.$md;
-		border: 1px solid transparent;
-		background: colors.$setting-accent;
-		transition-property: background, border;
-		transition-duration: .3s;
+    &__btn {
+        width: 100px;
+        height: 90px;
+        font-size: 36px;
+        border-radius: radius.$md;
+        border: 1px solid transparent;
+        background: colors.$setting-accent;
+        transition-property: background, border;
+        transition-duration: .3s;
 
-		&:hover:not(._js-active) {
-			cursor: pointer;
-			background: colors.$setting-accent-hover;
-		}
+        &:hover:not(._js-active) {
+            cursor: pointer;
+            background: colors.$setting-accent-hover;
+        }
 
-		&._js-active {
-			border-color: colors.$setting-secondary;
-		}
-	}
+        &._js-active {
+            border-color: colors.$setting-secondary;
+        }
+    }
 }

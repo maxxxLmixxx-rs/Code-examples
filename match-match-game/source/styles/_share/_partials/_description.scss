@@ -2,15 +2,15 @@
 @use "../_vars/radius";
 
 @mixin description {
-	padding: 10px 20px;
-	display: grid;
-	align-items: center;
-	grid-auto-flow: column;
-	justify-content: start;
-	box-sizing: border-box;
-	font-size: 22px;
-	border-radius: radius.$md;
-	color: colors.$description-secondary;
-	border: 2px solid colors.$description-secondary;
-	background: colors.$description-main;
+    padding: 10px 20px;
+    display: grid;
+    align-items: center;
+    grid-auto-flow: column;
+    justify-content: start;
+    box-sizing: border-box;
+    font-size: 22px;
+    border-radius: radius.$md;
+    color: colors.$description-secondary;
+    border: 2px solid colors.$description-secondary;
+    background: colors.$description-main;
 }

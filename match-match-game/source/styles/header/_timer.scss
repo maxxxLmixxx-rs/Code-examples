@@ -2,10 +2,10 @@
 @use "../_share/_vars/radius";
 
 .timer {
-	user-select: none;
-	padding: 5px 10px;
-	font-size: 48px;
-	border-radius: radius.$md;
-	color: colors.$timer-text;
-	background: colors.$timer-main;
+    user-select: none;
+    padding: 5px 10px;
+    font-size: 48px;
+    border-radius: radius.$md;
+    color: colors.$timer-text;
+    background: colors.$timer-main;
 }

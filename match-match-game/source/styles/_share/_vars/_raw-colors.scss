@@ -11,7 +11,7 @@ $_gray-400-opacity: 75%;
 $_gray-400: #323F4A;
 
 @function gray-400($bg) {
-	@return mix($_gray-400, $bg, $_gray-400-opacity);
+    @return mix($_gray-400, $bg, $_gray-400-opacity);
 }
 
 /* Status colors */

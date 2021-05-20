@@ -2,63 +2,63 @@
 @use "../../../_share/_vars/radius";
 
 .card {
-	width: min(100%, 200px);
-	height: min(100%, 200px);
-	position: relative;
-	box-sizing: border-box;
-	color: colors.$game-secondary;
-	border-radius: radius.$sm;
-	perspective: 1000px;
+    width: min(100%, 200px);
+    height: min(100%, 200px);
+    position: relative;
+    box-sizing: border-box;
+    color: colors.$game-secondary;
+    border-radius: radius.$sm;
+    perspective: 1000px;
 
-	/* &__inner */
-	& > div {
-		width: 100%;
-		height: 100%;
-		will-change: transform;
-		transform-style: preserve-3d;
-		transition: transform .8s;
-		background: colors.$game-main;
-	}
+    /* &__inner */
+    & > div {
+        width: 100%;
+        height: 100%;
+        will-change: transform;
+        transform-style: preserve-3d;
+        transition: transform .8s;
+        background: colors.$game-main;
+    }
 
-	/* &__front, &__back */
-	& > div::before,
-	& > div::after {
-		content: "";
-		position: absolute;
-		box-sizing: border-box;
-		width: 100%;
-		height: 100%;
-		display: grid;
-		place-items: center;
-		backface-visibility: hidden;
-	}
+    /* &__front, &__back */
+    & > div::before,
+    & > div::after {
+        content: "";
+        position: absolute;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-items: center;
+        backface-visibility: hidden;
+    }
 
-	/* &__front */
-	& > div::before {
-		font-size: 110px;
-		user-select: none;
-		background: center / auto 60% no-repeat;
-		background-image: url("./_card.svg");
-	}
+    /* &__front */
+    & > div::before {
+        font-size: 110px;
+        user-select: none;
+        background: center / auto 60% no-repeat;
+        background-image: url("./_card.svg");
+    }
 
-	/* &__back */
-	& > div::after {
-		padding: 5px;
-		transform: rotateY(180deg);
-	}
+    /* &__back */
+    & > div::after {
+        padding: 5px;
+        transform: rotateY(180deg);
+    }
 
-	img {
-		width: 100%;
-		padding: 5px;
-		box-sizing: border-box;
-		position: absolute;
-		object-fit: cover;
-		transform: rotateY(180deg);
-		backface-visibility: hidden;
-	}
+    img {
+        width: 100%;
+        padding: 5px;
+        box-sizing: border-box;
+        position: absolute;
+        object-fit: cover;
+        transform: rotateY(180deg);
+        backface-visibility: hidden;
+    }
 
-	/* Active */
-	&:hover > div {
-		transform: rotateY(180deg);
-	}
+    /* Active */
+    &:hover > div {
+        transform: rotateY(180deg);
+    }
 }

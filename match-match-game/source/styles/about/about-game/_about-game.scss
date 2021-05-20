@@ -3,69 +3,69 @@
 @use "../about";
 
 .about-game {
-	$this: &;
+    $this: &;
 
-	border: 1px solid transparent;
-	color: colors.$about-secondary;
+    border: 1px solid transparent;
+    color: colors.$about-secondary;
 
-	&__title {
-		width: max-content;
-	}
+    &__title {
+        width: max-content;
+    }
 
-	&__row-1,
-	&__row-2 {
-		& > * {
-			position: relative;
-			z-index: 1;
-		}
-	}
+    &__row-1,
+    &__row-2 {
+        & > * {
+            position: relative;
+            z-index: 1;
+        }
+    }
 
-	&__row-1 {
-		position: relative;
-		display: grid;
-		gap: 15px;
-		padding: 40px 0 0 25px;
-		grid-auto-flow: column;
+    &__row-1 {
+        position: relative;
+        display: grid;
+        gap: 15px;
+        padding: 40px 0 0 25px;
+        grid-auto-flow: column;
 
-		#{$this}__col-1 {
-			width: max-content;
-			padding-top: 5px;
-			display: grid;
-			row-gap: 40px;
-			align-content: start;
-		}
+        #{$this}__col-1 {
+            width: max-content;
+            padding-top: 5px;
+            display: grid;
+            row-gap: 40px;
+            align-content: start;
+        }
 
-		&::after {
-			content: "";
+        &::after {
+            content: "";
 
-			@include about.decoration;
+            @include about.decoration;
 
-			width: 50%;
-			height: 90%;
-			position: absolute;
-			top: 0;
-			left: 0;
-		}
-	}
+            width: 50%;
+            height: 90%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
 
-	&__row-2 {
-		position: relative;
-		margin: 0 0 40px 160px;
-		max-width: 425px;
+    &__row-2 {
+        position: relative;
+        margin: 0 0 40px 160px;
+        max-width: 425px;
 
-		&::after {
-			content: "";
+        &::after {
+            content: "";
 
-			@include about.decoration;
+            @include about.decoration;
 
-			$h-pad: 60px;
-			$v-pad: 40px;
+            $h-pad: 60px;
+            $v-pad: 40px;
 
-			width: calc(100% + #{$h-pad});
-			height: calc(100% + #{$v-pad});
-			position: absolute;
-			left: -#{$h-pad / 2};
-			top: -#{$v-pad / 2};
-		}
-	}
+            width: calc(100% + #{$h-pad});
+            height: calc(100% + #{$v-pad});
+            position: absolute;
+            left: -#{$h-pad / 2};
+            top: -#{$v-pad / 2};
+        }
+    }
 }
