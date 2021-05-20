@@ -1,35 +1,52 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
-const StylelintPlugin = require('stylelint-webpack-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
+const StylelintPlugin = require('stylelint-webpack-plugin')
 
 const mode = {
     _value: process.env.NODE_ENV,
     _fix: process.env.FIX_ENV,
-    get isFix() { return Boolean(this._fix) },
-    get isProduction() { return this._value === 'production' },
-    get isDevelopment() { return this._value === 'development' },
-};
+    get isFix() {
+        return Boolean(this._fix)
+    },
+    get isProduction() {
+        return this._value === 'production'
+    },
+    get isDevelopment() {
+        return this._value === 'development'
+    },
+}
 
 const name = {
     production: (fname, ext) => `${fname}.[contenthash].${ext}`,
     development: (fname, ext) => `${fname}.${ext}`,
     filename(fname, ext) {
-        return mode.isDevelopment ? 
-            this.development(fname, ext) : 
-            this.production(fname, ext)
+        return mode.isDevelopment ? this.development(fname, ext) : this.production(fname, ext)
     },
-};
+}
+
+const sassLoaders = ({ isModule = false }) => [
+    MiniCssExtractPlugin.loader,
+    { loader: 'css-loader', options: {
+        modules: isModule ? {
+            localIdentName: mode.isDevelopment ? '[local]__[hash:base64]' : '[hash:base64]', 
+        } : undefined,
+        sourceMap: mode.isDevelopment 
+    } },
+    { loader: 'resolve-url-loader' },
+    { loader: 'postcss-loader' },
+    { loader: 'sass-loader', options: { sourceMap: true } },
+]
 
 const devServer = {
     contentBase: path.resolve(__dirname, './build'),
     historyApiFallback: true,
     hot: true,
     open: true,
-};
+}
 
 module.exports = {
     mode: mode._value,
@@ -44,10 +61,8 @@ module.exports = {
         filename: name.filename('main', 'bundle.js'),
         clean: true,
     },
-    devtool:
-        mode.isDevelopment ? 'inline-source-map' : undefined,
-    devServer:
-        mode.isDevelopment ? devServer : undefined,
+    devtool: mode.isDevelopment ? 'inline-source-map' : undefined,
+    devServer: mode.isDevelopment ? devServer : undefined,
     resolve: {
         extensions: ['.ts', '.js'],
     },
@@ -56,8 +71,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './source/index.html'),
         }),
-        new MiniCssExtractPlugin({ 
-            filename: name.filename('styles', 'css')
+        new MiniCssExtractPlugin({
+            filename: name.filename('styles', 'css'),
         }),
         new CopyWebpackPlugin({
             patterns: [{ from: path.resolve(__dirname, './public') }],
@@ -68,9 +83,9 @@ module.exports = {
             emitWarning: mode.isDevelopment,
             failOnError: mode.isProduction,
         }),
-        new ESLintPlugin({ 
+        new ESLintPlugin({
             fix: mode.isFix && mode.isProduction,
-            extensions: ['ts', 'js'], 
+            extensions: ['ts', 'js'],
             emitWarning: mode.isDevelopment,
             failOnError: mode.isProduction,
         }),
@@ -83,19 +98,18 @@ module.exports = {
                 use: ['babel-loader'],
             },
             {
+                test: /\.module\.s?css$/i,
+                use: sassLoaders({ isModule: true }),
+            },
+            {
                 test: /\.s?css$/i,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    { loader: 'css-loader', options: {sourceMap: mode.isDevelopment} },
-                    { loader: 'resolve-url-loader' },
-                    { loader: 'sass-loader', options: {sourceMap: true} },
-                    { loader: 'postcss-loader' },
-                ],
+                exclude: /\.module\.s?css$/i,
+                use: sassLoaders({ isModule: false }),
             },
             {
                 test: [
-                    /\.(?:ico|gif|png|jpg|jpeg)$/i,
-                    /\.(woff(2)?|eot|ttf|otf)$/i, 
+                    /\.(?:ico|gif|png|jpg|jpeg)$/i, 
+                    /\.(woff(2)?|eot|ttf|otf)$/i
                 ],
                 type: 'asset/resource',
             },
@@ -108,6 +122,6 @@ module.exports = {
                 test: /\.(txt|json)$/i,
                 type: 'asset/source',
             },
-        ]
+        ],
     },
-};
+}

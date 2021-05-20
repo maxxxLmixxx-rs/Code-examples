@@ -4,13 +4,30 @@
     "es2021": true
   },
   "parser": "@typescript-eslint/parser",
-  "extends": ["airbnb-base"],
-  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "airbnb-base",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
   "parserOptions": {
     "ecmaVersion": 12,
     "sourceType": "module"
   },
   "rules": {
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "ignoreUrls": true
+      }
+    ],
+    "lines-between-class-members": [
+      "error",
+      "always",
+      {
+        "exceptAfterSingleLine": true
+      }
+    ],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -18,14 +35,28 @@
         "js": "never",
         "ts": "never"
       }
-    ]
+    ],
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/no-useless-constructor": [
+      "error"
+    ],
+    "no-useless-constructor": "off"
   },
   "settings": {
     "import/resolver": {
       "node": {
-        "paths": ["source"],
-        "extensions": [".js", ".ts"]
+        "paths": [
+          "source"
+        ],
+        "extensions": [
+          ".js",
+          ".ts",
+          ".d.ts"
+        ]
       }
     }
-  }
+  },
+  "ignorePatterns": [
+    "webpack.config.js"
+  ]
 }
