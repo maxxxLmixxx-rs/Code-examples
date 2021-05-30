@@ -28,22 +28,26 @@ const name = {
     },
 }
 
-const sassLoaders = ({ isModule = false }) => [
+const mappedLoader = (loader) => ({
+    loader, options: { sourceMap: true }
+})
+
+const sassLoaders = ({ isModule = false }) => ([
     MiniCssExtractPlugin.loader,
     { loader: 'css-loader', options: {
         modules: isModule ? {
-            localIdentName: mode.isDevelopment ? '[local]__[hash:base64]' : '[hash:base64]', 
+            localIdentName: mode.isDevelopment ? '[local]__[hash:base64:5]' : '[hash:base64:5]', 
         } : undefined,
         sourceMap: mode.isDevelopment 
     } },
     { loader: 'resolve-url-loader' },
-    { loader: 'postcss-loader' },
-    { loader: 'sass-loader', options: { sourceMap: true } },
-]
+    mappedLoader('postcss-loader'), mappedLoader('sass-loader'),
+])
 
 const devServer = {
     contentBase: path.resolve(__dirname, './build'),
-    historyApiFallback: true,
+    // historyApiFallback: true,
+    historyApiFallback: false,
     hot: true,
     open: true,
 }
