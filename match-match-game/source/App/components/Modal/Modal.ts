@@ -7,7 +7,7 @@ const rawClassName = classNameCreator(modalStyles, true)
 
 type Params = {
     message: string
-    onsuccess: Function
+    onsuccess: () => void
 }
 
 export class Modal extends Component {

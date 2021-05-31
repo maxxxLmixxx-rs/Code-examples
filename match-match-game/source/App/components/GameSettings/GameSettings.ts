@@ -8,11 +8,11 @@ export class GameSettings extends Component {
     private readonly
     private redirection
 
-    constructor(id: number, params: { readonly?: boolean, redirection?: boolean } = {}) {
+    constructor(id: number, params: { readonly?: boolean; redirection?: boolean } = {}) {
         super()
         this.id = id
-        this.readonly = 'readonly' in params ? params['readonly'] : true
-        this.redirection = 'redirection' in params ? params['redirection'] : false
+        this.readonly = 'readonly' in params ? params.readonly : true
+        this.redirection = 'redirection' in params ? params.redirection : false
 
         if (store.state.gameSettings.gamePhase > 0) {
             this.readonly = true

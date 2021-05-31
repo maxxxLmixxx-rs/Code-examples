@@ -1,5 +1,6 @@
 import routeGameStyles from './styles/RouteGame.module.scss'
 import { classNameCreator } from '../../../../_share/_utilities/class-name-creator'
+import { Parameters } from './scripts/calculate-score'
 import { Component } from '../../../../Component'
 import { capture } from '../../../../_share/_utilities/capture'
 import errorImageUrl from '../../../../../assets/icons/error.svg'
@@ -11,8 +12,8 @@ type Configuration = {
     gameSize: number
     gamePhase: number
     gamePositions: number[]
-    onGameEnd: Function
     pause: boolean
+    onGameEnd: (params: Parameters) => void
 }
 
 const defaultProps: Configuration = {
@@ -162,7 +163,7 @@ export class RouteGameView extends Component {
         )
     }
 
-    private onFlipEnd(target: HTMLElement, callback: Function) {
+    private onFlipEnd(target: HTMLElement, callback: () => void) {
         target.addEventListener('transitionend', () => callback(), { once: true })
     }
 
@@ -213,9 +214,13 @@ export class RouteGameView extends Component {
                 const gameBoard = document.getElementById('game-board')
                 if (!gameBoard) this.disableInit = false
                 else {
-                    gameBoard.addEventListener('animationend', () => {
-                        this.disableInit = false
-                    }, { once: true })
+                    gameBoard.addEventListener(
+                        'animationend',
+                        () => {
+                            this.disableInit = false
+                        },
+                        { once: true }
+                    )
                 }
             }
         })

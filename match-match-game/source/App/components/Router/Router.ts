@@ -22,7 +22,9 @@ export class Router extends Component {
             routeHtml: this.getInnerElement(hash),
             modal: {
                 element: new Modal({
-                    message: `Congratulations! You successfully finish all matches in ${store.state.currentUser.gameTime} minutes.`,
+                    message:
+                        `Congratulations! You successfully finish all matches in ` +
+                        `${store.state.currentUser.gameTime} minutes.`,
                     onsuccess: () => {
                         store.dispatch(changeGamePhase(0))
                     },

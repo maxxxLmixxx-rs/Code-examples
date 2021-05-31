@@ -43,7 +43,7 @@ export class App extends Component {
 
     constructor() {
         super()
-        App.state.currentRoute = location.hash || App.state.currentRoute
+        App.state.currentRoute = window.location.hash || App.state.currentRoute
         super.onCreated(App, () => {
             HashRouter.put(Route(RulesRegistration))
                 .put(Route(RulesSettings))

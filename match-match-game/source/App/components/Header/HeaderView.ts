@@ -53,6 +53,7 @@ export class HeaderView extends Component {
             case !!capture('#stop-game', targetElement):
                 this.props.onStopGameClick()
                 break
+            default:
         }
     }
 

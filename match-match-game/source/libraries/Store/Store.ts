@@ -4,16 +4,17 @@ import { Reducer } from './Reducer.d'
 import { StoreLogger } from './middleware/StoreLogger'
 import { StoreThunk } from './middleware/StoreThunk'
 
+type AnyObject = Record<string, unknown>
 interface StoreType {
     dispatch(action: ActionCreator): void
-    subscribe(callback: Function): void
+    subscribe(callback: () => void): void
 }
 
 @StoreLogger
 @StoreThunk
-export class Store<T, K extends Object> implements StoreType {
+export class Store<T, K extends AnyObject> implements StoreType {
     private _state: K
-    private subscribers: Function[] = []
+    private subscribers: (() => void)[] = []
 
     constructor(private rootReducer: Reducer, initialState: K) {
         this._state = rootReducer(initialState, { type: '@@INIT' })
@@ -28,7 +29,7 @@ export class Store<T, K extends Object> implements StoreType {
         this.subscribers.forEach((callback) => callback())
     }
 
-    subscribe(callback: Function) {
+    subscribe(callback: () => void) {
         const isAdded = this.subscribers.some((c) => c === callback)
         if (!isAdded) this.subscribers.push(callback)
     }

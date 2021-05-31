@@ -2,6 +2,7 @@ type ConstructorType<T> = T & {
     '@@Initialized'?: boolean
 }
 
+type AnyObject = Record<string, unknown>
 type StorageType = 'sessionStorage' | 'localStorage'
 
 export abstract class Component {
@@ -11,6 +12,7 @@ export abstract class Component {
     }
 
     abstract getHtml(): string
+    /* eslint no-param-reassign: ["error", { "props": false }] */
     protected onCreated<T>(ClassConstructor: ConstructorType<T>, callback: () => any) {
         if (ClassConstructor['@@Initialized'] !== true) {
             ClassConstructor['@@Initialized'] = true
@@ -18,7 +20,7 @@ export abstract class Component {
         }
     }
 
-    static storageState<T extends Object>(
+    static storageState<T extends AnyObject>(
         initialState: T,
         storageName: string,
         storageType: StorageType = 'sessionStorage'
@@ -34,7 +36,7 @@ export abstract class Component {
                 }
                 return true
             },
-            get(target: any, prop: any): Object {
+            get(target: any, prop: any): ProxyConstructor | any {
                 if (typeof target[prop] === 'object' && target[prop] !== null) {
                     return new Proxy(target[prop], this)
                 }

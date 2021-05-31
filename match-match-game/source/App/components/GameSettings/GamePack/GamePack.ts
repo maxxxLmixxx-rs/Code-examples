@@ -25,7 +25,7 @@ export class GamePack extends Component {
         [prop: string]: boolean
     } = {}
 
-    constructor(private props: { id: number, readonly: boolean, redirection: boolean }) {
+    constructor(private props: { id: number; readonly: boolean; redirection: boolean }) {
         super()
         if (!GamePack.wasInitialized[props.id]) {
             GamePack.wasInitialized[props.id] = true

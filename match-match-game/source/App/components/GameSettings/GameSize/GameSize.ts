@@ -24,7 +24,7 @@ export class GameSize extends Component {
         [prop: string]: boolean
     } = {}
 
-    constructor(private props: { id: number, readonly: boolean, redirection: boolean }) {
+    constructor(private props: { id: number; readonly: boolean; redirection: boolean }) {
         super()
         if (!GameSize.wasInitialized[props.id]) {
             GameSize.wasInitialized[props.id] = true

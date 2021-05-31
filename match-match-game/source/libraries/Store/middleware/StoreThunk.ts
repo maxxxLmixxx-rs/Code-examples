@@ -5,8 +5,10 @@ export const StoreThunk = <T extends Constructor>(Target: T) => {
     if (!Target.prototype.dispatch) {
         throw new Error('Store has no dispatch method')
     }
+
     return class Store extends Target {
         constructor(...args: any[]) {
+            console.log('Store decorator')
             super(...args)
         }
 

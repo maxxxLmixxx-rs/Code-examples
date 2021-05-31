@@ -6,10 +6,11 @@ import { changeGamePhase } from '../../../store/actions/actions'
 
 const className = classNameCreator(timerStyles)
 
+type Ticker = () => void | '@@EXIT'
 export class Timer extends Component {
     static gamePhase: number
     static wasPause: boolean
-    static tickers: Array<Function | null> = []
+    static tickers: Array<Ticker | null> = []
     static state = Component.storageState(
         {
             currentTime: '00:00',

@@ -128,10 +128,11 @@ export class RouteFormView extends Component {
         const fileInput = form.querySelector('input[type=file]') as HTMLInputElement
         const inputNodeList = form.querySelectorAll('input') as NodeListOf<HTMLInputElement>
         const imageAvatar = document.getElementById('image-avatar') as HTMLImageElement
-        [...inputNodeList].forEach(input => {
-            if (input === target) return 
-            removeStatus(input)
-            input.value = ''
+        ;[...inputNodeList].forEach((input) => {
+            const currentInput = input as HTMLInputElement
+            if (currentInput === target) return
+            removeStatus(currentInput)
+            currentInput.value = ''
         })
         fileInput.value = ''
         removeStatus(imageAvatar)
@@ -179,15 +180,15 @@ export class RouteFormView extends Component {
 
     private validate(target: HTMLInputElement, validator: Validator) {
         const isValid = validator(target.value)
-        const setErrorStateClass = (className: string) => {
+        const setErrorStateClass = (statusClassName: string) => {
             if (target.id === 'form-fname') {
-                this.state.errorClassNames.fname = className
+                this.state.errorClassNames.fname = statusClassName
             }
             if (target.id === 'form-lname') {
-                this.state.errorClassNames.lname = className
+                this.state.errorClassNames.lname = statusClassName
             }
             if (target.id === 'form-email') {
-                this.state.errorClassNames.email = className
+                this.state.errorClassNames.email = statusClassName
             }
         }
         if (!target.value.trim()) {

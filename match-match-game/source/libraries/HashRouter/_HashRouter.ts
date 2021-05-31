@@ -1,15 +1,15 @@
 import { HashRoute } from './HashRoute'
 
+type OneRoute = Pick<HashRoute, 'callback' | 'exact'> & {
+    hash: string
+}
+
 interface RouterType<TClass> {
     find(hashes: string[]): Array<OneRoute | null>
     remove(hashes: string[]): TClass
     route(hash: string): TClass
     put(route: HashRoute): TClass
     add(route: HashRoute): TClass
-}
-
-type OneRoute = Pick<HashRoute, 'callback' | 'exact'> & {
-    hash: string
 }
 
 export class _HashRouter implements RouterType<_HashRouter> {

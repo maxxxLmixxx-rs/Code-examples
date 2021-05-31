@@ -1,5 +1,6 @@
 import { userDB } from '../userDB'
 import { User } from '../../../libraries/Database/User.d'
+import { Action } from '../../../libraries/Store/Action.d'
 import {
     CHANGE_GAME_PACK,
     CHANGE_GAME_PHASE,
@@ -11,6 +12,8 @@ import {
     SET_SCORE_TABLE,
     UPDATE_USER_SCORE,
 } from './types'
+
+type Dispatch = (action: Action) => void
 
 export const changeRoute = (hash: string, locator: string) => {
     return {
@@ -41,13 +44,6 @@ export const changeGamePack = (pack: number) => {
     }
 }
 
-// export const flipGameCards = (flipped: boolean) => {
-//     return {
-//         type: FLIP_GAME_CARDS,
-//         payload: { flipped },
-//     }
-// }
-
 export const setGamePositions = (cardIndexes: number[]) => {
     return {
         type: SET_GAME_POSITIONS,
@@ -55,14 +51,8 @@ export const setGamePositions = (cardIndexes: number[]) => {
     }
 }
 
-const validateUser = (user: User) => {
-    if (!user.lastName || !user.firstName || !user.email) {
-        throw new Error(`Object has unfilled properties:\n ${JSON.stringify(user, null, 2)}`)
-    }
-}
-
 export const registerPlayer = (user: User) => {
-    return (dispatch: Function) => {
+    return (dispatch: Dispatch) => {
         localStorage.setItem('STORAGE_EMAIL', user.email)
         userDB.put({ ...user, score: '0' }).then(() => {
             dispatch({
@@ -74,9 +64,8 @@ export const registerPlayer = (user: User) => {
 }
 
 export const updateCurrentUser = (score: number, time: string) => {
-    return (dispatch: Function, state: any) => {
+    return (dispatch: Dispatch, state: any) => {
         const user = state.currentUser
-        // localStorage.setItem('STORAGE_EMAIL', user.email)
         userDB.put({ ...user, score }).then(() => {
             dispatch({
                 type: UPDATE_USER_SCORE,
