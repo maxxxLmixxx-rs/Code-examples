@@ -1,0 +1,21 @@
+@forward './normalize';
+@forward './fonts';
+
+:root {
+    font-family: Offside, Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+}
+
+button {
+    background: none;
+    border: none;
+    color: inherit;
+}
+
+p {
+    margin: 0;
+}

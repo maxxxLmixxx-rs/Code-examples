@@ -1,4 +1,4 @@
-import './index.scss';
-import './scripts/test';
+import { renderApp } from './App/RenderApp'
+import { userDB } from './App/store/userDB'
 
-import './styles/aside/_aside';
+renderApp()

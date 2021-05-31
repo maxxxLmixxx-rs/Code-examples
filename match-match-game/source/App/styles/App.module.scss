@@ -1,0 +1,24 @@
+@use "../_share/_styles/_import";
+
+.app-grid {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 90px 1fr;
+    grid-template-columns: 1fr 435px;
+
+    & > *:nth-child(1),
+    & > *:nth-child(2),
+    & > *:nth-child(3) {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    & > *:nth-child(1) {
+        grid-column: span 2;
+    }
+
+    & > *:nth-child(n + 4) {
+        display: none;
+    }
+}

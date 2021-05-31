@@ -1,0 +1,21 @@
+$dark-900: #000000; /* Mix dark color */
+$dark-700: #0F1117; /* Header, Pop-up primary, Route text, Cards, Notification */
+$dark-500: #171D23; /* Aside primary, Auth modal primary, Accent Rectangles */
+$dark-400: #21262D; /* Body background, Auth modal secondary, Buttons, Hints */
+
+$light-900: #FFF; /* Mix light color, Text, Aside labels */
+$light-300: #C9D1D9; /* Buttons border, Timer, Route label, Avatar background */
+
+/* Mix gray */
+$_gray-400-opacity: 75%;
+$_gray-400: #323F4A;
+
+@function gray-400($bg) {
+    @return mix($_gray-400, $bg, $_gray-400-opacity);
+}
+
+/* Status colors */
+// $green-600: #00745C;
+// $green-300: #00C777;
+$green-400: #00A958;
+$red-400: #F00; /* Error */

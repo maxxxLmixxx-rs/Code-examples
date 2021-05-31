@@ -1,0 +1,119 @@
+@use "../../../../../_share/_styles/_vars/colors";
+@use "../../../../../_share/_styles/_vars/radius";
+@use "../../../../../_share/_styles/_partials";
+
+.registration-form {
+    width: 700px;
+    font-size: 22px;
+    border-radius: radius.$md;
+    color: colors.$registration-secondary;
+    background: colors.$registration-main;
+
+    ._btn {
+        cursor: pointer;
+
+        @include partials.button;
+    }
+
+    &__header {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        border-radius: radius.$md;
+        border: 7px solid colors.$registration-main;
+        background: colors.$registration-accent;
+    }
+
+    &__body {
+        padding: 30px;
+        display: grid;
+        row-gap: 50px;
+        column-gap: 40px;
+        grid-template-columns: 1.25fr 1fr;
+        grid-template-rows: 1fr auto;
+    }
+
+    // & > div:nth-of-type(1)
+    &__fieldset {
+        display: grid;
+        gap: 20px;
+    }
+
+    &__input-group {
+        display: grid;
+    }
+
+    &__input {
+        outline: none;
+        margin-top: 5px;
+        width: 100%;
+        font-size: 18px;
+        padding: 15px 20px;
+        box-sizing: border-box;
+        box-shadow: none;
+        border-radius: radius.$sm;
+        color: colors.$registration-main;
+        background: colors.$registration-secondary;
+        border: 2px solid transparent;
+    }
+
+    // & > div:nth-of-type(2)
+    &__avatar {
+        display: grid;
+        place-items: center;
+
+        & > div {
+            position: relative;
+            overflow: hidden;
+            width: 180px;
+            height: 180px;
+            display: grid;
+            place-items: center;
+            border-radius: radius.$md;
+            background:
+                colors.$registration-avatar
+                center / auto 80% no-repeat url("../../../../../../assets/icons/avatar.svg");
+        }
+
+        input {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            box-sizing: border-box;
+            border: 2px solid transparent;
+            border-radius: radius.$md;
+            &[src] {
+                background: colors.$registration-avatar;
+            }
+        }
+    }
+
+    // & > div:nth-of-type(3)
+    &__controls {
+        grid-column: span 2;
+        display: grid;
+        gap: 15px;
+        grid-auto-flow: column;
+        justify-content: end;
+    }
+
+    *._js-error {
+        border-color: colors.$danger;
+    }
+
+    *._js-success {
+        border-color: colors.$success;
+    }
+
+    &__avatar img._js-success {
+        border-color: transparent;
+    }
+}

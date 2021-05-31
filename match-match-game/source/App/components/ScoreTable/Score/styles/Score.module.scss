@@ -1,0 +1,63 @@
+@use '../../../../_share/_styles/_vars/colors';
+@use '../../../../_share/_styles/_vars/radius';
+@use "../../../../_share/_styles/_partials";
+
+.user-score {
+    width: 100%;
+    min-height: 95px;
+    min-width: min-content;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    font-size: 16px;
+    border-radius: radius.$md;
+    color: colors.$score-secondary;
+    background: colors.$score-main;
+
+    ._num {
+        @include partials.counter;
+    }
+
+    /* Left */
+
+    &__left {
+        display: grid;
+        grid-auto-flow: column;
+        place-items: center;
+    }
+
+    &__img {
+        display: block;
+        width: 50px;
+        height: 50px;
+        padding: 5px;
+        object-fit: contain;
+        margin: 0 15px 0 10px;
+        border-radius: 50%;
+        background: colors.$score-avatar;
+    }
+
+    &__personal {
+        height: 70%;
+        display: grid;
+        align-content: space-between;
+    }
+
+    /* text ... */
+    &__name,
+    &__email {
+        max-width: 90%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    /* Right */
+
+    &__right {
+        white-space: nowrap;
+        display: grid;
+        justify-items: end;
+        align-content: space-between;
+    }
+}

@@ -1,0 +1,89 @@
+@use './raw-colors' as *;
+
+/* Buttons */
+$btn-dark: $dark-400;
+$btn-dark-text: $light-900;
+$btn-dark-border: $light-300;
+$btn-dark-active-border: $light-900;
+$btn-dark-active: mix($light-900, $btn-dark, 10%);
+
+/* Description */
+$description-main: $dark-400;
+$description-secondary: $light-900;
+
+/* Aside */
+$aside-secondary: $dark-500;
+$aside-main: gray-400($aside-secondary);
+$aside-accent-light: $light-900;
+$aside-accent-dark: opacify($aside-secondary, 0.4);
+
+$aside-text-light: $aside-accent-light;
+$aside-text-dark: $aside-main;
+
+$aside-thumb: mix($aside-secondary, $light-900, 35%);
+$aside-track: $aside-secondary;
+// mix($dark-900, $aside-main, 10%)
+
+/* Score */
+$score-main: $aside-main;
+$score-secondary: $light-900;
+$score-avatar: mix($dark-900, $score-main, 20%);
+
+/* Setting */
+$setting-main: $aside-main;
+$setting-secondary: $light-900;
+
+/* Setting > size */
+$setting-accent: mix($dark-500, $aside-main, 40%);
+$setting-accent-hover: mix($light-900, $setting-accent, 20%);
+
+/* Rule */
+$rule-main: $aside-main;
+$rule-main-hover: mix($light-900, $rule-main, 10%);
+$rule-secondary: $aside-accent-light;
+
+/* Header */
+$header-main: $dark-700;
+$header-avatar: $light-300;
+$header-avatar-text: $light-900;
+
+/* Timer */
+$timer-main: $light-300;
+$timer-text: $dark-700;
+
+/* Page-group > main */
+$page-primary: $dark-400;
+$main-locator-text: $page-primary;
+$main-locator-background: $light-300;
+
+$main-track: mix($dark-900, $light-300, 30%);
+$main-thumb: $page-primary;
+$main-webkit-corner: mix($light-900, $main-track, 30%);
+
+/* Game */
+$game-main: $dark-700;
+$game-secondary: $light-900;
+
+/* Registration */
+$registration-main: $dark-500;
+$registration-accent: $dark-400;
+$registration-secondary: $light-900;
+$registration-avatar: $light-300;
+
+/* About */
+$about-secondary: $light-900;
+$about-accent-dark: $dark-500;
+$about-accent-light: $aside-main;
+$about-secondary-active: $light-300;
+
+/* GoTo */
+$goto-main: $about-accent-dark;
+
+/* Indicators */
+$danger: $red-400;
+$success: $green-400;
+
+/* Modal */
+$modal-main: $dark-700;
+$modal-secondary: $light-900;
+$modal-button: $success;

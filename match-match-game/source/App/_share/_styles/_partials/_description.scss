@@ -1,0 +1,16 @@
+@use '../_vars/colors';
+@use '../_vars/radius';
+
+@mixin description {
+    align-items: center;
+    background: colors.$description-main;
+    border: 2px solid colors.$description-secondary;
+    border-radius: radius.$md;
+    box-sizing: border-box;
+    color: colors.$description-secondary;
+    display: grid;
+    font-size: 22px;
+    grid-auto-flow: column;
+    justify-content: start;
+    padding: 10px 20px;
+}

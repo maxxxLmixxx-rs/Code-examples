@@ -1,0 +1,30 @@
+@use "../../../../_share/_styles/_vars/colors";
+@use "../../../../_share/_styles/_vars/radius";
+@use "../../../../_share/_styles/_partials";
+
+.rule-link {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    box-sizing: border-box;
+    border-radius: radius.$md;
+    border: 1px solid transparent;
+    color: colors.$rule-secondary;
+    background: colors.$rule-main;
+    transition: background .3s;
+    text-decoration: none;
+
+    ._num {
+        @include partials.counter;
+    }
+
+    &:hover {
+        cursor: pointer;
+        background: colors.$rule-main-hover;
+    }
+
+    &._js-active {
+        border-color: colors.$rule-secondary;
+    }
+}

@@ -1,0 +1,41 @@
+@use "../../../../../_share/_styles/_vars/colors";
+@use "./Card/Card";
+@use "sass:math";
+
+@mixin grid-creator($num) {
+    $min: 75px * 8;
+
+    grid-template-rows: repeat($num, minmax(math.div($min, $num), 1fr));
+    grid-template-columns: repeat($num, minmax(math.div($min, $num), 1fr));
+    & > *:nth-child(-n + #{$num * $num + 1}) {
+        display: block;
+    }
+    & > *:nth-child(+n + #{$num * $num + 1}) {
+        display: none;
+    }
+}
+
+.game {
+    display: grid;
+    gap: 20px;
+    width: min-content;
+    height: min-content;
+    user-select: none;
+
+    @include grid-creator(1);
+
+    @for $i from 4 through 8 {
+        &--#{$i}x#{$i} { @include grid-creator($i); }
+    }
+
+    &._js-appear {
+        .card > div {
+            animation: 1s flip;
+        }
+
+        @keyframes flip {
+            from { transform: rotateY(180deg); }
+            to { transform: rotateY(0); }
+        }
+    }
+}

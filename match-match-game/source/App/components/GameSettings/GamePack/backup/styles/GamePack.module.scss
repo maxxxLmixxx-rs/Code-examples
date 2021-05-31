@@ -1,0 +1,9 @@
+@use "../../_share/Setting.module";
+
+.upload {
+    transition: opacity .3s;
+
+    &._js-active &__svg {
+        opacity: 0.7;
+    }
+}

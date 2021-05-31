@@ -1,0 +1,42 @@
+@use "../../../_share/_styles/_vars/colors";
+@use "../../../_share/_styles/_partials";
+
+.main {
+    overflow: auto;
+    position: relative;
+    background: colors.$page-primary;
+
+    @include partials.scrollbar(
+        colors.$main-track,
+        colors.$main-thumb,
+        colors.$main-webkit-corner
+    );
+
+    &__body {
+        height: 100%;
+        display: grid;
+        place-items: center;
+        grid-auto-flow: column;
+
+        &::before,
+        &::after {
+            content: "";
+            width: 1px;
+            height: 100%;
+        }
+    }
+
+    &__locator {
+        white-space: nowrap;
+        position: absolute;
+        z-index: 1000;
+        bottom: 25px;
+        left: 0;
+        min-width: 100px;
+        min-height: 15px;
+        padding: 5px;
+        font-size: 14px;
+        color: colors.$main-locator-text;
+        background: colors.$main-locator-background;
+    }
+}
