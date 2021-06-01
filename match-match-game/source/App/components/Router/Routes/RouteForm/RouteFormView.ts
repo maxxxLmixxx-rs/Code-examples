@@ -3,6 +3,7 @@ import { classNameCreator } from '../../../../_share/_utilities/class-name-creat
 import { User } from '../../../../../libraries/Database/User.d'
 import { Component } from '../../../../Component'
 import { capture } from '../../../../_share/_utilities/capture'
+import { emailErrorMessage, nameErrorMessage } from './scripts/validator'
 
 const className = classNameCreator(formStyles)
 const rawClassName = classNameCreator(formStyles, true)
@@ -191,6 +192,18 @@ export class RouteFormView extends Component {
                 this.state.errorClassNames.email = statusClassName
             }
         }
+        const errorTitle = () => {
+            if (target.type === 'text') {
+                const error = nameErrorMessage(target.value)
+                if (error) target.setAttribute('title', error)
+                else target.removeAttribute('title')
+            }
+            if (target.type === 'email') {
+                const error = emailErrorMessage(target.value)
+                if (error) target.setAttribute('title', error)
+                else target.removeAttribute('title')
+            }
+        }
         if (!target.value.trim()) {
             target.classList.remove(rawClassName('_js-success'))
             target.classList.remove(rawClassName('_js-error'))
@@ -207,6 +220,7 @@ export class RouteFormView extends Component {
             this.state.isChecked = false
             setErrorStateClass('_js-error')
         }
+        errorTitle()
     }
 
     getHtml(): string {
