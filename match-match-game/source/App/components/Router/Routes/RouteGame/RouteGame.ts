@@ -49,7 +49,8 @@ export class RouteGame extends Component {
         const [m, s] = Timer.state.currentTime.split(':').map(Number)
         const timeMs = (m * 60 + s) * 1000
         const score = calculateScore({ ...log, timeMs })
-        store.dispatch(updateCurrentUser(score, (timeMs / 1000 / 60).toFixed(2)))
+        const maxScore = Math.max(score, store.state.currentUser.score || 0)
+        store.dispatch(updateCurrentUser(maxScore, (timeMs / 1000 / 60).toFixed(2)))
         store.dispatch(changeGamePhase(2.1))
     }
 

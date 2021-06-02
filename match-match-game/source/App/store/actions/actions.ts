@@ -54,10 +54,10 @@ export const setGamePositions = (cardIndexes: number[]) => {
 export const registerPlayer = (user: User) => {
     return (dispatch: Dispatch) => {
         localStorage.setItem('STORAGE_EMAIL', user.email)
-        userDB.put({ ...user, score: '0' }).then(() => {
+        userDB.put({ ...user, score: user.score || '0' }).then(() => {
             dispatch({
                 type: REGISTER_NEW_PLAYER,
-                payload: { ...user, score: '0' },
+                payload: { ...user, score: user.score || '0' },
             })
         })
     }

@@ -29,9 +29,7 @@ export class ScoreTable extends Component {
     }
 
     private sortCallback<T extends User>(userA: T, userB: T) {
-        /// ** TO DELETE
-        if (!userA) return +1
-        return Number(userA.score) - Number(userB.score)
+        return Number(userB.score) - Number(userA.score)
     }
 
     private getScoreComponent<T extends User>(user: T, ix: number) {
